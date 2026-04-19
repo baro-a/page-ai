@@ -6708,9 +6708,10 @@ function closeLoginModal(){
 
 // ── 소셜 로그인 ───────────────────────────────────
 function loginWith(provider){
-  var names = {google:'구글', kakao:'카카오', naver:'네이버', facebook:'페이스북'};
-  showToast('⏳ ' + (names[provider]||provider) + ' 로그인 중...');
-  var callbackUrl = encodeURIComponent(window.location.href.split('?')[0] + '?loggedIn=1');
+  var names = {google:'구글', kakao:'카카오'};
+  showToast('\u23F3 ' + (names[provider]||provider) + ' \ub85c\uadf8\uc778 \uc911...');
+  // callbackUrl을 GitHub Pages 주소로 고정 (무한루프 방지)
+  var callbackUrl = encodeURIComponent('https://baro-a.github.io/page-ai?loggedIn=1');
   window.location.href = API_BASE_URL + '/api/auth/signin/' + provider + '?callbackUrl=' + callbackUrl;
 }
 
