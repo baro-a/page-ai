@@ -333,8 +333,17 @@ body{font-family:var(--fu);background:var(--b0);color:var(--ink);overflow-x:hidd
 .bookshelf{background:linear-gradient(to bottom,var(--b7),var(--b8));border-radius:18px;padding:28px 22px 20px;box-shadow:inset 0 -10px 0 rgba(0,0,0,0.35),0 8px 32px rgba(20,8,2,0.3);overflow:hidden}
 .shelf-row-books{display:flex;gap:10px;flex-wrap:wrap;padding-bottom:18px;margin-bottom:14px;border-bottom:8px solid rgba(0,0,0,0.4);position:relative}
 .shelf-row-books::after{content:'';position:absolute;bottom:-8px;left:-6px;right:-6px;height:5px;background:linear-gradient(to bottom,rgba(120,60,20,0.8),rgba(80,40,10,0.6));border-radius:2px}
-.book-item{cursor:pointer;transition:transform .28s cubic-bezier(.34,1.56,.64,1);transform-origin:bottom center;flex-shrink:0}
+.book-item{cursor:pointer;transition:transform .28s cubic-bezier(.34,1.56,.64,1);transform-origin:bottom center;flex-shrink:0;position:relative}
 .book-item:hover{transform:translateY(-14px) rotate(-1deg)}
+.book-palette-btn{position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;background:rgba(0,0,0,0.6);border:1.5px solid rgba(255,255,255,0.22);color:rgba(255,255,255,0.92);font-size:13px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .18s;z-index:4;padding:0;line-height:1}
+.book-item:hover .book-palette-btn{opacity:1}
+.book-color-popup{position:fixed;z-index:9999;background:#1A0C06;border:1px solid rgba(200,168,74,0.32);border-radius:16px;padding:16px 16px 14px;box-shadow:0 14px 44px rgba(0,0,0,0.75);width:232px}
+.bcp-title{font-family:var(--fu);font-size:10px;font-weight:700;letter-spacing:.13em;color:rgba(200,168,74,0.72);text-transform:uppercase;margin-bottom:11px;padding-right:22px}
+.bcp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}
+.bcp-swatch{width:100%;aspect-ratio:1;border-radius:10px;border:2px solid transparent;cursor:pointer;transition:transform .14s,border-color .14s;box-shadow:0 2px 6px rgba(0,0,0,0.45)}
+.bcp-swatch:hover{transform:scale(1.1)}
+.bcp-swatch.active{border-color:#C8A84A;box-shadow:0 0 0 2px rgba(200,168,74,0.35)}
+.bcp-close{position:absolute;top:10px;right:12px;background:none;border:none;color:rgba(200,168,74,0.65);font-size:16px;cursor:pointer;line-height:1;padding:2px}
 .book-cover{border-radius:4px 2px 2px 4px;padding:16px 10px;min-height:148px;width:105px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;box-shadow:2px 2px 8px rgba(0,0,0,0.4),inset 2px 0 0 rgba(255,255,255,0.06)}
 .book-spine-line{position:absolute;left:0;top:0;bottom:0;width:7px;background:rgba(0,0,0,0.25);border-radius:4px 0 0 4px}
 .book-gold-line{position:absolute;top:16px;left:10px;right:10px;height:1px;background:rgba(200,168,74,0.4)}
@@ -3332,6 +3341,73 @@ const bookColors=[
   {bg:'linear-gradient(160deg,#6A2828,#4E1818)',text:'#F0B0B0'},
 ];
 
+// ========== BOOK COLOR PALETTES ==========
+const BOOK_PALETTES=[
+  {bg:'linear-gradient(160deg,#6B4520,#4A2C10)',text:'#E8C890'},   // 0 브라운
+  {bg:'linear-gradient(160deg,#3A5C7A,#28405C)',text:'#B0D0E8'},   // 1 블루
+  {bg:'linear-gradient(160deg,#7A3820,#5C2510)',text:'#F0C0A0'},   // 2 테라코타
+  {bg:'linear-gradient(160deg,#3A4A6A,#28364E)',text:'#B0C0D8'},   // 3 네이비
+  {bg:'linear-gradient(160deg,#5A3A6A,#3E2850)',text:'#D8B0E8'},   // 4 퍼플
+  {bg:'linear-gradient(160deg,#4A3810,#38280A)',text:'#E8D090'},   // 5 골드
+  {bg:'linear-gradient(160deg,#3A5C3A,#284428)',text:'#B0D8B0'},   // 6 그린
+  {bg:'linear-gradient(160deg,#6A2828,#4E1818)',text:'#F0B0B0'},   // 7 레드
+  {bg:'linear-gradient(160deg,#1A4A5C,#0E2E3C)',text:'#90D0E8'},   // 8 딥블루
+  {bg:'linear-gradient(160deg,#4A5C2A,#324018)',text:'#D0E890'},   // 9 올리브
+  {bg:'linear-gradient(160deg,#5C2A4A,#3C1830)',text:'#E890C8'},   // 10 마젠타
+  {bg:'linear-gradient(160deg,#3A3A5C,#282840)',text:'#C0C0F0'},   // 11 인디고
+  {bg:'linear-gradient(160deg,#5C4A2A,#403018)',text:'#F0D8A0'},   // 12 웜옐로우
+  {bg:'linear-gradient(160deg,#2A5C5C,#184040)',text:'#90E8E8'},   // 13 틸
+  {bg:'linear-gradient(160deg,#5C2A2A,#401818)',text:'#F0A090'},   // 14 살몬
+  {bg:'linear-gradient(160deg,#2A3A5C,#18283C)',text:'#A0B8F0'},   // 15 스틸블루
+];
+const CAT_COLORS_KEY='page_cat_colors';
+function loadCatColors(){try{return JSON.parse(localStorage.getItem(CAT_COLORS_KEY)||'{}')}catch(e){return{}}}
+function saveCatColor(catName,idx){var m=loadCatColors();m[catName]=idx;localStorage.setItem(CAT_COLORS_KEY,JSON.stringify(m))}
+function getCatPalette(catName,defaultIdx){var m=loadCatColors();var idx=(catName in m)?m[catName]:defaultIdx;return BOOK_PALETTES[idx%BOOK_PALETTES.length]}
+
+var _bcpTarget=null;
+function openBookColorPicker(catName,bookEl,e){
+  e.stopPropagation();
+  closeBookColorPicker();
+  var existing=loadCatColors();
+  var cats=getAllCategories();
+  var defIdx=cats.findIndex(function(c){return c.name===catName});
+  var curIdx=(catName in existing)?existing[catName]:(defIdx>=0?defIdx%BOOK_PALETTES.length:0);
+  var popup=document.createElement('div');
+  popup.className='book-color-popup';
+  popup.id='bookColorPopup';
+  var swatches=BOOK_PALETTES.map(function(p,i){
+    return '<div class="bcp-swatch'+(i===curIdx?' active':'')+'" style="background:'+p.bg+'" onclick="applyBookColor(\''+catName.replace(/'/g,"\\'")+'\',' +i+')"></div>';
+  }).join('');
+  popup.innerHTML='<button class="bcp-close" onclick="closeBookColorPicker()">×</button>'
+    +'<div class="bcp-title">색상 선택</div>'
+    +'<div class="bcp-grid">'+swatches+'</div>';
+  document.body.appendChild(popup);
+  // position near button
+  var rect=bookEl.getBoundingClientRect();
+  var pw=232,ph=180;
+  var left=rect.right-pw;
+  var top=rect.top-ph-8;
+  if(top<8)top=rect.bottom+8;
+  if(left<8)left=8;
+  popup.style.left=left+'px';
+  popup.style.top=top+'px';
+  _bcpTarget=catName;
+  setTimeout(function(){document.addEventListener('click',_bcpOutside)},10);
+}
+function _bcpOutside(e){if(!document.getElementById('bookColorPopup')||!document.getElementById('bookColorPopup').contains(e.target)){closeBookColorPicker()}}
+function closeBookColorPicker(){
+  var p=document.getElementById('bookColorPopup');
+  if(p)p.remove();
+  document.removeEventListener('click',_bcpOutside);
+  _bcpTarget=null;
+}
+function applyBookColor(catName,idx){
+  saveCatColor(catName,idx);
+  closeBookColorPicker();
+  renderBookshelf();
+}
+
 // ========== ROUTING ==========
 function showScreen(name){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
@@ -3386,7 +3462,7 @@ function renderBookshelf(){
 
   row.innerHTML='';
   cats.forEach((cat,i)=>{
-    const c=bookColors[i%bookColors.length];
+    const c=getCatPalette(cat.name,i);
     const cnt = countMap[cat.name] || 0;
     const bookEl=document.createElement('div');
     bookEl.className='book-item';
@@ -3405,6 +3481,7 @@ function renderBookshelf(){
         if(reEl) reEl.scrollIntoView({behavior:'smooth', block:'start'});
       }, 280);
     };
+    const safeName=cat.name.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
     bookEl.innerHTML=`<div class="book-cover" style="background:${c.bg};color:${c.text}">
       <div class="book-spine-line"></div>
       <div class="book-gold-line"></div>
@@ -3414,7 +3491,7 @@ function renderBookshelf(){
         <div class="book-label">${cat.name}</div>
         <div class="book-cnt">${cnt > 0 ? cnt+'편' : '비어있음'}</div>
       </div>
-    </div>`;
+    </div><button class="book-palette-btn" title="색상 변경" onclick="openBookColorPicker('${safeName}',this.parentElement,event)">🎨</button>`;
     row.appendChild(bookEl);
   });
   // Add button
