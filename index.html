@@ -6577,6 +6577,57 @@ function renderSettingsView(){
   view.innerHTML = `
     <div style="padding:20px 0 8px;font-family:var(--fs);font-size:20px;font-weight:800;color:var(--gold2)">⚙️ 앱 설정</div>
 
+    <!-- 프로필 섹션 -->
+    <div class="settings-section" id="profileSection">
+      <h4>👤 내 프로필</h4>
+      ${_currentUser ? `
+      <div class="settings-row" style="flex-direction:column;align-items:flex-start;gap:8px;">
+        <span class="settings-label">이름 / 닉네임</span>
+        <div style="display:flex;gap:8px;width:100%;">
+          <input id="nicknameInput" type="text" value="${_currentUser.name||''}"
+            placeholder="이름 또는 닉네임 입력"
+            style="flex:1;padding:10px 14px;background:rgba(200,168,74,0.06);border:1px solid rgba(200,168,74,0.2);border-radius:10px;color:rgba(245,237,216,0.9);font-family:var(--fu);font-size:13px;outline:none;">
+          <button onclick="saveNickname()"
+            style="padding:10px 16px;background:linear-gradient(135deg,#C8A84A,#8B6520);color:#0A0400;border:none;border-radius:10px;font-family:var(--fu);font-size:11px;font-weight:800;cursor:pointer;">
+            저장
+          </button>
+        </div>
+      </div>
+      <div class="settings-row">
+        <span class="settings-label">계정</span>
+        <span class="settings-value">${_currentUser.email || _currentUser.provider}</span>
+      </div>
+      <div class="settings-row">
+        <span class="settings-label">이름 / 닉네임</span>
+        <input id="nicknameInput" type="text" value="${_currentUser.name||''}" placeholder="닉네임 입력"
+          style="background:rgba(200,168,74,0.06);border:1px solid rgba(200,168,74,0.2);border-radius:8px;padding:6px 12px;color:var(--gold2);font-family:var(--fu);font-size:13px;width:140px;outline:none;">
+      </div>
+      <div class="settings-row" style="border:none">
+        <button onclick="saveNickname()" style="width:100%;padding:10px;background:rgba(200,168,74,0.15);border:1px solid rgba(200,168,74,0.25);color:var(--gold2);border-radius:10px;cursor:pointer;font-size:13px;font-weight:600">저장</button>
+      </div>
+      <div class="settings-row" style="border:none;margin-top:4px">
+        <button onclick="logout()" style="width:100%;padding:10px;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);color:rgba(239,68,68,0.7);border-radius:10px;cursor:pointer;font-size:13px;font-weight:600">로그아웃</button>
+      </div>
+      ` : `
+      <div class="settings-row" style="border:none">
+        <button onclick="openLoginModal()" style="width:100%;padding:10px;background:rgba(200,168,74,0.15);border:1px solid rgba(200,168,74,0.25);color:var(--gold2);border-radius:10px;cursor:pointer;font-size:13px;font-weight:600">로그인하기</button>
+      </div>
+      `}
+    </div>
+
+    <!-- 구독 / 결제 섹션 -->
+    <div class="settings-section">
+      <h4>💳 구독 & 결제</h4>
+      <div class="settings-row">
+        <span class="settings-label">현재 플랜</span>
+        <span class="settings-value" style="color:var(--gold)">${_currentUser ? (_currentUser.plan||'free').toUpperCase() : 'FREE'}</span>
+      </div>
+      <div class="settings-row" style="border:none;gap:8px;flex-wrap:wrap">
+        <button onclick="openPricingModal()" style="flex:1;min-width:120px;padding:10px;background:linear-gradient(135deg,var(--gold),#8B6520);color:#0A0400;border:none;border-radius:10px;cursor:pointer;font-size:12px;font-weight:800">✦ 업그레이드 (토스)</button>
+        <button onclick="openPaypalModal()" style="flex:1;min-width:120px;padding:10px;background:#003087;color:#fff;border:none;border-radius:10px;cursor:pointer;font-size:12px;font-weight:800">🌐 PayPal (해외)</button>
+      </div>
+    </div>
+
     <div class="settings-section">
       <h4>📍 위치 기반 서비스</h4>
       <div class="settings-row">
@@ -6671,47 +6722,61 @@ document.addEventListener('DOMContentLoaded', ()=>{
 // ============================================================
 
 const API_BASE_URL = 'https://page-ai-backend-iota.vercel.app';
-
-// 관리자 계정
 const ADMIN_ID = 'pageai2026';
 const ADMIN_PW = 'pageai2026@';
 var _isAdmin = false;
 
-// 현재 로그인 유저
+// 로컬 저장 유저 복원
 var _currentUser = (function(){
-  try { return JSON.parse(localStorage.getItem('page_user') || 'null'); }
-  catch(e) { return null; }
+  try{ return JSON.parse(localStorage.getItem('page_user') || 'null'); }
+  catch(e){ return null; }
 })();
 
-// ── 초기 UI 업데이트 ──────────────────────────────
-updateAuthUI();
-
-// 로그인 후 콜백 파라미터 처리
-(function checkLoginCallback(){
+// URL 파라미터에서 유저 정보 파싱 (OAuth 콜백)
+(function initAuth(){
   var params = new URLSearchParams(window.location.search);
-  if(params.get('loggedIn') === '1'){
-    showToast('✅ 로그인 완료! 환영합니다 🎉');
-    // URL에서 파라미터 제거
+  if(params.get('loggedIn') === '1' && params.get('email')){
+    _currentUser = {
+      id:       params.get('id')       || '',
+      name:     params.get('name')     || '유저',
+      email:    params.get('email')    || '',
+      avatar:   params.get('avatar')   || '',
+      plan:     params.get('plan')     || 'free',
+      provider: params.get('provider') || '',
+    };
+    localStorage.setItem('page_user', JSON.stringify(_currentUser));
     history.replaceState(null, '', window.location.pathname);
+    updateAuthUI();
+    var nm = (_currentUser.name || '유저').split(' ')[0];
+    setTimeout(function(){
+      showToast('✅ ' + nm + '님 반갑습니다! 🎉');
+      setTimeout(function(){ showScreen('app'); showView('library'); }, 1200);
+    }, 400);
+    return;
   }
+  if(params.get('loginError') === '1'){
+    history.replaceState(null, '', window.location.pathname);
+    showToast('❌ 로그인 실패. 다시 시도해주세요.');
+    return;
+  }
+  updateAuthUI();
 })();
 
 // ── 로그인 모달 ───────────────────────────────────
 function openLoginModal(){
-  var modal = document.getElementById('loginModal');
-  if(modal) modal.classList.add('open');
+  var m = document.getElementById('loginModal');
+  if(m) m.classList.add('open');
 }
 function closeLoginModal(){
-  var modal = document.getElementById('loginModal');
-  if(modal) modal.classList.remove('open');
+  var m = document.getElementById('loginModal');
+  if(m) m.classList.remove('open');
 }
 
 // ── 소셜 로그인 ───────────────────────────────────
 function loginWith(provider){
   var names = {google:'구글', kakao:'카카오'};
-  showToast('\u23F3 ' + (names[provider]||provider) + ' \ub85c\uadf8\uc778 \uc911...');
-  // callbackUrl을 GitHub Pages 주소로 고정 (무한루프 방지)
-  var callbackUrl = encodeURIComponent('https://baro-a.github.io/page-ai?loggedIn=1');
+  showToast('⏳ ' + (names[provider]||provider) + ' 로그인 중...');
+  var callbackUrl = encodeURIComponent(API_BASE_URL + '/auth/callback');
   window.location.href = API_BASE_URL + '/api/auth/signin/' + provider + '?callbackUrl=' + callbackUrl;
 }
 
@@ -6724,57 +6789,61 @@ function logout(){
   updateAuthUI();
   showToast('👋 로그아웃 되었습니다');
   showScreen('landing');
-  document.getElementById('userDropdown') && document.getElementById('userDropdown').remove();
+  var d = document.getElementById('userDropdown');
+  if(d) d.remove();
 }
 
 // ── Nav UI 업데이트 ───────────────────────────────
 function updateAuthUI(){
   var navLinks = document.getElementById('navLinks');
   if(!navLinks) return;
-
-  // 기존 동적 버튼 제거
   var old = navLinks.querySelector('.user-profile-btn');
   if(old) old.remove();
-
   var loginBtn = document.getElementById('navLoginBtn');
-
   if(_currentUser){
-    // 로그인 상태: 로그인 버튼 숨기고 프로필 버튼 표시
     if(loginBtn) loginBtn.style.display = 'none';
-
     var initials = (_currentUser.name || '?')[0].toUpperCase();
     var planLabel = {free:'FREE', pro:'PRO', premium:'✦'}[_currentUser.plan] || 'FREE';
     var btn = document.createElement('button');
     btn.className = 'user-profile-btn';
     btn.onclick = showUserMenu;
     btn.style.cssText = 'display:flex;align-items:center;gap:8px;background:rgba(200,168,74,0.08);border:1px solid rgba(200,168,74,0.15);border-radius:100px;padding:6px 14px 6px 8px;cursor:pointer;';
-    btn.innerHTML = '<div class="user-avatar" style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#8B6520);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#0A0400;">'
-      + (_currentUser.avatar ? '<img src="'+_currentUser.avatar+'" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">' : initials)
-      + '</div><span style="font-family:var(--fu);font-size:11px;font-weight:700;color:rgba(200,168,74,0.7);">' + (_currentUser.name||'').split(' ')[0] + '</span>'
-      + '<span style="font-family:var(--fu);font-size:9px;font-weight:800;color:rgba(200,168,74,0.5);">' + planLabel + '</span>';
+    var avatarHtml = _currentUser.avatar
+      ? '<img src="'+_currentUser.avatar+'" style="width:28px;height:28px;object-fit:cover;border-radius:50%;">'
+      : '<span style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#C8A84A,#8B6520);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#0A0400;">'+initials+'</span>';
+    btn.innerHTML = avatarHtml
+      + '<span style="font-family:var(--fu);font-size:11px;font-weight:700;color:rgba(200,168,74,0.8);">'
+      + (_currentUser.name||'').split(' ')[0] + '님</span>'
+      + '<span style="font-family:var(--fu);font-size:9px;font-weight:800;color:rgba(200,168,74,0.4);">' + planLabel + '</span>';
     navLinks.appendChild(btn);
   } else {
-    // 비로그인: 로그인 버튼 표시
     if(loginBtn) loginBtn.style.display = '';
   }
 }
 
-// ── 유저 드롭다운 메뉴 ───────────────────────────
+// ── 유저 드롭다운 ─────────────────────────────────
 function showUserMenu(){
   var old = document.getElementById('userDropdown');
   if(old){ old.remove(); return; }
-
   var menu = document.createElement('div');
   menu.id = 'userDropdown';
-  menu.style.cssText = 'position:fixed;top:68px;right:24px;z-index:9999;background:#1e0f06;border:1px solid rgba(200,168,74,0.2);border-radius:14px;padding:8px;min-width:160px;box-shadow:0 16px 40px rgba(0,0,0,0.5);';
+  menu.style.cssText = 'position:fixed;top:68px;right:24px;z-index:9999;background:#1e0f06;border:1px solid rgba(200,168,74,0.2);border-radius:14px;padding:8px;min-width:180px;box-shadow:0 16px 40px rgba(0,0,0,0.5);';
+
+  // 유저 정보 헤더
+  var header = document.createElement('div');
+  header.style.cssText = 'padding:10px 14px 8px;border-bottom:1px solid rgba(200,168,74,0.1);margin-bottom:4px;';
+  header.innerHTML = '<div style="font-family:var(--fu);font-size:12px;font-weight:700;color:rgba(200,168,74,0.9);">'
+    + (_currentUser && _currentUser.name ? _currentUser.name + '님' : '유저님') + '</div>'
+    + '<div style="font-family:var(--fu);font-size:10px;color:rgba(200,168,74,0.4);margin-top:2px;">'
+    + (_currentUser && _currentUser.email ? _currentUser.email : '') + '</div>';
+  menu.appendChild(header);
 
   var items = [
-    {label:'내 서재', fn:function(){ showScreen('app'); showView('library'); }},
-    {label:'요금제', fn:openPricingModal},
-    {label:'설정', fn:function(){ showScreen('app'); showView('settings'); }},
-    {label:'로그아웃', fn:logout},
+    {label:'📚 내 서재', fn:function(){ showScreen('app'); showView('library'); }},
+    {label:'⭐ 요금제 업그레이드', fn:openPricingModal},
+    {label:'⚙️ 설정', fn:function(){ showScreen('app'); showView('settings'); }},
+    {label:'🚪 로그아웃', fn:logout},
   ];
-
   items.forEach(function(item){
     var b = document.createElement('button');
     b.textContent = item.label;
@@ -6784,7 +6853,6 @@ function showUserMenu(){
     b.onclick = function(){ menu.remove(); item.fn(); };
     menu.appendChild(b);
   });
-
   document.body.appendChild(menu);
   setTimeout(function(){
     document.addEventListener('click', function close(e){
@@ -6805,18 +6873,63 @@ function closePricingModal(){
 }
 function startPayment(plan, amount){
   if(!_currentUser){ closePricingModal(); openLoginModal(); return; }
-  showToast('⏳ 결제창을 준비중입니다...');
-  // 토스페이먼츠 연동 준비됨 (백엔드 배포 후 활성화)
+  var overlay = document.createElement('div');
+  overlay.id = 'paymentOverlay';
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:10010;display:flex;align-items:center;justify-content:center;';
+  var box = document.createElement('div');
+  box.style.cssText = 'background:#1e0f06;border:1px solid rgba(200,168,74,0.2);border-radius:20px;padding:32px;max-width:340px;width:90%;text-align:center;';
+  box.innerHTML = '<div style="font-family:var(--fs);font-style:italic;font-size:20px;color:var(--gold2);margin-bottom:8px;">결제 방식 선택</div>'
+    + '<div style="font-family:var(--fu);font-size:11px;color:rgba(200,168,74,0.4);margin-bottom:24px;">편한 결제 방법을 선택하세요</div>';
+  var tossBtn = document.createElement('button');
+  tossBtn.textContent = '🇰🇷 토스페이먼츠 (국내)';
+  tossBtn.style.cssText = 'width:100%;padding:14px;margin-bottom:10px;background:linear-gradient(135deg,#3182f6,#1c64d4);color:#fff;border:none;border-radius:12px;font-family:var(--fu);font-size:13px;font-weight:700;cursor:pointer;display:block;';
+  tossBtn.onclick = function(){ document.getElementById('paymentOverlay').remove(); payWithToss(plan, amount); };
+  var stripeBtn = document.createElement('button');
+  stripeBtn.textContent = '🌍 Stripe (해외 카드/PayPal)';
+  stripeBtn.style.cssText = 'width:100%;padding:14px;margin-bottom:10px;background:linear-gradient(135deg,#635BFF,#4B44CC);color:#fff;border:none;border-radius:12px;font-family:var(--fu);font-size:13px;font-weight:700;cursor:pointer;display:block;';
+  stripeBtn.onclick = function(){ document.getElementById('paymentOverlay').remove(); payWithStripe(plan, amount); };
+  var cancelBtn = document.createElement('button');
+  cancelBtn.textContent = '취소';
+  cancelBtn.style.cssText = 'width:100%;padding:12px;background:none;border:1px solid rgba(200,168,74,0.2);border-radius:12px;color:rgba(200,168,74,0.5);font-family:var(--fu);font-size:12px;cursor:pointer;';
+  cancelBtn.onclick = function(){ document.getElementById('paymentOverlay').remove(); };
+  box.appendChild(tossBtn); box.appendChild(stripeBtn); box.appendChild(cancelBtn);
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
+}
+
+function payWithToss(plan, amount){
+  document.querySelectorAll('[style*="position:fixed"][style*="10010"]').forEach(function(el){ el.remove(); });
+  showToast('⏳ 토스페이먼츠 결제창 준비중...');
+  // 토스페이먼츠 연동
+  var orderId = 'page-' + plan + '-' + Date.now();
+  fetch(API_BASE_URL + '/api/payment/confirm', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify({ plan: plan, amount: amount, orderId: orderId })
+  }).then(function(r){ return r.json(); })
+    .then(function(d){ if(d.url) window.location.href = d.url; else showToast('❌ 결제 준비 실패'); })
+    .catch(function(){ showToast('❌ 서버 연결 오류'); });
+}
+
+function payWithStripe(plan, amount){
+  document.querySelectorAll('[style*="position:fixed"][style*="10010"]').forEach(function(el){ el.remove(); });
+  showToast('⏳ Stripe 결제창 준비중...');
+  fetch(API_BASE_URL + '/api/payment/stripe-session', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify({ plan: plan, amount: amount })
+  }).then(function(r){ return r.json(); })
+    .then(function(d){ if(d.url) window.location.href = d.url; else showToast('❌ Stripe 결제 준비 실패'); })
+    .catch(function(){ showToast('❌ 서버 연결 오류'); });
 }
 function requireLogin(action){
   if(_currentUser){ action(); } else { openLoginModal(); }
 }
 
 // ── 관리자 로그인 ─────────────────────────────────
-function switchToAdminLogin(){
-  closeLoginModal();
-  openAdminLogin();
-}
+function switchToAdminLogin(){ closeLoginModal(); openAdminLogin(); }
 function openAdminLogin(){
   var m = document.getElementById('adminLoginModal');
   if(m) m.classList.add('open');
@@ -6845,28 +6958,35 @@ function doAdminLogin(){
   }
 }
 
-// DOMContentLoaded 후 모달 이벤트 등록
+// DOMContentLoaded 이벤트
 document.addEventListener('DOMContentLoaded', function(){
-  // 모달 배경 클릭 닫기
   var lm=document.getElementById('loginModal');
   if(lm) lm.addEventListener('click', function(e){ if(e.target===lm) closeLoginModal(); });
   var pm=document.getElementById('pricingModal');
   if(pm) pm.addEventListener('click', function(e){ if(e.target===pm) closePricingModal(); });
   var am=document.getElementById('adminLoginModal');
   if(am) am.addEventListener('click', function(e){ if(e.target===am) closeAdminLogin(); });
-
-  // Escape 키
   document.addEventListener('keydown', function(e){
     if(e.key==='Escape'){ closeLoginModal(); closePricingModal(); closeAdminLogin(); }
   });
-
-  // 관리자 세션 복원
   if(sessionStorage.getItem('pageai_admin')==='true') _isAdmin=true;
 });
 
-// ============================================================
-//  END 로그인 / 인증 시스템
-// ============================================================
+
+// ── 닉네임 저장 ───────────────────────────────────
+function saveNickname(){
+  var input = document.getElementById('nicknameInput');
+  if(!input) return;
+  var name = input.value.trim();
+  if(!name){ showToast('이름을 입력해주세요'); return; }
+  if(_currentUser){
+    _currentUser.name = name;
+    localStorage.setItem('page_user', JSON.stringify(_currentUser));
+    updateAuthUI();
+    showToast('✅ 닉네임이 저장되었습니다');
+  }
+}
+
 // ===== SERVICE WORKER REGISTRATION =====
 if('serviceWorker' in navigator){
   window.addEventListener('load', ()=>{
