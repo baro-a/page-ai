@@ -247,10 +247,10 @@ body{font-family:var(--fu);background:var(--b0);color:var(--ink);overflow-x:hidd
 /* Hero content */
 .hero-content{position:relative;z-index:15;text-align:center;padding:0 24px;max-width:700px}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;background:rgba(200,168,74,0.1);border:1px solid rgba(200,168,74,0.3);border-radius:30px;color:var(--gold2);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:28px;backdrop-filter:blur(8px)}
-.hero-title{font-family:var(--fd);font-size:clamp(38px,5.5vw,72px);color:#F5EDD8;line-height:1.12;margin-bottom:22px;text-shadow:0 4px 24px rgba(0,0,0,0.6);font-weight:800}
-.hero-title em{color:var(--gold2);font-style:normal;display:block;text-shadow:0 0 40px rgba(200,168,74,0.5);font-weight:800}
-.hero-title em{color:var(--gold2);;display:block;text-shadow:0 0 40px rgba(200,168,74,0.5)}
-.hero-sub{font-size:16px;color:rgba(245,237,216,0.72);line-height:1.85;margin-bottom:44px;font-weight:300;max-width:540px;margin-left:auto;margin-right:auto}
+.hero-title{font-family:var(--fd);font-size:clamp(38px,5.5vw,72px);color:#F5EDD8;line-height:1.3;margin-bottom:22px;text-shadow:0 4px 24px rgba(0,0,0,0.6);font-weight:800}
+.hero-title span,.hero-title em{display:block;line-height:1.3}
+.hero-title em{color:var(--gold2);font-style:normal;text-shadow:0 0 40px rgba(200,168,74,0.5);font-weight:800}
+.hero-sub{font-size:16px;color:rgba(220,195,160,0.88);line-height:1.8;margin-bottom:44px;font-weight:400;max-width:480px;margin-left:auto;margin-right:auto}
 .hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 .cta-primary{padding:18px 44px;background:linear-gradient(135deg,var(--gold),#A07825);color:var(--b9);border:none;border-radius:40px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--fu);transition:all .3s;letter-spacing:.5px;box-shadow:0 8px 32px rgba(200,168,74,0.35);position:relative;overflow:hidden}
 .cta-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);border-radius:40px}
@@ -267,7 +267,7 @@ body{font-family:var(--fu);background:var(--b0);color:var(--ink);overflow-x:hidd
 .features::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(200,168,74,0.3),transparent)}
 .sec-label{text-align:center;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:600}
 .sec-title{text-align:center;font-family:var(--fd);font-size:clamp(26px,3vw,42px);color:var(--b1);margin-bottom:16px;line-height:1.25}
-.sec-sub{text-align:center;color:rgba(245,237,216,0.68);font-size:15px;max-width:560px;margin:0 auto 64px;line-height:1.85;font-weight:300}
+.sec-sub{text-align:center;color:rgba(220,195,160,0.82);font-size:15px;max-width:480px;margin:0 auto 64px;line-height:1.8;font-weight:400}
 .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:960px;margin:0 auto}
 .feat-card{background:rgba(255,255,255,0.03);border:1px solid rgba(200,168,74,0.12);border-radius:16px;padding:34px 28px;transition:all .35s;position:relative;overflow:hidden}
 .feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(200,168,74,0.4),transparent);opacity:0;transition:opacity .35s}
@@ -275,7 +275,7 @@ body{font-family:var(--fu);background:var(--b0);color:var(--ink);overflow-x:hidd
 .feat-card:hover::before{opacity:1}
 .feat-icon{font-size:28px;margin-bottom:18px;display:block}
 .feat-card h3{font-family:var(--fs);font-size:18px;color:var(--b1);margin-bottom:10px}
-.feat-card p{font-size:13px;color:rgba(245,237,216,0.68);line-height:1.8;font-weight:300}
+.feat-card p{font-size:13px;color:rgba(220,195,160,0.78);line-height:1.75;font-weight:400}
 
 /* How section */
 .how{padding:100px 40px;background:linear-gradient(to bottom,var(--b9),var(--b8))}
@@ -285,7 +285,7 @@ body{font-family:var(--fu);background:var(--b0);color:var(--ink);overflow-x:hidd
 .step-num{width:72px;height:72px;border-radius:50%;background:rgba(200,168,74,0.08);border:1px solid rgba(200,168,74,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:26px;transition:all .3s;box-shadow:0 0 20px rgba(200,168,74,0.1)}
 .step-num:hover{background:rgba(200,168,74,0.15);box-shadow:0 0 30px rgba(200,168,74,0.25);transform:scale(1.08)}
 .step h4{font-family:var(--fs);font-size:14px;color:var(--b1);margin-bottom:8px}
-.step p{font-size:12px;color:rgba(245,237,216,0.66);line-height:1.8;font-weight:300}
+.step p{font-size:12px;color:rgba(220,195,160,0.75);line-height:1.6;font-weight:400}
 
 /* Pricing */
 .pricing{padding:100px 40px;background:var(--b8)}
@@ -298,7 +298,7 @@ body{font-family:var(--fu);background:var(--b0);color:var(--ink);overflow-x:hidd
 .plan-price{font-size:34px;font-weight:700;color:var(--gold2);margin:0 0 4px;font-family:var(--fd)}
 .plan-price span{font-size:13px;font-weight:400;color:rgba(200,170,130,0.5);font-family:var(--fu)}
 .plan-features{list-style:none;margin:20px 0 28px;display:flex;flex-direction:column;gap:10px}
-.plan-features li{font-size:13px;color:rgba(200,170,130,0.7);display:flex;align-items:center;gap:8px;font-weight:300}
+.plan-features li{font-size:13px;color:rgba(220,195,160,0.85);display:flex;align-items:center;gap:8px;font-weight:400}
 .plan-features li::before{content:'✦';color:var(--gold);font-size:10px;flex-shrink:0}
 .plan-btn{width:100%;padding:13px;border-radius:12px;border:1px solid rgba(200,168,74,0.3);cursor:pointer;font-family:var(--fu);font-size:14px;font-weight:600;transition:all .2s;background:rgba(200,168,74,0.08);color:var(--gold2)}
 .plan-btn:hover{background:rgba(200,168,74,0.15);border-color:rgba(200,168,74,0.5)}
@@ -307,7 +307,7 @@ body{font-family:var(--fu);background:var(--b0);color:var(--ink);overflow-x:hidd
 .footer-cta{padding:80px 40px;background:var(--b9);text-align:center;position:relative}
 .footer-cta::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
 .footer-cta h2{font-family:var(--fd);font-size:clamp(22px,3vw,38px);color:var(--b1);margin-bottom:12px;font-weight:700}
-.footer-cta p{color:rgba(245,237,216,0.68);margin-bottom:32px;font-size:15px;font-weight:300;line-height:1.85}
+.footer-cta p{color:rgba(200,170,130,0.5);margin-bottom:32px;font-size:15px;font-weight:300}
 
 /* ===== APP ===== */
 #app{padding-top:60px}
@@ -942,6 +942,8 @@ body{font-family:var(--fu);background:var(--b0);color:var(--ink);overflow-x:hidd
   border-radius:14px;padding:18px;margin-bottom:14px;
 }
 .settings-section h4{font-size:14px;color:var(--gold2);font-weight:700;margin-bottom:10px}
+.settings-profile-inp{width:100%;padding:10px 14px;background:rgba(200,168,74,0.06);border:1px solid rgba(200,168,74,0.2);border-radius:10px;color:rgba(245,237,216,0.9);font-family:var(--fu);font-size:13px;outline:none;transition:border .2s;box-sizing:border-box;}
+.settings-profile-inp:focus{border-color:rgba(200,168,74,0.45);}
 .settings-row{
   display:flex;align-items:center;justify-content:space-between;
   padding:10px 0;border-bottom:1px solid rgba(200,168,74,0.08);
@@ -1948,7 +1950,7 @@ body{font-family:var(--fu);background:var(--b0);color:var(--ink);overflow-x:hidd
 }
 .sc2-sub{
   font-family:var(--fu);font-size:13px;
-  color:rgba(245,237,216,0.68);line-height:1.85;max-width:620px;margin:0 auto;
+  color:rgba(220,195,160,0.78);line-height:1.7;font-weight:400;
 }
 
 /* 3열 그리드 */
@@ -2073,7 +2075,7 @@ body{font-family:var(--fu);background:var(--b0);color:var(--ink);overflow-x:hidd
 }
 .sc2-feat-sub{
   font-family:var(--fu);font-size:12.5px;
-  color:rgba(245,237,216,0.68);max-width:560px;margin:0 auto;line-height:1.8;
+  color:rgba(200,165,120,0.48);max-width:480px;margin:0 auto;line-height:1.7;
 }
 .sc2-feat-grid{
   display:grid;grid-template-columns:repeat(3,1fr);
@@ -2103,7 +2105,7 @@ body{font-family:var(--fu);background:var(--b0);color:var(--ink);overflow-x:hidd
 }
 .sc2-feat-card p{
   font-family:var(--fu);font-size:11.5px;
-  color:rgba(245,237,216,0.66);line-height:1.8;
+  color:rgba(200,165,120,0.52);line-height:1.7;
 }
 
 /* CTA 버튼 (섹션 하단) */
@@ -2123,7 +2125,7 @@ body{font-family:var(--fu);background:var(--b0);color:var(--ink);overflow-x:hidd
 .sc2-cta-main:hover{opacity:.88;}
 .sc2-cta-hint{
   font-family:var(--fu);font-size:11px;
-  color:rgba(245,237,216,0.68);line-height:1.8;
+  color:rgba(200,168,74,0.6);
 }
 
 /* 반응형 */
@@ -2193,6 +2195,19 @@ body{font-family:var(--fu);background:var(--b0);color:var(--ink);overflow-x:hidd
 .plan-btn-pro{background:linear-gradient(135deg,var(--gold),#8B6520);color:#0A0400;}
 .plan-btn-premium{background:linear-gradient(135deg,#c084fc,#7c3aed);color:#fff;}
 @media(max-width:600px){.pricing-grid{grid-template-columns:1fr;}.login-modal,.pricing-modal{padding:28px 20px;}}
+/* email auth tabs */
+.login-tabs{display:flex;gap:0;margin-bottom:24px;border:1px solid rgba(200,168,74,0.15);border-radius:12px;overflow:hidden;}
+.login-tab{flex:1;padding:10px;font-family:var(--fu);font-size:11px;font-weight:700;letter-spacing:.08em;border:none;background:transparent;color:rgba(200,168,74,0.5);cursor:pointer;transition:all .2s;}
+.login-tab.active{background:rgba(200,168,74,0.12);color:var(--gold2);}
+.auth-panel{display:none}.auth-panel.active{display:block}
+.auth-input{width:100%;padding:12px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,168,74,0.15);border-radius:12px;color:rgba(245,237,216,0.9);font-family:var(--fu);font-size:13px;outline:none;transition:border .2s;box-sizing:border-box;margin-bottom:10px;}
+.auth-input:focus{border-color:rgba(200,168,74,0.45);}
+.auth-input::placeholder{color:rgba(200,168,74,0.35);}
+.auth-submit{width:100%;padding:14px;background:linear-gradient(135deg,var(--gold),#8B6520);color:#0A0400;border:none;border-radius:12px;font-family:var(--fu);font-size:13px;font-weight:800;cursor:pointer;letter-spacing:.05em;transition:all .2s;margin-top:4px;}
+.auth-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,168,74,0.3);}
+.auth-err{font-family:var(--fu);font-size:11px;color:#ff6b6b;text-align:center;margin-bottom:8px;min-height:16px;}
+.auth-switch{text-align:center;font-family:var(--fu);font-size:11px;color:rgba(200,168,74,0.55);margin-top:12px;}
+.auth-switch button{background:none;border:none;color:rgba(200,168,74,0.8);cursor:pointer;font-family:var(--fu);font-size:11px;font-weight:700;text-decoration:underline;}
 /* ===== END LOGIN MODAL ===== */
 
 
@@ -2468,8 +2483,8 @@ body { overscroll-behavior-y: contain; }
       </h1>
       <p class="hero-sub" id="heroSub">사진 한 장, 잠깐의 감정 표현만으로<br>AI가 당신만의 감성적인 이야기를 써드립니다</p>
       <div class="hero-cta">
-        <button class="cta-primary" id="heroCta1" onclick="triggerPortal()">✦ 나의 도서관 열기</button>
-        <button class="cta-secondary" id="heroCta2" onclick="showScreen('app');showView('library');updateNav(false)">내 서재 보기</button>
+        <button class="cta-primary" id="heroCta1" onclick="requireLogin(triggerPortal)">✦ 나의 도서관 열기</button>
+        <button class="cta-secondary" id="heroCta2" onclick="requireLogin(function(){showScreen('app');showView('library');updateNav(false)})">내 서재 보기</button>
       </div>
     </div>
 
@@ -2483,11 +2498,9 @@ body { overscroll-behavior-y: contain; }
   <section class="sc2-section">
 
     <div class="sc2-header">
-      <span class="sc2-label">AI 에세이 샘플</span>
-      <h2 class="sc2-title">
-        사진 한 장이<br>감성적인 이야기가 됩니다
-      </h2>
-      <p class="sc2-sub">찍는 순간 AI가 분석해 30초 안에 당신만의 에세이를 완성합니다</p>
+      <span class="sc2-label" data-i18n="sc2.label">AI 에세이 샘플</span>
+      <h2 class="sc2-title" data-i18n="sc2.title">사진 한 장이<br>감성적인 이야기가 됩니다</h2>
+      <p class="sc2-sub" data-i18n="sc2.sub">찍는 순간 AI가 분석해 30초 안에 당신만의 에세이를 완성합니다</p>
     </div>
 
     <!-- 3열 카드 그리드 -->
@@ -2504,25 +2517,12 @@ body { overscroll-behavior-y: contain; }
           </div>
         </div>
         <div class="sc2-body">
-          <div class="sc2-body-badge">AI 감성 에세이</div>
-          <h3 class="sc2-essay-title">
-            너를 향해 달려오는<br>그 순간이<br>세상에서 가장 아름다웠다
-          </h3>
+          <div class="sc2-body-badge" data-i18n="sc2.badge">AI 감성 에세이</div>
+          <h3 class="sc2-essay-title" data-i18n="sc2.t1">나를 향해 달려오는<br>그 순간이<br>세상에서 가장 아름다웠다</h3>
           <div class="sc2-divider"></div>
-          <p class="sc2-essay-text">
-            잔디 위에 서서 두 팔을 벌렸을 때,<br>
-            복실복실한 하얀 털뭉치가<br>
-            온 세상을 나를 향해 달려왔다.<br><br>
-            그 작은 발이 만들어내는 리듬이<br>
-            내 심장 박자와 맞닿을 때,<br>
-            나는 비로소 이 순간이<br>
-            내 인생에서 가장 충만한 찰나임을 알았다.
-          </p>
+          <p class="sc2-essay-text" data-i18n="sc2.b1">잔디 위에 서서 두 팔을 벌렸을 때,<br>복실복실한 하얀 털뭉치가<br>온 세상이 나를 향해 달려왔다.<br><br>그 작은 발이 만들어내는 리듬이<br>내 심장 박자와 맞닿을 때,<br>나는 비로소 이 순간이<br>내 인생에서 가장 충만한 찰나임을 알았다.</p>
           <div class="sc2-essay-footer">
-            <div class="sc2-essay-meta">
-              <span>🤖 Gemma 4</span>·<span>28초</span>
-            </div>
-            <button class="sc2-write-btn" onclick="event.stopPropagation();triggerPortal()">✦ 써보기</button>
+            <button class="sc2-write-btn" onclick="event.stopPropagation();triggerPortal()" data-i18n="sc2.btn">✦ 써보기</button>
           </div>
         </div>
       </div>
@@ -2538,25 +2538,12 @@ body { overscroll-behavior-y: contain; }
           </div>
         </div>
         <div class="sc2-body">
-          <div class="sc2-body-badge">AI 감성 에세이</div>
-          <h3 class="sc2-essay-title">
-            벚꽃이 지는 순간,<br>그대의 미소만이<br>기억에 남았습니다
-          </h3>
+          <div class="sc2-body-badge" data-i18n="sc2.badge">AI 감성 에세이</div>
+          <h3 class="sc2-essay-title" data-i18n="sc2.t2">벚꽃이 지는 순간,<br>그대의 미소만이<br>기억에 남았습니다</h3>
           <div class="sc2-divider"></div>
-          <p class="sc2-essay-text">
-            4월의 석촌호수는<br>
-            분홍빛으로 물들어 있었고,<br>
-            바람이 불 때마다 꽃잎이 춤을 추었다.<br><br>
-            카메라 뷰파인더 너머로 바라보는<br>
-            그대의 미소는,<br>
-            어떤 벚꽃보다도<br>
-            더 따뜻하고 더 환했다.
-          </p>
+          <p class="sc2-essay-text" data-i18n="sc2.b2">4월의 석촌호수는<br>분홍빛으로 물들어 있었고,<br>바람이 불 때마다 꽃잎이 춤을 추었다.<br><br>카메라 뷰파인더 너머로 바라보는<br>그대의 미소는,<br>어떤 벚꽃보다도<br>더 따뜻하고 더 환했다.</p>
           <div class="sc2-essay-footer">
-            <div class="sc2-essay-meta">
-              <span>🤖 Gemma 4</span>·<span>31초</span>
-            </div>
-            <button class="sc2-write-btn" onclick="event.stopPropagation();triggerPortal()">✦ 써보기</button>
+            <button class="sc2-write-btn" onclick="event.stopPropagation();triggerPortal()" data-i18n="sc2.btn">✦ 써보기</button>
           </div>
         </div>
       </div>
@@ -2572,25 +2559,12 @@ body { overscroll-behavior-y: contain; }
           </div>
         </div>
         <div class="sc2-body">
-          <div class="sc2-body-badge">AI 감성 에세이</div>
-          <h3 class="sc2-essay-title">
-            아이의 웃음소리가<br>이 봄날의<br>가장 좋은 음악이었다
-          </h3>
+          <div class="sc2-body-badge" data-i18n="sc2.badge">AI 감성 에세이</div>
+          <h3 class="sc2-essay-title" data-i18n="sc2.t3">아이의 웃음소리가<br>이 봄날의<br>가장 좋은 음악이었다</h3>
           <div class="sc2-divider"></div>
-          <p class="sc2-essay-text">
-            초록빛 잔디 위에<br>
-            돗자리를 펴고 앉았다.<br>
-            아이는 곰 인형을 꼭 안은 채로<br>
-            세상에서 가장 환한 웃음을 지었다.<br><br>
-            딸기와 포도, 오렌지 주스 한 병,<br>
-            그리고 서로의 눈빛만으로도<br>
-            우리의 봄은 충분히 빛났다.
-          </p>
+          <p class="sc2-essay-text" data-i18n="sc2.b3">초록빛 잔디 위에<br>돗자리를 펴고 앉았다.<br>아이는 곰 인형을 꼭 안은 채로<br>세상에서 가장 환한 웃음을 지었다.<br><br>딸기와 포도, 오렌지 주스 한 병,<br>그리고 서로의 눈빛만으로도<br>우리의 봄은 충분히 빛났다.</p>
           <div class="sc2-essay-footer">
-            <div class="sc2-essay-meta">
-              <span>🤖 Gemma 4</span>·<span>26초</span>
-            </div>
-            <button class="sc2-write-btn" onclick="event.stopPropagation();triggerPortal()">✦ 써보기</button>
+            <button class="sc2-write-btn" onclick="event.stopPropagation();triggerPortal()" data-i18n="sc2.btn">✦ 써보기</button>
           </div>
         </div>
       </div>
@@ -2675,7 +2649,7 @@ body { overscroll-behavior-y: contain; }
         <div data-i18n="plan.free" style="font-family:var(--fu);font-size:11px;font-weight:700;letter-spacing:.15em;color:rgba(200,168,74,0.55);text-transform:uppercase;margin-bottom:8px;">FREE</div>
         <div data-i18n="plan.free.name" style="font-family:var(--fs);font-style:italic;font-size:22px;color:rgba(245,237,216,0.88);margin-bottom:4px;">무료 플랜</div>
         <div data-i18n="plan.free.d" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.55);margin-bottom:20px;">시작하기에 딱 맞는 플랜</div>
-        <div data-i18n="plan.free.p" style="font-family:var(--fs);font-size:32px;color:rgba(245,237,216,0.9);margin-bottom:4px;">$0</div>
+        <div data-i18n="plan.free.p" style="font-family:var(--fs);font-size:32px;color:rgba(245,237,216,0.9);margin-bottom:4px;">₩0 / $0</div>
         <div data-i18n="plan.free.period" style="font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.7);margin-bottom:24px;">영원히 무료</div>
         <ul style="list-style:none;padding:0;margin:0 0 28px;flex:1;">
           <li data-i18n="plan.free.f1" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.75);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.07);">✓ 월 10편 AI 에세이 생성</li>
@@ -2691,7 +2665,7 @@ body { overscroll-behavior-y: contain; }
         <div data-i18n="plan.pro" style="font-family:var(--fu);font-size:11px;font-weight:700;letter-spacing:.15em;color:rgba(200,168,74,0.75);text-transform:uppercase;margin-bottom:8px;">PRO</div>
         <div data-i18n="plan.pro.name" style="font-family:var(--fs);font-style:italic;font-size:22px;color:rgba(245,237,216,0.95);margin-bottom:4px;">프로 플랜</div>
         <div data-i18n="plan.pro.d" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.62);margin-bottom:20px;">활발한 기록자를 위한 플랜</div>
-        <div data-i18n="plan.pro.p" style="font-family:var(--fs);font-size:28px;color:var(--gold2);margin-bottom:4px;">$7.99</div>
+        <div data-i18n="plan.pro.p" style="font-family:var(--fs);font-size:28px;color:var(--gold2);margin-bottom:4px;">₩9,900 / $7.99</div>
         <div data-i18n="plan.pro.period" style="font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.7);margin-bottom:24px;">/ 월 · 언제든 해지 가능</div>
         <ul style="list-style:none;padding:0;margin:0 0 28px;flex:1;">
           <li data-i18n="plan.pro.f1" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.88);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.08);">✓ 무제한 AI 에세이 생성</li>
@@ -2700,29 +2674,42 @@ body { overscroll-behavior-y: contain; }
           <li data-i18n="plan.pro.f4" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.88);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.08);">✓ 광고 없음</li>
           <li data-i18n="plan.pro.f5" style="font-family:var(--fu);font-size:13px;color:rgba(200,168,74,0.9);padding:7px 0;">📚 3개월+ 구독 시 양장본 책 제작 20% 할인</li>
         </ul>
-        <button data-i18n="plan.pro.cta" onclick="openPricingModal()" style="width:100%;padding:13px;background:linear-gradient(135deg,rgba(200,168,74,0.12),rgba(200,168,74,0.05));border:1px solid rgba(200,168,74,0.35);border-radius:100px;color:rgba(200,168,74,0.92);font-family:var(--fu);font-size:12px;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='linear-gradient(135deg,rgba(200,168,74,0.22),rgba(200,168,74,0.1))'" onmouseout="this.style.background='linear-gradient(135deg,rgba(200,168,74,0.12),rgba(200,168,74,0.05))'">Pro 시작하기 →</button>
+        <button data-i18n="plan.pro.cta" onclick="requireLogin(function(){startPayment('pro',9900)})" style="width:100%;padding:13px;background:linear-gradient(135deg,rgba(200,168,74,0.12),rgba(200,168,74,0.05));border:1px solid rgba(200,168,74,0.35);border-radius:100px;color:rgba(200,168,74,0.92);font-family:var(--fu);font-size:12px;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='linear-gradient(135deg,rgba(200,168,74,0.22),rgba(200,168,74,0.1))'" onmouseout="this.style.background='linear-gradient(135deg,rgba(200,168,74,0.12),rgba(200,168,74,0.05))'">Pro 시작하기 →</button>
       </div>
 
-      <!-- PREMIUM -->
-      <div id="premiumCardLanding" style="background:linear-gradient(145deg,rgba(200,168,74,0.1),rgba(139,101,32,0.08));border:1px solid rgba(200,168,74,0.4);border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;position:relative;box-shadow:0 0 40px rgba(200,168,74,0.08);">
-        <div id="premiumBadgeLanding" data-i18n="plan.popular" style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#C8A84A,#8B6520);color:#0A0400;font-family:var(--fu);font-size:10px;font-weight:800;letter-spacing:.1em;padding:5px 16px;border-radius:100px;white-space:nowrap;">✦ 가장 인기</div>
+      <!-- PREMIUM MONTHLY -->
+      <div style="background:linear-gradient(145deg,rgba(200,168,74,0.1),rgba(139,101,32,0.08));border:1px solid rgba(200,168,74,0.4);border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;position:relative;box-shadow:0 0 40px rgba(200,168,74,0.08);">
+        <div data-i18n="plan.popular" style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#C8A84A,#8B6520);color:#0A0400;font-family:var(--fu);font-size:10px;font-weight:800;letter-spacing:.1em;padding:5px 16px;border-radius:100px;white-space:nowrap;">✦ 가장 인기</div>
         <div data-i18n="plan.prem" style="font-family:var(--fu);font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--gold2);text-transform:uppercase;margin-bottom:8px;margin-top:6px;">PREMIUM</div>
-        <div style="display:flex;gap:8px;margin-bottom:16px;padding:4px;border:1px solid rgba(200,168,74,0.18);background:rgba(10,4,0,0.34);border-radius:999px;">
-          <button id="premiumMonthlyTabLanding" data-i18n="plan.toggle.monthly" onclick="setPremiumBillingCycle('monthly')" style="flex:1;padding:9px 14px;background:linear-gradient(135deg,#C8A84A,#8B6520);border:none;border-radius:999px;color:#0A0400;font-family:var(--fu);font-size:11px;font-weight:800;letter-spacing:.08em;cursor:pointer;">월간</button>
-          <button id="premiumAnnualTabLanding" data-i18n="plan.toggle.yearly" onclick="setPremiumBillingCycle('annual')" style="flex:1;padding:9px 14px;background:transparent;border:none;border-radius:999px;color:rgba(245,237,216,0.72);font-family:var(--fu);font-size:11px;font-weight:700;letter-spacing:.08em;cursor:pointer;">연간</button>
-        </div>
-        <div id="premiumNameLanding" style="font-family:var(--fs);font-style:italic;font-size:22px;color:rgba(245,237,216,0.95);margin-bottom:4px;">프리미엄 플랜</div>
-        <div id="premiumDescLanding" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.65);margin-bottom:20px;">나만의 책을 남기고 싶은 분</div>
-        <div id="premiumPriceLanding" style="font-family:var(--fs);font-size:28px;color:var(--gold2);margin-bottom:4px;">$14.99</div>
-        <div id="premiumPeriodLanding" style="font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.7);margin-bottom:24px;">/ 월 · 언제든 해지 가능</div>
+        <div data-i18n="plan.prem.name" style="font-family:var(--fs);font-style:italic;font-size:22px;color:rgba(245,237,216,0.95);margin-bottom:4px;">프리미엄 월간</div>
+        <div data-i18n="plan.prem.d" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.65);margin-bottom:20px;">나만의 책을 남기고 싶은 분</div>
+        <div data-i18n="plan.prem.p" style="font-family:var(--fs);font-size:28px;color:var(--gold2);margin-bottom:4px;">₩19,900 / $14.99</div>
+        <div data-i18n="plan.prem.period" style="font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.7);margin-bottom:24px;">/ 월 · 언제든 해지 가능</div>
         <ul style="list-style:none;padding:0;margin:0 0 28px;flex:1;">
-          <li id="premiumFeatureLanding1" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ Pro 모든 기능 포함</li>
-          <li id="premiumFeatureLanding2" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ AI 이미지 생성</li>
-          <li id="premiumFeatureLanding3" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ 웹툰 스토리 모드</li>
-          <li id="premiumFeatureLanding4" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ 음성 기록 변환</li>
-          <li id="premiumFeatureLanding5" style="font-family:var(--fu);font-size:13px;color:rgba(200,168,74,0.95);padding:7px 0;">📚 3개월+ 구독 시 양장본 책 제작 20% 할인</li>
+          <li data-i18n="plan.prem.f1" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ Pro 모든 기능 포함</li>
+          <li data-i18n="plan.prem.f2" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ AI 이미지 생성</li>
+          <li data-i18n="plan.prem.f3" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ 웹툰 스토리 모드</li>
+          <li data-i18n="plan.prem.f4" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ 음성 기록 변환</li>
+          <li data-i18n="plan.prem.f5" style="font-family:var(--fu);font-size:13px;color:rgba(200,168,74,0.95);padding:7px 0;">📚 3개월+ 구독 시 양장본 책 제작 20% 할인</li>
         </ul>
-        <button id="premiumCtaLanding" onclick="openPricingModal(premiumBillingCycle)" style="width:100%;padding:14px;background:linear-gradient(135deg,#C8A84A,#8B6520);border:none;border-radius:100px;color:#0A0400;font-family:var(--fu);font-size:12px;font-weight:800;letter-spacing:.08em;cursor:pointer;transition:opacity .2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">Premium 시작하기 →</button>
+        <button data-i18n="plan.prem.cta" onclick="requireLogin(function(){startPayment('premium',19900)})" style="width:100%;padding:14px;background:linear-gradient(135deg,#C8A84A,#8B6520);border:none;border-radius:100px;color:#0A0400;font-family:var(--fu);font-size:12px;font-weight:800;letter-spacing:.08em;cursor:pointer;transition:opacity .2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">Premium 시작하기 →</button>
+      </div>
+
+      <!-- PREMIUM ANNUAL -->
+      <div style="background:linear-gradient(145deg,rgba(139,101,32,0.12),rgba(200,168,74,0.04));border:1px solid rgba(200,168,74,0.3);border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;position:relative;">
+        <div data-i18n="plan.save" style="position:absolute;top:-12px;right:20px;background:rgba(200,168,74,0.15);border:1px solid rgba(200,168,74,0.35);color:rgba(200,168,74,0.92);font-family:var(--fu);font-size:10px;font-weight:800;letter-spacing:.08em;padding:4px 12px;border-radius:100px;">25% 절약</div>
+        <div data-i18n="plan.annual" style="font-family:var(--fu);font-size:11px;font-weight:700;letter-spacing:.15em;color:rgba(200,168,74,0.72);text-transform:uppercase;margin-bottom:8px;">PREMIUM ANNUAL</div>
+        <div data-i18n="plan.annual.name" style="font-family:var(--fs);font-style:italic;font-size:22px;color:rgba(245,237,216,0.95);margin-bottom:4px;">프리미엄 연간</div>
+        <div data-i18n="plan.annual.d" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.65);margin-bottom:20px;">1년치 구독 + 양장본 책 2권 무료</div>
+        <div data-i18n="plan.annual.p" style="font-family:var(--fs);font-size:28px;color:var(--gold2);margin-bottom:4px;">₩178,800 / $134.99</div>
+        <div data-i18n="plan.annual.period" style="font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.7);margin-bottom:24px;">/ 년 · (월 ₩14,900 상당)</div>
+        <ul style="list-style:none;padding:0;margin:0 0 28px;flex:1;">
+          <li data-i18n="plan.annual.f1" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.08);">✓ Premium 모든 기능</li>
+          <li data-i18n="plan.annual.f2" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.08);">✓ 우선 고객 지원</li>
+          <li data-i18n="plan.annual.f3" style="font-family:var(--fu);font-size:13px;color:rgba(200,168,74,0.95);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.08);">🎁 연 2회 고급 양장본 에세이 책 무료 발행</li>
+          <li data-i18n="plan.annual.f4" style="font-family:var(--fu);font-size:13px;color:rgba(200,168,74,0.88);padding:7px 0;">📚 추가 제작 시 20% 할인 적용</li>
+        </ul>
+        <button data-i18n="plan.annual.cta" onclick="requireLogin(function(){startPayment('annual',178800)})" style="width:100%;padding:13px;background:linear-gradient(135deg,rgba(200,168,74,0.18),rgba(139,101,32,0.12));border:1px solid rgba(200,168,74,0.4);border-radius:100px;color:rgba(200,168,74,0.95);font-family:var(--fu);font-size:12px;font-weight:800;letter-spacing:.08em;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='linear-gradient(135deg,rgba(200,168,74,0.28),rgba(139,101,32,0.2))'" onmouseout="this.style.background='linear-gradient(135deg,rgba(200,168,74,0.18),rgba(139,101,32,0.12))'">연간 구독 시작하기 →</button>
       </div>
 
     </div>
@@ -2759,7 +2746,7 @@ body { overscroll-behavior-y: contain; }
         <div id="sbUsername" class="sb-user-role">Senior Contributor</div>
       </div>
       <div class="sidebar-section" id="sbExplore">탐색</div>
-      <button class="sidebar-item active" id="sb-library" onclick="filterByCategory(null)"><span class="icon">📚</span><span id="sbAllLib">전체 서재</span><span class="count" id="totalCount">135</span></button>
+      <button class="sidebar-item active" id="sb-library" onclick="filterByCategory(null)"><span class="icon">📚</span><span id="sbAllLib">전체 서재</span><span class="count" id="totalCount">0</span></button>
       <button class="sidebar-item" id="sb-create" onclick="showView('create')"><span class="icon">✦</span><span id="sbWrite">새 에세이 쓰기</span></button>
       <div class="sidebar-section" id="sbBookshelf">책장</div>
       <div id="sidebarCats">
@@ -2772,8 +2759,8 @@ body { overscroll-behavior-y: contain; }
       </div>
       <div class="sidebar-section" id="sbSettings">설정</div>
       <button class="sidebar-item" id="sb-persona" onclick="showView('persona')"><span class="icon">✍️</span><span id="sbPersona">글쓰기 페르소나</span></button>
-      <button class="sidebar-item"><span class="icon">💳</span><span id="sbSub">구독 관리</span></button>
-      <button class="sidebar-item" onclick="checkAdminAccess()"><span class="icon">🛠️</span><span id="sbAdmin">관리자</span></button>
+      <button class="sidebar-item" onclick="openSubscriptionModal()"><span class="icon">💳</span><span id="sbSub">구독 관리</span></button>
+      <button class="sidebar-item" id="sb-admin" style="display:none" onclick="checkAdminAccess()"><span class="icon">🛠️</span><span id="sbAdmin">관리자</span></button>
       <div class="dm-row"><span class="icon">🌙</span><span id="sbDark">다크 모드</span><div class="dm-toggle" id="dmToggle" onclick="toggleDarkMode()"></div></div>
     </aside>
 
@@ -3281,21 +3268,12 @@ body { overscroll-behavior-y: contain; }
         </div>
       </div>
       <div id="av-essays" class="admin-view">
-        <div class="admin-hdr"><div class="admin-title">에세이 관리</div><select class="drng"><option>최근 30일</option></select></div>
-        <div class="stat-grid">
-          <div class="stat-card"><div class="sc-label">총 에세이</div><div class="sc-val">9,847</div><div class="sc-chg up">↑ 23% 이번 달</div></div>
-          <div class="stat-card"><div class="sc-label">오늘 생성</div><div class="sc-val">142</div><div class="sc-chg up">활발한 생성</div></div>
-          <div class="stat-card"><div class="sc-label">공개 에세이</div><div class="sc-val">2,341</div><div class="sc-chg">전체의 23.8%</div></div>
-          <div class="stat-card"><div class="sc-label">평균 생성 시간</div><div class="sc-val">24s</div><div class="sc-chg up">목표 달성</div></div>
+        <div class="admin-hdr">
+          <div class="admin-title">📝 샘플 에세이 관리</div>
+          <button onclick="openAddEssayModal()" style="padding:8px 18px;background:linear-gradient(135deg,#C8A84A,#8B6520);color:#0A0400;border:none;border-radius:8px;font-family:var(--fu);font-size:12px;font-weight:800;cursor:pointer;">+ 에세이 추가</button>
         </div>
-        <div class="chart-box"><h3>최근 생성 에세이</h3>
-          <table class="utbl"><thead><tr><th>제목</th><th>작성자</th><th>카테고리</th><th>감정</th><th>형식</th><th>공개</th></tr></thead>
-          <tbody>
-            <tr><td>아침 햇살이 유리창을 타고</td><td>김민지</td><td>📔 일상</td><td>☀️ 행복</td><td>에세이</td><td><span class="badge off">비공개</span></td></tr>
-            <tr><td>제주 바다가 내게 말을 걸었다</td><td>박서연</td><td>🧳 여행</td><td>✨ 설렘</td><td>에세이</td><td><span class="badge on">공개</span></td></tr>
-            <tr><td>엄마의 된장찌개 냄새</td><td>윤지수</td><td>🏠 가족</td><td>💖 사랑</td><td>에세이</td><td><span class="badge off">비공개</span></td></tr>
-          </tbody></table>
-        </div>
+        <p style="font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.6);margin-bottom:20px;">랜딩 페이지에 표시되는 샘플 에세이 3개를 관리합니다. 추가/수정/삭제 후 저장하면 즉시 반영됩니다.</p>
+        <div id="sampleEssayList" style="display:flex;flex-direction:column;gap:16px;"></div>
       </div>
       <div id="av-ai" class="admin-view">
         <div class="admin-hdr"><div class="admin-title">AI 모니터링</div><select class="drng"><option>최근 7일</option></select></div>
@@ -3389,6 +3367,7 @@ function showAV(name,btn){
   document.getElementById('av-'+name).classList.add('active');
   document.querySelectorAll('.an-item').forEach(i=>i.classList.remove('active'));
   if(btn)btn.classList.add('active');
+  if(name==='essays') setTimeout(renderSampleEssayList, 50);
 }
 
 // ========== BOOKSHELF RENDER ==========
@@ -4507,6 +4486,9 @@ function renderLibrary(){
   }
 
   if(countEl) countEl.textContent = essays.length + '편의 이야기';
+  var allEssays = loadEssays();
+  var tcEl = document.getElementById('totalCount');
+  if(tcEl) tcEl.textContent = allEssays.length;
 
   if(!grid) return;
 
@@ -4825,6 +4807,15 @@ const T = {
     'hero.cta1':'✦ 나의 도서관 열기','hero.cta2':'내 서재 보기',
     'hero.scroll':'SCROLL',
     // FEATURES
+    // SC2 샘플 에세이
+    'sc2.label':'AI 에세이 샘플','sc2.title':'사진 한 장이 감성적인 이야기가 됩니다','sc2.sub':'찍는 순간 AI가 분석해 30초 안에 당신만의 에세이를 완성합니다',
+    'sc2.badge':'AI 감성 에세이','sc2.btn':'✦ 써보기',
+    'sc2.t1':'나를 향해 달려오는<br>그 순간이<br>세상에서 가장 아름다웠다',
+    'sc2.b1':'잔디 위에 서서 두 팔을 벌렸을 때,<br>복실복실한 하얀 털뭉치가<br>온 세상이 나를 향해 달려왔다.<br><br>그 작은 발이 만들어내는 리듬이<br>내 심장 박자와 맞닿을 때,<br>나는 비로소 이 순간이<br>내 인생에서 가장 충만한 찰나임을 알았다.',
+    'sc2.t2':'벚꽃이 지는 순간,<br>그대의 미소만이<br>기억에 남았습니다',
+    'sc2.b2':'4월의 석촌호수는<br>분홍빛으로 물들어 있었고,<br>바람이 불 때마다 꽃잎이 춤을 추었다.<br><br>카메라 뷰파인더 너머로 바라보는<br>그대의 미소는,<br>어떤 벚꽃보다도<br>더 따뜻하고 더 환했다.',
+    'sc2.t3':'아이의 웃음소리가<br>이 봄날의<br>가장 좋은 음악이었다',
+    'sc2.b3':'초록빛 잔디 위에<br>돗자리를 펴고 앉았다.<br>아이는 곰 인형을 꼭 안은 채로<br>세상에서 가장 환한 웃음을 지었다.<br><br>딸기와 포도, 오렌지 주스 한 병,<br>그리고 서로의 눈빛만으로도<br>우리의 봄은 충분히 빛났다.',
     'feat.label':'핵심 기능','feat.title':'당신의 일상을 기록하는\n가장 아름다운 방법',
     'feat.sub':'SNS와 다릅니다. 당신의 글이 쌓여 하나의 인생 도서관이 됩니다.',
     'f1.title':'찍는 순간, 이야기가 시작됩니다','f1.desc':'카메라를 열고 셔터를 누르는 순간 AI가 장면을 분석해 감성적인 에세이를 30초 안에 완성합니다.',
@@ -4843,14 +4834,13 @@ const T = {
     'price.label':'구독 플랜','price.title':'당신의 이야기에 맞는 플랜',
     'price.sub':'무료로 시작하고 필요할 때 업그레이드하세요. 3개월 이상 구독 시 나만의 양장본 에세이 책을 제작할 수 있습니다.',
     'plan.popular':'✦ 가장 인기','plan.save':'25% 절약',
-    'plan.free':'FREE','plan.free.name':'무료 플랜','plan.free.d':'시작하기에 딱 맞는 플랜','plan.free.p':'$0','plan.free.period':'영원히 무료','plan.free.cta':'무료로 시작하기',
+    'plan.free':'FREE','plan.free.name':'무료 플랜','plan.free.d':'시작하기에 딱 맞는 플랜','plan.free.p':'₩0 / $0','plan.free.period':'영원히 무료','plan.free.cta':'무료로 시작하기',
     'plan.free.f1':'월 10편 AI 에세이 생성','plan.free.f2':'서재 저장 50편','plan.free.f3':'기본 글쓰기 포맷 3가지','plan.free.f4':'SNS 공유 기능',
-    'plan.pro':'PRO','plan.pro.name':'프로 플랜','plan.pro.d':'활발한 기록자를 위한 플랜','plan.pro.p':'$7.99','plan.pro.period':'/ 월 · 언제든 해지 가능','plan.pro.cta':'Pro 시작하기 →',
+    'plan.pro':'PRO','plan.pro.name':'프로 플랜','plan.pro.d':'활발한 기록자를 위한 플랜','plan.pro.p':'₩9,900 / $7.99','plan.pro.period':'/ 월 · 언제든 해지 가능','plan.pro.cta':'Pro 시작하기 →',
     'plan.pro.f1':'무제한 AI 에세이 생성','plan.pro.f2':'서재 무제한 저장','plan.pro.f3':'모든 글쓰기 포맷','plan.pro.f4':'광고 없음','plan.pro.f5':'📚 3개월+ 구독 시 양장본 책 제작 20% 할인',
-    'plan.premium.name':'프리미엄 플랜','plan.toggle.monthly':'월간','plan.toggle.yearly':'연간',
-    'plan.prem':'PREMIUM','plan.prem.name':'프리미엄 월간','plan.prem.d':'나만의 책을 남기고 싶은 분','plan.prem.p':'$14.99','plan.prem.period':'/ 월 · 언제든 해지 가능','plan.prem.cta':'Premium 시작하기 →',
+    'plan.prem':'PREMIUM','plan.prem.name':'프리미엄 월간','plan.prem.d':'나만의 책을 남기고 싶은 분','plan.prem.p':'₩19,900 / $14.99','plan.prem.period':'/ 월 · 언제든 해지 가능','plan.prem.cta':'Premium 시작하기 →',
     'plan.prem.f1':'Pro 모든 기능 포함','plan.prem.f2':'AI 이미지 생성','plan.prem.f3':'웹툰 스토리 모드','plan.prem.f4':'음성 기록 변환','plan.prem.f5':'📚 3개월+ 구독 시 양장본 책 제작 20% 할인',
-    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'프리미엄 연간','plan.annual.d':'1년치 구독 + 양장본 책 2권 무료','plan.annual.p':'$134.99','plan.annual.period':'/ 년 · (월 $11.25 상당)','plan.annual.cta':'연간 구독 시작하기 →',
+    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'프리미엄 연간','plan.annual.d':'1년치 구독 + 양장본 책 2권 무료','plan.annual.p':'₩178,800 / $134.99','plan.annual.period':'/ 년 · (월 ₩14,900 상당)','plan.annual.cta':'연간 구독 시작하기 →',
     'plan.annual.f1':'Premium 모든 기능','plan.annual.f2':'우선 고객 지원','plan.annual.f3':'🎁 연 2회 고급 양장본 에세이 책 무료 발행','plan.annual.f4':'📚 추가 제작 시 20% 할인 적용',
     'plan.current':'현재 플랜',
     'per.month':'/월',
@@ -4910,6 +4900,7 @@ const T = {
     'persona.title':'글쓰기 페르소나','persona.sub':'AI가 당신의 글쓰기 스타일로 에세이를 씁니다',
     'persona.new':'✨ 새 페르소나 만들기','persona.new.hint':'나만의 글쓰기 스타일을 세밀하게 설정하세요',
     'tone.label':'글쓰기 톤 조절','persona.save':'페르소나 저장',
+    'persona.opt1':'🌸 감성적 일상체 (기본)','persona.opt2':'📖 문학적 서정체','persona.opt3':'🎬 브이로그 스크립트','persona.opt4':'📜 자서전 회고체','persona.opt5':'✨ 나만의 스타일 (설정 필요)',
     // ADD CATEGORY
     'addcat.title':'책장 추가하기','addcat.sub':'새로운 카테고리를 만들어 나만의 책장을 꾸며보세요',
     'addcat.emoji':'이모지 선택','addcat.name':'카테고리 이름','addcat.ph':'예: 반려동물, 운동, 독서...',
@@ -4939,6 +4930,15 @@ const T = {
     'hero.sub':'Just one photo and a moment of emotion.\nAI writes your own sensational story.',
     'hero.cta1':'✦ Open My Library','hero.cta2':'View My Shelf',
     'hero.scroll':'SCROLL',
+    // SC2 Sample Essays
+    'sc2.label':'AI Essay Samples','sc2.title':'One photo becomes a heartfelt story','sc2.sub':'AI analyzes your moment and crafts your personal essay in 30 seconds',
+    'sc2.badge':'AI Emotional Essay','sc2.btn':'✦ Try Writing',
+    'sc2.t1':'The moment you ran to me<br>was the most beautiful<br>thing in the world',
+    'sc2.b1':'Standing on the grass with my arms wide open,<br>a fluffy white bundle of joy<br>came racing toward me with the whole world behind it.<br><br>When those tiny paws met my heartbeat,<br>I finally understood<br>that this moment was<br>the most fulfilling instant of my life.',
+    'sc2.t2':'As the cherry blossoms fell,<br>only your smile<br>stayed in my memory',
+    'sc2.b2':'Seokchon Lake in April<br>was dyed in shades of pink,<br>petals dancing with every breath of wind.<br><br>The smile I saw through my camera viewfinder<br>was warmer and brighter<br>than any cherry blossom<br>I had ever seen.',
+    'sc2.t3':'The sound of my child\'s laughter<br>was the finest music<br>of this spring day',
+    'sc2.b3':'We spread a picnic mat<br>on the bright green lawn.<br>The child hugged a bear tightly<br>and smiled the brightest smile in the world.<br><br>Strawberries, grapes, a bottle of orange juice,<br>and nothing but each other\'s gaze—<br>our spring shone brilliantly enough.',
     'feat.label':'Key Features','feat.title':'The most beautiful way\nto record your daily life',
     'feat.sub':'Unlike SNS. Your writing accumulates into a personal library of life.',
     'f1.title':'The moment you shoot, the story begins','f1.desc':'Open the camera and press the shutter — AI analyzes the scene and completes a heartfelt essay in 30 seconds.',
@@ -4955,17 +4955,16 @@ const T = {
     'price.label':'Subscription Plans','price.title':'Choose the plan for your story',
     'price.sub':'Start free and upgrade when you need. Subscribers of 3+ months can order a premium hardcover essay book.',
     'plan.popular':'✦ Most Popular','plan.save':'Save 25%',
-    'plan.free':'FREE','plan.free.name':'Free Plan','plan.free.d':'Perfect to start','plan.free.p':'$0','plan.free.period':'Forever free','plan.free.cta':'Start for Free',
+    'plan.free':'FREE','plan.free.name':'Free Plan','plan.free.d':'Perfect to start','plan.free.p':'$0 / ₩0','plan.free.period':'Forever free','plan.free.cta':'Start for Free',
     'plan.free.f1':'10 AI essays/month','plan.free.f2':'Save up to 50 essays','plan.free.f3':'3 writing formats','plan.free.f4':'SNS sharing',
-    'plan.pro':'PRO','plan.pro.name':'Pro Plan','plan.pro.d':'For active recorders','plan.pro.p':'$7.99','plan.pro.period':'/ mo · Cancel anytime','plan.pro.cta':'Start Pro →',
+    'plan.pro':'PRO','plan.pro.name':'Pro Plan','plan.pro.d':'For active recorders','plan.pro.p':'$7.99 / ₩9,900','plan.pro.period':'/ mo · Cancel anytime','plan.pro.cta':'Start Pro →',
     'plan.pro.f1':'Unlimited AI essays','plan.pro.f2':'Unlimited library','plan.pro.f3':'All writing formats','plan.pro.f4':'Ad-free','plan.pro.f5':'📚 20% off hardcover book (3mo+)',
-    'plan.premium.name':'Premium Plan','plan.toggle.monthly':'Monthly','plan.toggle.yearly':'Yearly',
-    'plan.prem':'PREMIUM','plan.prem.name':'Premium Monthly','plan.prem.d':'For those who want a lasting memoir','plan.prem.p':'$14.99','plan.prem.period':'/ mo · Cancel anytime','plan.prem.cta':'Start Premium →',
+    'plan.prem':'PREMIUM','plan.prem.name':'Premium Monthly','plan.prem.d':'For those who want a lasting memoir','plan.prem.p':'$14.99 / ₩19,900','plan.prem.period':'/ mo · Cancel anytime','plan.prem.cta':'Start Premium →',
     'plan.prem.f1':'All Pro features','plan.prem.f2':'AI image generation','plan.prem.f3':'Webtoon story mode','plan.prem.f4':'Voice memo conversion','plan.prem.f5':'📚 20% off hardcover book (3mo+)',
-    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'Premium Annual','plan.annual.d':'1 year + 2 free hardcover books','plan.annual.p':'$134.99','plan.annual.period':'/ yr · ($11.25/mo)','plan.annual.cta':'Start Annual Plan →',
+    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'Premium Annual','plan.annual.d':'1 year + 2 free hardcover books','plan.annual.p':'$134.99 / ₩178,800','plan.annual.period':'/ yr · ($11.25/mo)','plan.annual.cta':'Start Annual Plan →',
     'plan.annual.f1':'All Premium features','plan.annual.f2':'Priority support','plan.annual.f3':'🎁 2 free hardcover essay books/year','plan.annual.f4':'📚 20% off additional books',
     'plan.current':'Current Plan',
-    'plan.pro':'PRO','plan.pro.d':'For active recorders','plan.pro.p':'$7.99','plan.pro.cta':'Start Pro →',
+    'plan.pro':'Pro','plan.pro.d':'For content creators','plan.pro.p':'$14.99','plan.pro.cta':'Start Pro',
     'per.month':'/mo',
     'free.f1':'5 essays per month','free.f2':'3 basic categories','free.f3':'SNS sharing',
     'prem.f1':'30 essays per month','prem.f2':'All categories + custom','prem.f3':'Persona writing style','prem.f4':'In-app camera & voice','prem.f5':'Vlog/autobiography conversion',
@@ -5014,6 +5013,7 @@ const T = {
     'persona.title':'Writing Persona','persona.sub':'AI writes essays in your writing style',
     'persona.new':'✨ Create New Persona','persona.new.hint':'Set your own writing style in detail',
     'tone.label':'Tone Adjustment','persona.save':'Save Persona',
+    'persona.opt1':'🌸 Emotional Diary (Default)','persona.opt2':'📖 Literary Lyrical','persona.opt3':'🎬 Vlog Script','persona.opt4':'📜 Autobiographical Memoir','persona.opt5':'✨ My Own Style (Setup Required)',
     'addcat.title':'Add Bookshelf','addcat.sub':'Create a new category to decorate your bookshelf',
     'addcat.emoji':'Select Emoji','addcat.name':'Category Name','addcat.ph':'e.g. Pets, Exercise, Reading...',
     'addcat.cancel':'Cancel','addcat.add':'Add',
@@ -5037,6 +5037,15 @@ const T = {
     'hero.sub':'写真一枚と少しの感情表現だけで\nAIがあなただけの感動的な物語を書いてくれます',
     'hero.cta1':'✦ 私の図書館を開く','hero.cta2':'本棚を見る',
     'hero.scroll':'スクロール',
+    // SC2 サンプルエッセイ
+    'sc2.label':'AIエッセイサンプル','sc2.title':'一枚の写真が感動的な物語になります','sc2.sub':'撮った瞬間、AIが分析して30秒であなただけのエッセイを完成します',
+    'sc2.badge':'AI感性エッセイ','sc2.btn':'✦ 書いてみる',
+    'sc2.t1':'私に向かって走ってきた<br>あの瞬間が<br>世界で一番美しかった',
+    'sc2.b1':'芝生の上で両腕を広げると、<br>ふわふわした白い毛玉が<br>全世界を連れて私に向かってきた。<br><br>小さな足が刻むリズムが<br>私の心臓と重なった時、<br>この瞬間こそが<br>人生で最も充実した一瞬だと知った。',
+    'sc2.t2':'桜が散る瞬間、<br>あなたの笑顔だけが<br>記憶に残っています',
+    'sc2.b2':'4月の石村湖は<br>ピンク色に染まっていて、<br>風が吹くたびに花びらが踊っていた。<br><br>カメラのファインダー越しに見える<br>あなたの笑顔は、<br>どんな桜よりも<br>温かく、輝いていた。',
+    'sc2.t3':'子供の笑い声が<br>この春の日の<br>最高の音楽だった',
+    'sc2.b3':'緑の芝生にレジャーシートを敷いた。<br>子供はクマのぬいぐるみをぎゅっと抱いて<br>世界一明るい笑顔を見せてくれた。<br><br>いちごとぶどう、オレンジジュース一本、<br>そしてお互いの眼差しだけで<br>私たちの春は十分に輝いた。',
     'feat.label':'主な機能','feat.title':'日常を記録する\n最も美しい方法',
     'feat.sub':'SNSとは違います。あなたの文章が積み重なり、人生の図書館になります。',
     'f1.title':'撮る瞬間、物語が始まる','f1.desc':'カメラを開いてシャッターを押す瞬間、AIがシーンを分析して30秒以内に感動的なエッセイを完成させます。',
@@ -5053,14 +5062,13 @@ const T = {
     'price.label':'サブスクリプション','price.title':'あなたの物語に合ったプラン',
     'price.sub':'無料で始めて必要な時にアップグレード。3ヶ月以上ご利用で装丁エッセイ本の制作特典あり。',
     'plan.popular':'✦ 最人気','plan.save':'25%お得',
-    'plan.free':'FREE','plan.free.name':'無料プラン','plan.free.d':'始めるのに最適','plan.free.p':'$0','plan.free.period':'永久無料','plan.free.cta':'無料で始める',
+    'plan.free':'FREE','plan.free.name':'無料プラン','plan.free.d':'始めるのに最適','plan.free.p':'¥0 / $0','plan.free.period':'永久無料','plan.free.cta':'無料で始める',
     'plan.free.f1':'月10件AIエッセイ','plan.free.f2':'保存50件まで','plan.free.f3':'基本フォーマット3種','plan.free.f4':'SNSシェア',
-    'plan.pro':'PRO','plan.pro.name':'プロプラン','plan.pro.d':'活発な記録者向け','plan.pro.p':'$7.99','plan.pro.period':'/ 月 · いつでも解約可','plan.pro.cta':'プロを始める →',
+    'plan.pro':'PRO','plan.pro.name':'プロプラン','plan.pro.d':'活発な記録者向け','plan.pro.p':'$7.99 / ₩9,900','plan.pro.period':'/ 月 · いつでも解約可','plan.pro.cta':'プロを始める →',
     'plan.pro.f1':'AIエッセイ無制限','plan.pro.f2':'ライブラリ無制限','plan.pro.f3':'全フォーマット','plan.pro.f4':'広告なし','plan.pro.f5':'📚 3ヶ月+で装丁本20%割引',
-    'plan.premium.name':'プレミアムプラン','plan.toggle.monthly':'月額','plan.toggle.yearly':'年額',
-    'plan.prem':'PREMIUM','plan.prem.name':'プレミアム月額','plan.prem.d':'記念の本を残したい方へ','plan.prem.p':'$14.99','plan.prem.period':'/ 月 · いつでも解約可','plan.prem.cta':'プレミアムを始める →',
+    'plan.prem':'PREMIUM','plan.prem.name':'プレミアム月額','plan.prem.d':'記念の本を残したい方へ','plan.prem.p':'$14.99 / ₩19,900','plan.prem.period':'/ 月 · いつでも解約可','plan.prem.cta':'プレミアムを始める →',
     'plan.prem.f1':'プロ全機能込み','plan.prem.f2':'AI画像生成','plan.prem.f3':'ウェブトゥーンモード','plan.prem.f4':'音声変換','plan.prem.f5':'📚 3ヶ月+で装丁本20%割引',
-    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'プレミアム年額','plan.annual.d':'1年+装丁本2冊無料','plan.annual.p':'$134.99','plan.annual.period':'/ 年 · (月$11.25相当)','plan.annual.cta':'年額プランを始める →',
+    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'プレミアム年額','plan.annual.d':'1年+装丁本2冊無料','plan.annual.p':'$134.99 / ₩178,800','plan.annual.period':'/ 年 · (月$11.25相当)','plan.annual.cta':'年額プランを始める →',
     'plan.annual.f1':'プレミアム全機能','plan.annual.f2':'優先サポート','plan.annual.f3':'🎁 年2回 高級装丁本 無料','plan.annual.f4':'📚 追加制作20%割引',
     'plan.current':'現在のプラン',
     'per.month':'/月',
@@ -5111,6 +5119,7 @@ const T = {
     'persona.title':'執筆ペルソナ','persona.sub':'AIがあなたの文体でエッセイを書きます',
     'persona.new':'✨ 新しいペルソナを作成','persona.new.hint':'自分だけの文体を細かく設定しましょう',
     'tone.label':'トーン調整','persona.save':'ペルソナを保存',
+    'persona.opt1':'🌸 感性的な日常体 (デフォルト)','persona.opt2':'📖 文学的抒情体','persona.opt3':'🎬 ブログスクリプト','persona.opt4':'📜 自叙伝回顧体','persona.opt5':'✨ 自分のスタイル (設定が必要)',
     'addcat.title':'本棚を追加','addcat.sub':'新しいカテゴリを作って本棚をカスタマイズしましょう',
     'addcat.emoji':'絵文字を選択','addcat.name':'カテゴリ名','addcat.ph':'例：ペット、運動、読書...',
     'addcat.cancel':'キャンセル','addcat.add':'追加する',
@@ -5134,6 +5143,15 @@ const T = {
     'hero.sub':'只需一张照片和片刻的情感表达\nAI就能为您写出专属的感人故事',
     'hero.cta1':'✦ 打开我的图书馆','hero.cta2':'查看书架',
     'hero.scroll':'向下滚动',
+    // SC2 示例随笔
+    'sc2.label':'AI随笔示例','sc2.title':'一张照片成为感人的故事','sc2.sub':'AI分析您的瞬间，在30秒内完成您专属的随笔',
+    'sc2.badge':'AI感性随笔','sc2.btn':'✦ 试写',
+    'sc2.t1':'你向我奔来的那一刻<br>是世界上<br>最美丽的瞬间',
+    'sc2.b1':'站在草坪上张开双臂，<br>一团蓬松的白色毛球<br>带着整个世界向我奔来。<br><br>那小小的脚步声与我心跳重合时，<br>我终于明白，<br>这一刻<br>是我人生中最充实的瞬间。',
+    'sc2.t2':'樱花飘落的瞬间<br>只有你的微笑<br>留在了记忆里',
+    'sc2.b2':'四月的石村湖<br>染上了粉红色，<br>每当微风吹来，花瓣便翩翩起舞。<br><br>透过相机取景器看到的<br>你的微笑，<br>比任何樱花<br>都更温暖、更明亮。',
+    'sc2.t3':'孩子的笑声<br>是这个春日<br>最美妙的音乐',
+    'sc2.b3':'我们在翠绿的草坪上铺开野餐垫。<br>孩子紧紧抱着玩具熊，<br>绽放出世界上最灿烂的笑容。<br><br>草莓、葡萄、一瓶橙汁，<br>还有彼此的眼神，<br>我们的春天已经足够璀璨。',
     'feat.label':'核心功能','feat.title':'记录日常生活\n最美丽的方式',
     'feat.sub':'与社交媒体不同。您的文字积累成一座人生图书馆。',
     'f1.title':'按下快门，故事便开始了','f1.desc':'打开相机按下快门，AI分析场景，30秒内完成感人随笔。',
@@ -5150,17 +5168,16 @@ const T = {
     'price.label':'订阅方案','price.title':'选择适合您故事的方案',
     'price.sub':'免费开始，随时升级。订阅3个月以上可享受精装随笔书制作福利。',
     'plan.popular':'✦ 最受欢迎','plan.save':'节省25%',
-    'plan.free':'FREE','plan.free.name':'免费方案','plan.free.d':'开始的最佳选择','plan.free.p':'$0','plan.free.period':'永久免费','plan.free.cta':'免费开始',
+    'plan.free':'FREE','plan.free.name':'免费方案','plan.free.d':'开始的最佳选择','plan.free.p':'$0 / ₩0','plan.free.period':'永久免费','plan.free.cta':'免费开始',
     'plan.free.f1':'每月10篇AI随笔','plan.free.f2':'最多保存50篇','plan.free.f3':'基本格式3种','plan.free.f4':'社交分享',
-    'plan.pro':'PRO','plan.pro.name':'专业方案','plan.pro.d':'适合活跃记录者','plan.pro.p':'$7.99','plan.pro.period':'/ 月 · 随时取消','plan.pro.cta':'开始专业版 →',
+    'plan.pro':'PRO','plan.pro.name':'专业方案','plan.pro.d':'适合活跃记录者','plan.pro.p':'$7.99 / ₩9,900','plan.pro.period':'/ 月 · 随时取消','plan.pro.cta':'开始专业版 →',
     'plan.pro.f1':'无限AI随笔','plan.pro.f2':'无限书库','plan.pro.f3':'全部格式','plan.pro.f4':'无广告','plan.pro.f5':'📚 订阅3月+精装书八折',
-    'plan.premium.name':'高级方案','plan.toggle.monthly':'月付','plan.toggle.yearly':'年付',
-    'plan.prem':'PREMIUM','plan.prem.name':'高级月付','plan.prem.d':'想留下珍贵回忆的您','plan.prem.p':'$14.99','plan.prem.period':'/ 月 · 随时取消','plan.prem.cta':'开始高级版 →',
+    'plan.prem':'PREMIUM','plan.prem.name':'高级月付','plan.prem.d':'想留下珍贵回忆的您','plan.prem.p':'$14.99 / ₩19,900','plan.prem.period':'/ 月 · 随时取消','plan.prem.cta':'开始高级版 →',
     'plan.prem.f1':'含专业版全功能','plan.prem.f2':'AI图像生成','plan.prem.f3':'漫画故事模式','plan.prem.f4':'语音备忘录转换','plan.prem.f5':'📚 订阅3月+精装书八折',
-    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'高级年付','plan.annual.d':'1年+精装书2册免费','plan.annual.p':'$134.99','plan.annual.period':'/ 年 · (月均$11.25)','plan.annual.cta':'开始年付方案 →',
+    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'高级年付','plan.annual.d':'1年+精装书2册免费','plan.annual.p':'$134.99 / ₩178,800','plan.annual.period':'/ 年 · (月均$11.25)','plan.annual.cta':'开始年付方案 →',
     'plan.annual.f1':'高级版全功能','plan.annual.f2':'优先客户支持','plan.annual.f3':'🎁 每年2次免费精装随笔书','plan.annual.f4':'📚 额外制作享八折',
     'plan.current':'当前方案',
-    'plan.pro':'PRO','plan.pro.d':'适合活跃记录者','plan.pro.p':'$7.99','plan.pro.cta':'开始专业版 →',
+    'plan.pro':'专业版','plan.pro.d':'适合内容创作者','plan.pro.p':'¥138','plan.pro.cta':'开始专业版',
     'per.month':'/月',
     'free.f1':'每月5篇随笔生成','free.f2':'基本3个分类','free.f3':'社交媒体分享',
     'prem.f1':'每月30篇随笔生成','prem.f2':'全部分类+自定义','prem.f3':'人设写作风格','prem.f4':'相机与语音功能','prem.f5':'视频博客/自传转换',
@@ -5209,6 +5226,7 @@ const T = {
     'persona.title':'写作人设','persona.sub':'AI以您的文风撰写随笔',
     'persona.new':'✨ 创建新人设','persona.new.hint':'细致设置您专属的写作风格',
     'tone.label':'语气调整','persona.save':'保存人设',
+    'persona.opt1':'🌸 感性日常体 (默认)','persona.opt2':'📖 文学抒情体','persona.opt3':'🎬 视频博客脚本','persona.opt4':'📜 自传回忆体','persona.opt5':'✨ 我的专属风格 (需设置)',
     'addcat.title':'添加书架','addcat.sub':'创建新分类来装饰您的书架',
     'addcat.emoji':'选择表情','addcat.name':'分类名称','addcat.ph':'例：宠物、运动、阅读...',
     'addcat.cancel':'取消','addcat.add':'添加',
@@ -5240,7 +5258,11 @@ function setLang(lang){
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const key=el.getAttribute('data-i18n');
     const val=t(key);
-    if(val) el.textContent=val;
+    if(val){
+      // br 태그가 포함된 경우 innerHTML 사용
+      if(val.includes('<br>')) el.innerHTML=val;
+      else el.textContent=val;
+    }
   });
   document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
     const key=el.getAttribute('data-i18n-ph');
@@ -5300,7 +5322,6 @@ function setLang(lang){
   [[freeFs,'free'],[premFs,'prem'],[proFs,'pro']].forEach(([keys,pfx])=>{
     keys.forEach((k,i)=>_setText(`pF_${pfx}_${i}`,t(k)));
   });
-  syncPremiumPlans();
   _setText('footerTitle',t('footer.t').replace(/\n/g,'<br>'));
   _setText('footerSub',t('footer.sub'));
   _setText('footerCta',t('footer.cta'));
@@ -5359,6 +5380,17 @@ function setLang(lang){
   _setText('catTitle',t('cat.title')); _setText('catHint',t('cat.hint'));
   _setText('catAddBtn',t('cat.add'));
   _setText('personaTitle2',t('persona.title2')); _setText('personaHint2',t('persona.hint2'));
+  // Update persona select options
+  (function(){
+    var sel=document.querySelector('.persona-sel');
+    if(!sel)return;
+    var saved=sel.value;
+    sel.options[0].text=t('persona.opt1');
+    sel.options[1].text=t('persona.opt2');
+    sel.options[2].text=t('persona.opt3');
+    if(sel.options[3])sel.options[3].text=t('persona.opt4');
+    if(sel.options[4])sel.options[4].text=t('persona.opt5');
+  })();
   _setText('fmtTitle',t('fmt.title')); _setText('fmtHint',t('fmt.hint'));
   _setText('fmtEssay',t('fmt.essay')); _setText('fmtVlog',t('fmt.vlog')); _setText('fmtAuto',t('fmt.auto'));
   _setText('btnPrev3',t('btn.prev')); _setText('btnNext3',t('btn.next2'));
@@ -6670,35 +6702,20 @@ function renderSettingsView(){
     <!-- 프로필 섹션 -->
     <div class="settings-section" id="profileSection">
       <h4>👤 내 프로필</h4>
-      ${_currentUser ? `
-      <div class="settings-row" style="flex-direction:column;align-items:flex-start;gap:8px;">
-        <span class="settings-label">이름 / 닉네임</span>
-        <div style="display:flex;gap:8px;width:100%;">
-          <input id="nicknameInput" type="text" value="${_currentUser.name||''}"
-            placeholder="이름 또는 닉네임 입력"
-            style="flex:1;padding:10px 14px;background:rgba(200,168,74,0.06);border:1px solid rgba(200,168,74,0.2);border-radius:10px;color:rgba(245,237,216,0.9);font-family:var(--fu);font-size:13px;outline:none;">
-          <button onclick="saveNickname()"
-            style="padding:10px 16px;background:linear-gradient(135deg,#C8A84A,#8B6520);color:#0A0400;border:none;border-radius:10px;font-family:var(--fu);font-size:11px;font-weight:800;cursor:pointer;">
-            저장
-          </button>
-        </div>
-      </div>
-      <div class="settings-row">
-        <span class="settings-label">계정</span>
-        <span class="settings-value">${_currentUser.email || _currentUser.provider}</span>
-      </div>
-      <div class="settings-row">
-        <span class="settings-label">이름 / 닉네임</span>
-        <input id="nicknameInput" type="text" value="${_currentUser.name||''}" placeholder="닉네임 입력"
-          style="background:rgba(200,168,74,0.06);border:1px solid rgba(200,168,74,0.2);border-radius:8px;padding:6px 12px;color:var(--gold2);font-family:var(--fu);font-size:13px;width:140px;outline:none;">
-      </div>
-      <div class="settings-row" style="border:none">
-        <button onclick="saveNickname()" style="width:100%;padding:10px;background:rgba(200,168,74,0.15);border:1px solid rgba(200,168,74,0.25);color:var(--gold2);border-radius:10px;cursor:pointer;font-size:13px;font-weight:600">저장</button>
-      </div>
-      <div class="settings-row" style="border:none;margin-top:4px">
-        <button onclick="logout()" style="width:100%;padding:10px;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);color:rgba(239,68,68,0.7);border-radius:10px;cursor:pointer;font-size:13px;font-weight:600">로그아웃</button>
-      </div>
-      ` : `
+      ${_currentUser ? (() => {
+        var saved = JSON.parse(localStorage.getItem('page_profile')||'{}');
+        var inp = (id,val,ph) => '<input class="settings-profile-inp" id="'+id+'" type="text" value="'+(val||'')+'" placeholder="'+ph+'">';
+        return '<div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">'
+          + inp('profName', _currentUser.name||saved.name, '이름 (실명)')
+          + inp('profNick', saved.nick||'', '닉네임')
+          + '<input class="settings-profile-inp" id="profEmail" type="email" value="'+(_currentUser.email||saved.email||'')+'" placeholder="이메일" '+((_currentUser.provider&&_currentUser.provider!=='email')?'readonly style="opacity:.55"':'')+'>'
+          + inp('profPhone', saved.phone||'', '연락처 (에세이북 배송용)')
+          + inp('profAddr', saved.addr||'', '주소 (에세이북 배송용)')
+          + '<button onclick="saveProfile()" style="padding:10px;background:linear-gradient(135deg,var(--gold),#8B6520);color:#0A0400;border:none;border-radius:10px;font-family:var(--fu);font-size:12px;font-weight:800;cursor:pointer;">저장</button>'
+          + '</div>'
+          + '<div class="settings-row"><span class="settings-label">계정</span><span class="settings-value">'+(saved.email||_currentUser.email||_currentUser.provider||'')+'</span></div>'
+          + '<div class="settings-row" style="border:none;margin-top:4px"><button onclick="logout()" style="width:100%;padding:10px;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);color:rgba(239,68,68,0.7);border-radius:10px;cursor:pointer;font-size:13px;font-weight:600">로그아웃</button></div>';
+      })() : `
       <div class="settings-row" style="border:none">
         <button onclick="openLoginModal()" style="width:100%;padding:10px;background:rgba(200,168,74,0.15);border:1px solid rgba(200,168,74,0.25);color:var(--gold2);border-radius:10px;cursor:pointer;font-size:13px;font-weight:600">로그인하기</button>
       </div>
@@ -6707,15 +6724,40 @@ function renderSettingsView(){
 
     <!-- 구독 / 결제 섹션 -->
     <div class="settings-section">
-      <h4>💳 구독 & 결제</h4>
+      <h4>💳 구독 관리</h4>
       <div class="settings-row">
         <span class="settings-label">현재 플랜</span>
         <span class="settings-value" style="color:var(--gold)">${_currentUser ? (_currentUser.plan||'free').toUpperCase() : 'FREE'}</span>
       </div>
-      <div class="settings-row" style="border:none;gap:8px;flex-wrap:wrap">
-        <button onclick="openPricingModal()" style="flex:1;min-width:120px;padding:10px;background:linear-gradient(135deg,var(--gold),#8B6520);color:#0A0400;border:none;border-radius:10px;cursor:pointer;font-size:12px;font-weight:800">✦ 업그레이드 (토스)</button>
-        <button onclick="openPaypalModal()" style="flex:1;min-width:120px;padding:10px;background:#003087;color:#fff;border:none;border-radius:10px;cursor:pointer;font-size:12px;font-weight:800">🌐 PayPal (해외)</button>
+      ${_currentUser && (_currentUser.plan==='pro'||_currentUser.plan==='premium') ? `
+      <div class="settings-row">
+        <span class="settings-label">갱신일</span>
+        <span class="settings-value">매월 자동 갱신</span>
+      </div>` : ''}
+      <div class="settings-row" style="border:none;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+        <button onclick="openSubscriptionModal()" style="flex:1;min-width:120px;padding:10px;background:linear-gradient(135deg,var(--gold),#8B6520);color:#0A0400;border:none;border-radius:10px;cursor:pointer;font-size:12px;font-weight:800">✦ 구독 플랜 보기</button>
       </div>
+      <div class="settings-row" style="border:none;padding-top:0">
+        <span class="settings-label" style="font-size:11px;color:rgba(200,168,74,0.6)">📖 PDF 다운로드는 Pro 이상 플랜에서 에세이 뷰 → 저장 메뉴에서 이용하실 수 있습니다.</span>
+      </div>
+    </div>
+
+    <!-- 양장본 신청 섹션 -->
+    <div class="settings-section">
+      <h4>📗 양장본 에세이집 신청</h4>
+      <div style="font-family:var(--fu);font-size:11px;color:rgba(220,195,160,0.78);line-height:1.7;margin-bottom:12px;">
+        3개월 이상 구독 시 나만의 감성 양장본 에세이집을 제작해 드립니다.<br>배송을 위해 프로필에 주소와 연락처를 저장해주세요.
+      </div>
+      ${_currentUser && (_currentUser.plan==='premium') ? `
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <input class="settings-profile-inp" id="bookTitle" placeholder="에세이집 제목 (예: 나의 봄날)">
+        <textarea id="bookNote" placeholder="특별 요청사항 (표지 색상, 문구 등)" style="padding:10px 14px;background:rgba(200,168,74,0.06);border:1px solid rgba(200,168,74,0.2);border-radius:10px;color:rgba(245,237,216,0.88);font-family:var(--fu);font-size:12px;outline:none;resize:vertical;min-height:72px;"></textarea>
+        <button onclick="requestEssayBook()" style="padding:10px;background:linear-gradient(135deg,#c084fc,#7c3aed);color:#fff;border:none;border-radius:10px;font-size:12px;font-weight:800;cursor:pointer;">📮 양장본 신청하기</button>
+      </div>` : `
+      <div style="padding:14px;background:rgba(200,168,74,0.05);border:1px dashed rgba(200,168,74,0.2);border-radius:10px;font-family:var(--fu);font-size:11px;color:rgba(200,168,74,0.6);text-align:center">
+        Premium 플랜 3개월 이상 구독 시 이용 가능합니다<br>
+        <button onclick="openSubscriptionModal()" style="margin-top:8px;background:none;border:none;color:var(--gold2);font-size:11px;font-weight:700;cursor:pointer;text-decoration:underline">플랜 업그레이드 →</button>
+      </div>`}
     </div>
 
     <div class="settings-section">
@@ -6760,6 +6802,38 @@ function renderSettingsView(){
       </div>
     </div>
   `;
+}
+
+function saveProfile(){
+  var prof = {
+    name: (document.getElementById('profName')||{}).value||'',
+    nick: (document.getElementById('profNick')||{}).value||'',
+    email: (document.getElementById('profEmail')||{}).value||'',
+    phone: (document.getElementById('profPhone')||{}).value||'',
+    addr: (document.getElementById('profAddr')||{}).value||''
+  };
+  localStorage.setItem('page_profile', JSON.stringify(prof));
+  if(_currentUser && prof.name){
+    _currentUser.name = prof.name;
+    localStorage.setItem('page_user', JSON.stringify(_currentUser));
+    updateAuthUI();
+  }
+  showToast('✅ 프로필이 저장되었습니다');
+}
+
+function openSubscriptionModal(){
+  openPricingModal();
+}
+
+function requestEssayBook(){
+  var title = (document.getElementById('bookTitle')||{}).value||'';
+  var note = (document.getElementById('bookNote')||{}).value||'';
+  var prof = JSON.parse(localStorage.getItem('page_profile')||'{}');
+  if(!prof.addr || !prof.phone){
+    showToast('⚠️ 먼저 프로필에 주소와 연락처를 저장해주세요');
+    return;
+  }
+  showToast('📮 양장본 신청이 접수되었습니다! 담당자가 연락드립니다.');
 }
 
 function toggleLocationPermission(){
@@ -6866,8 +6940,75 @@ function closeLoginModal(){
 function loginWith(provider){
   var names = {google:'구글', kakao:'카카오'};
   showToast('⏳ ' + (names[provider]||provider) + ' 로그인 중...');
-  var callbackUrl = encodeURIComponent(API_BASE_URL + '/auth/callback');
+  var callbackUrl = encodeURIComponent(window.location.origin + window.location.pathname);
   window.location.href = API_BASE_URL + '/api/auth/signin/' + provider + '?callbackUrl=' + callbackUrl;
+}
+
+// ── 이메일 로그인 탭 ──────────────────────────────
+function switchLoginTab(tab){
+  document.getElementById('tabSocial').classList.toggle('active', tab==='social');
+  document.getElementById('tabEmail').classList.toggle('active', tab==='email');
+  document.getElementById('panelSocial').classList.toggle('active', tab==='social');
+  document.getElementById('panelEmail').classList.toggle('active', tab==='email');
+}
+function toggleEmailMode(isLogin){
+  document.getElementById('emailSignupForm').style.display = isLogin ? 'none' : '';
+  document.getElementById('emailLoginForm').style.display = isLogin ? '' : 'none';
+  document.getElementById('authErr').textContent = '';
+}
+function seedNewUserSampleEssays(){
+  var existing = loadEssays();
+  if(existing.length > 0) return;
+  var samples = loadSampleEssays();
+  var seeded = samples.slice(0,3).map(function(s, i){
+    return {
+      id: Date.now() + i,
+      title: s.title.replace(/\n/g,' '),
+      body: s.body,
+      emotion: s.category.split(' · ')[1] || '감성',
+      category: s.category.split(' · ')[0] || '일상',
+      date: s.meta || new Date().toLocaleDateString('ko-KR'),
+      image: null, imgType: null,
+      isSample: true
+    };
+  });
+  persistEssays(seeded);
+}
+function emailSignup(){
+  var name = (document.getElementById('authName')||{}).value||'';
+  var email = (document.getElementById('authEmail')||{}).value||'';
+  var pw = (document.getElementById('authPw')||{}).value||'';
+  var err = document.getElementById('authErr');
+  if(!name.trim()){ err.textContent='이름을 입력해주세요.'; return; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.textContent='올바른 이메일을 입력해주세요.'; return; }
+  if(pw.length < 6){ err.textContent='비밀번호는 6자 이상이어야 합니다.'; return; }
+  var users = JSON.parse(localStorage.getItem('page_email_users') || '{}');
+  if(users[email]){ err.textContent='이미 가입된 이메일입니다. 로그인해주세요.'; return; }
+  users[email] = {name:name.trim(), pw:pw, plan:'free', essaysLeft:10, createdAt:Date.now()};
+  localStorage.setItem('page_email_users', JSON.stringify(users));
+  _currentUser = {id:'email_'+email, name:name.trim(), email:email, plan:'free', provider:'email', essaysLeft:10};
+  localStorage.setItem('page_user', JSON.stringify(_currentUser));
+  seedNewUserSampleEssays();
+  err.textContent='';
+  closeLoginModal();
+  updateAuthUI();
+  showToast('🎉 ' + name.split(' ')[0] + '님, 환영합니다! 에세이 10회가 제공됩니다.');
+  setTimeout(function(){ showScreen('app'); showView('library'); }, 1200);
+}
+function emailLogin(){
+  var email = (document.getElementById('authLoginEmail')||{}).value||'';
+  var pw = (document.getElementById('authLoginPw')||{}).value||'';
+  var err = document.getElementById('authErr');
+  var users = JSON.parse(localStorage.getItem('page_email_users') || '{}');
+  var u = users[email];
+  if(!u || u.pw !== pw){ err.textContent='이메일 또는 비밀번호가 올바르지 않습니다.'; return; }
+  _currentUser = {id:'email_'+email, name:u.name, email:email, plan:u.plan||'free', provider:'email', essaysLeft:u.essaysLeft};
+  localStorage.setItem('page_user', JSON.stringify(_currentUser));
+  err.textContent='';
+  closeLoginModal();
+  updateAuthUI();
+  showToast('✅ ' + u.name.split(' ')[0] + '님, 반갑습니다!');
+  setTimeout(function(){ showScreen('app'); showView('library'); }, 1200);
 }
 
 // ── 로그아웃 ─────────────────────────────────────
@@ -6909,6 +7050,8 @@ function updateAuthUI(){
   } else {
     if(loginBtn) loginBtn.style.display = '';
   }
+  var adminBtn = document.getElementById('sb-admin');
+  if(adminBtn) adminBtn.style.display = _isAdmin ? '' : 'none';
 }
 
 // ── 유저 드롭다운 ─────────────────────────────────
@@ -6952,115 +7095,8 @@ function showUserMenu(){
 }
 
 // ── 결제 모달 ─────────────────────────────────────
-var premiumBillingCycle = 'monthly';
-var premiumPlanConfigs = {
-  monthly: {
-    badgeKey: 'plan.popular',
-    badgeFill: 'solid',
-    nameKey: 'plan.premium.name',
-    descKey: 'plan.prem.d',
-    priceKey: 'plan.prem.p',
-    periodKey: 'plan.prem.period',
-    ctaKey: 'plan.prem.cta',
-    featureKeys: ['plan.prem.f1', 'plan.prem.f2', 'plan.prem.f3', 'plan.prem.f4', 'plan.prem.f5'],
-    accentFeatureIndexes: [5],
-    plan: 'premium',
-    amount: 19900
-  },
-  annual: {
-    badgeKey: 'plan.save',
-    badgeFill: 'outline',
-    nameKey: 'plan.premium.name',
-    descKey: 'plan.annual.d',
-    priceKey: 'plan.annual.p',
-    periodKey: 'plan.annual.period',
-    ctaKey: 'plan.annual.cta',
-    featureKeys: ['plan.annual.f1', 'plan.annual.f2', 'plan.annual.f3', 'plan.annual.f4'],
-    accentFeatureIndexes: [3, 4],
-    plan: 'premium_annual',
-    amount: 178800
-  }
-};
-
-function paintPremiumBadge(el, fill){
-  if(!el) return;
-  if(fill === 'outline'){
-    el.style.background = 'rgba(200,168,74,0.15)';
-    el.style.border = '1px solid rgba(200,168,74,0.35)';
-    el.style.color = 'rgba(200,168,74,0.92)';
-  } else {
-    el.style.background = 'linear-gradient(135deg,#C8A84A,#8B6520)';
-    el.style.border = 'none';
-    el.style.color = '#0A0400';
-  }
-}
-
-function paintPremiumTab(el, active){
-  if(!el) return;
-  el.setAttribute('aria-pressed', active ? 'true' : 'false');
-  el.style.background = active ? 'linear-gradient(135deg,#C8A84A,#8B6520)' : 'transparent';
-  el.style.color = active ? '#0A0400' : 'rgba(245,237,216,0.72)';
-  el.style.fontWeight = active ? '800' : '700';
-}
-
-function renderPremiumPlan(sectionId, cycle){
-  var config = premiumPlanConfigs[cycle] || premiumPlanConfigs.monthly;
-  var badge = document.getElementById('premiumBadge' + sectionId);
-  var name = document.getElementById('premiumName' + sectionId);
-  var desc = document.getElementById('premiumDesc' + sectionId);
-  var price = document.getElementById('premiumPrice' + sectionId);
-  var period = document.getElementById('premiumPeriod' + sectionId);
-  var cta = document.getElementById('premiumCta' + sectionId);
-  var monthlyTab = document.getElementById('premiumMonthlyTab' + sectionId);
-  var annualTab = document.getElementById('premiumAnnualTab' + sectionId);
-  if(!badge || !name || !price || !period || !cta || !monthlyTab || !annualTab) return;
-
-  badge.textContent = t(config.badgeKey);
-  paintPremiumBadge(badge, config.badgeFill);
-  if(desc) desc.textContent = t(config.descKey);
-  name.textContent = t(config.nameKey);
-  price.textContent = t(config.priceKey);
-  period.textContent = t(config.periodKey);
-  cta.textContent = t(config.ctaKey);
-  paintPremiumTab(monthlyTab, cycle === 'monthly');
-  paintPremiumTab(annualTab, cycle === 'annual');
-
-  for(var i = 1; i <= 5; i++){
-    var feature = document.getElementById('premiumFeature' + sectionId + i);
-    if(!feature) continue;
-    var key = config.featureKeys[i - 1];
-    if(key){
-      feature.style.display = '';
-      feature.textContent = t(key);
-      feature.style.borderBottom = i === config.featureKeys.length ? 'none' : '1px solid rgba(200,168,74,0.1)';
-      feature.style.color = (config.accentFeatureIndexes || []).indexOf(i) !== -1
-        ? 'rgba(200,168,74,0.95)'
-        : 'rgba(245,237,216,0.92)';
-    } else {
-      feature.style.display = 'none';
-    }
-  }
-}
-
-function syncPremiumPlans(){
-  renderPremiumPlan('Landing', premiumBillingCycle);
-  renderPremiumPlan('Modal', premiumBillingCycle);
-}
-
-function setPremiumBillingCycle(cycle){
-  premiumBillingCycle = cycle === 'annual' ? 'annual' : 'monthly';
-  syncPremiumPlans();
-}
-
-function startSelectedPremiumPayment(){
-  var config = premiumPlanConfigs[premiumBillingCycle] || premiumPlanConfigs.monthly;
-  startPayment(config.plan, config.amount);
-}
-
-function openPricingModal(cycle){
+function openPricingModal(){
   if(!_currentUser){ openLoginModal(); return; }
-  if(cycle) premiumBillingCycle = cycle === 'annual' ? 'annual' : 'monthly';
-  syncPremiumPlans();
   var m = document.getElementById('pricingModal');
   if(m) m.classList.add('open');
 }
@@ -7167,7 +7203,6 @@ document.addEventListener('DOMContentLoaded', function(){
   if(pm) pm.addEventListener('click', function(e){ if(e.target===pm) closePricingModal(); });
   var am=document.getElementById('adminLoginModal');
   if(am) am.addEventListener('click', function(e){ if(e.target===am) closeAdminLogin(); });
-  syncPremiumPlans();
   document.addEventListener('keydown', function(e){
     if(e.key==='Escape'){ closeLoginModal(); closePricingModal(); closeAdminLogin(); }
   });
@@ -7188,6 +7223,198 @@ function saveNickname(){
     showToast('✅ 닉네임이 저장되었습니다');
   }
 }
+
+// ============================================================
+//  샘플 에세이 관리 (관리자)
+// ============================================================
+var SAMPLE_ESSAYS_DATA = [
+  {id:1,category:'반려동물 · 행복',title:'나를 향해 달려오는\n그 순간이\n세상에서 가장 아름다웠다',body:'잔디 위에 서서 두 팔을 벌렸을 때,\n복실복실한 하얀 털뭉치가\n온 세상이 나를 향해 달려왔다.\n\n그 작은 발이 만들어내는 리듬이\n내 심장 박자와 맞닿을 때,\n나는 비로소 이 순간이\n내 인생에서 가장 충만한 찰나임을 알았다.',meta:'2025. 4. 한강공원'},
+  {id:2,category:'봄 · 설렘',title:'벚꽃이 지는 순간,\n그대의 미소만이\n기억에 남았습니다',body:'4월의 석촌호수는\n분홍빛으로 물들어 있었고,\n바람이 불 때마다 꽃잎이 춤을 추었다.\n\n카메라 뷰파인더 너머로 바라보는\n그대의 미소는,\n어떤 벚꽃보다도\n더 따뜻하고 더 환했다.',meta:'2025. 4. 석촌호수'},
+  {id:3,category:'가족 · 따뜻함',title:'아이의 웃음소리가\n이 봄날의\n가장 좋은 음악이었다',body:'초록빛 잔디 위에\n돗자리를 펴고 앉았다.\n아이는 곰 인형을 꼭 안은 채로\n세상에서 가장 환한 웃음을 지었다.\n\n딸기와 포도, 오렌지 주스 한 병,\n그리고 서로의 눈빛만으로도\n우리의 봄은 충분히 빛났다.',meta:'2025. 4. 올림픽공원'}
+];
+
+function loadSampleEssays(){
+  try{var s=localStorage.getItem('pageai_sample_essays');if(s)SAMPLE_ESSAYS_DATA=JSON.parse(s);}catch(e){}
+  return SAMPLE_ESSAYS_DATA;
+}
+
+function saveSampleEssays(){
+  localStorage.setItem('pageai_sample_essays',JSON.stringify(SAMPLE_ESSAYS_DATA));
+  applySampleEssaysToLanding();
+  showToast('✅ 샘플 에세이가 저장되었습니다');
+}
+
+function applySampleEssaysToLanding(){
+  var essays=loadSampleEssays();
+  var cards=document.querySelectorAll('.sc2-card');
+  essays.forEach(function(essay,i){
+    if(!cards[i])return;
+    // 제목
+    var titleEl=cards[i].querySelector('.sc2-essay-title');
+    if(titleEl)titleEl.innerHTML=essay.title.replace(/\n/g,'<br>');
+    // 본문
+    var bodyEl=cards[i].querySelector('.sc2-essay-text');
+    if(bodyEl)bodyEl.innerHTML=essay.body.replace(/\n/g,'<br>');
+    // 카테고리 태그
+    var catEl=cards[i].querySelector('.sc2-tag');
+    if(catEl && essay.category) catEl.textContent=essay.category;
+    // 메타 정보
+    var metaEl=cards[i].querySelector('.sc2-date');
+    if(metaEl && essay.meta) metaEl.textContent=essay.meta;
+    // 사진 (있을 때만 교체)
+    if(essay.image){
+      var imgEl=cards[i].querySelector('.sc2-img img');
+      if(imgEl){
+        imgEl.src=essay.image;
+        imgEl.style.objectFit='cover';
+      }
+    }
+  });
+}
+
+function renderSampleEssayList(){
+  var essays=loadSampleEssays();
+  var list=document.getElementById('sampleEssayList');
+  if(!list)return;
+  list.innerHTML='';
+  essays.forEach(function(essay,idx){
+    var card=document.createElement('div');
+    card.style.cssText='background:rgba(200,168,74,0.04);border:1px solid rgba(200,168,74,0.15);border-radius:14px;padding:20px 24px;margin-bottom:2px;';
+    var delBtn=essays.length>1?'<button onclick="deleteSampleEssay('+idx+')" style="padding:7px 14px;background:rgba(200,50,50,0.1);border:1px solid rgba(200,50,50,0.25);border-radius:8px;color:rgba(220,80,80,0.8);font-family:var(--fu);font-size:11px;font-weight:700;cursor:pointer;">🗑️ 삭제</button>':'';
+    var thumbHtml = essay.image
+      ? '<img src="'+essay.image+'" style="width:72px;height:72px;object-fit:cover;border-radius:10px;flex-shrink:0;border:1px solid rgba(200,168,74,0.15);">'
+      : '<div style="width:72px;height:72px;background:rgba(200,168,74,0.05);border-radius:10px;flex-shrink:0;border:1px solid rgba(200,168,74,0.1);display:flex;align-items:center;justify-content:center;font-size:24px;">📷</div>';
+    card.innerHTML='<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;gap:12px;">'
+      +thumbHtml
+      +'<div style="flex:1;min-width:0;">'
+      +'<div style="font-family:var(--fu);font-size:10px;color:rgba(200,168,74,0.7);letter-spacing:.1em;margin-bottom:6px;">카드 '+(idx+1)+' · '+essay.category+'</div>'
+      +'<div style="font-family:var(--fs);font-style:italic;font-size:15px;color:rgba(245,237,216,0.92);margin-bottom:8px;">'+essay.title.replace(/\n/g,' ')+'</div>'
+      +'<div style="font-family:var(--fu);font-size:11px;color:rgba(245,237,216,0.55);line-height:1.6;">'+essay.body.replace(/\n/g,' ').substring(0,70)+'...</div>'
+      +'</div>'
+      +'<div style="display:flex;flex-direction:column;gap:6px;flex-shrink:0;">'
+      +'<button onclick="openEditEssayModal('+idx+')" style="padding:7px 14px;background:rgba(200,168,74,0.1);border:1px solid rgba(200,168,74,0.25);border-radius:8px;color:rgba(200,168,74,0.8);font-family:var(--fu);font-size:11px;font-weight:700;cursor:pointer;">✏️ 수정</button>'
+      +delBtn+'</div></div>';
+    list.appendChild(card);
+  });
+}
+
+function deleteSampleEssay(idx){
+  if(!confirm('이 샘플 에세이를 삭제하시겠습니까?'))return;
+  SAMPLE_ESSAYS_DATA.splice(idx,1);
+  saveSampleEssays();
+  renderSampleEssayList();
+}
+
+function openAddEssayModal(){
+  openEssayEditModal(-1,{id:Date.now(),category:'',title:'',body:'',meta:''});
+}
+
+function openEditEssayModal(idx){
+  openEssayEditModal(idx,SAMPLE_ESSAYS_DATA[idx]);
+}
+
+function closeEssayEditModal(){
+  var el=document.getElementById('essayEditOverlay');
+  if(el)el.remove();
+}
+
+function openEssayEditModal(idx,essay){
+  closeEssayEditModal();
+  window._eeImgBase64 = essay.image || '';
+  var overlay=document.createElement('div');
+  overlay.id='essayEditOverlay';
+  overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:10020;display:flex;align-items:center;justify-content:center;padding:20px;';
+  var title=idx===-1?'새 샘플 에세이 추가':'샘플 에세이 수정';
+  var imgPreview = essay.image
+    ? '<img id="eeImgPreview" src="'+essay.image+'" style="width:100%;height:160px;object-fit:cover;border-radius:10px;display:block;">'
+    : '<div id="eeImgPreview" style="width:100%;height:160px;background:rgba(200,168,74,0.04);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;"><span style=\"font-size:32px;\">📷</span><span style=\"font-family:var(--fu);font-size:12px;color:rgba(200,168,74,0.6)\">사진을 선택하세요</span></div>';
+  overlay.innerHTML='<div style="background:#1a0d06;border:1px solid rgba(200,168,74,0.25);border-radius:20px;padding:32px;max-width:560px;width:100%;max-height:88vh;overflow-y:auto;">'
+    +'<div style="font-family:var(--fs);font-style:italic;font-size:20px;color:var(--gold2);margin-bottom:20px;">'+title+'</div>'
+    // 사진 첨부
+    +'<label style="font-family:var(--fu);font-size:11px;color:rgba(200,168,74,0.7);display:block;margin-bottom:6px;">📷 대표 사진</label>'
+    +'<div style="margin-bottom:14px;">'
+    +imgPreview
+    +'<div style="display:flex;gap:8px;margin-top:8px;">'
+    +'<label for="eeImgInput" style="flex:1;padding:10px;background:rgba(200,168,74,0.08);border:1px solid rgba(200,168,74,0.2);border-radius:10px;color:rgba(200,168,74,0.8);font-family:var(--fu);font-size:12px;font-weight:700;cursor:pointer;text-align:center;">📁 사진 선택</label>'
+    +'<button onclick="clearEssayImage()" style="padding:10px 14px;background:rgba(200,50,50,0.08);border:1px solid rgba(200,50,50,0.2);border-radius:10px;color:rgba(220,80,80,0.7);font-family:var(--fu);font-size:11px;cursor:pointer;">삭제</button>'
+    +'</div>'
+    +'<input id="eeImgInput" type="file" accept="image/*" style="display:none;" onchange="handleEssayImageUpload(event)">'
+    +'</div>'
+    // 카테고리
+    +'<label style="font-family:var(--fu);font-size:11px;color:rgba(200,168,74,0.7);display:block;margin-bottom:6px;">카테고리</label>'
+    +'<input id="eeCategory" type="text" value="'+(essay.category||'')+'" placeholder="예: 반려동물 · 행복" style="width:100%;padding:10px 14px;background:rgba(200,168,74,0.05);border:1px solid rgba(200,168,74,0.2);border-radius:10px;color:rgba(245,237,216,0.9);font-family:var(--fu);font-size:13px;box-sizing:border-box;margin-bottom:14px;">'
+    // 제목
+    +'<label style="font-family:var(--fu);font-size:11px;color:rgba(200,168,74,0.7);display:block;margin-bottom:6px;">제목 (줄바꿈 = \n)</label>'
+    +'<textarea id="eeTitle" rows="3" style="width:100%;padding:10px 14px;background:rgba(200,168,74,0.05);border:1px solid rgba(200,168,74,0.2);border-radius:10px;color:rgba(245,237,216,0.9);font-family:var(--fu);font-size:13px;resize:vertical;box-sizing:border-box;margin-bottom:14px;">'+(essay.title||'')+'</textarea>'
+    // 본문
+    +'<label style="font-family:var(--fu);font-size:11px;color:rgba(200,168,74,0.7);display:block;margin-bottom:6px;">본문 (줄바꿈 = \n)</label>'
+    +'<textarea id="eeBody" rows="7" style="width:100%;padding:10px 14px;background:rgba(200,168,74,0.05);border:1px solid rgba(200,168,74,0.2);border-radius:10px;color:rgba(245,237,216,0.9);font-family:var(--fu);font-size:13px;resize:vertical;box-sizing:border-box;margin-bottom:14px;">'+(essay.body||'')+'</textarea>'
+    // 메타
+    +'<label style="font-family:var(--fu);font-size:11px;color:rgba(200,168,74,0.7);display:block;margin-bottom:6px;">메타 정보 (예: 2025. 4. 한강공원)</label>'
+    +'<input id="eeMeta" type="text" value="'+(essay.meta||'')+'" style="width:100%;padding:10px 14px;background:rgba(200,168,74,0.05);border:1px solid rgba(200,168,74,0.2);border-radius:10px;color:rgba(245,237,216,0.9);font-family:var(--fu);font-size:13px;box-sizing:border-box;margin-bottom:20px;">'
+    // 버튼
+    +'<div style="display:flex;gap:10px;">'
+    +'<button onclick="saveEssayEdit('+idx+')" style="flex:1;padding:13px;background:linear-gradient(135deg,#C8A84A,#8B6520);color:#0A0400;border:none;border-radius:12px;font-family:var(--fu);font-size:13px;font-weight:800;cursor:pointer;">저장하기</button>'
+    +'<button onclick="closeEssayEditModal()" style="padding:13px 20px;background:transparent;border:1px solid rgba(200,168,74,0.2);border-radius:12px;color:rgba(200,168,74,0.6);font-family:var(--fu);font-size:12px;cursor:pointer;">취소</button>'
+    +'</div></div>';
+  document.body.appendChild(overlay);
+}
+
+// 사진 업로드 핸들러
+function handleEssayImageUpload(e){
+  var file = e.target.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(ev){
+    window._eeImgBase64 = ev.target.result;
+    var preview = document.getElementById('eeImgPreview');
+    if(preview){
+      preview.outerHTML = '<img id="eeImgPreview" src="'+ev.target.result+'" style="width:100%;height:160px;object-fit:cover;border-radius:10px;display:block;">';
+    }
+    showToast('✅ 사진이 선택되었습니다');
+  };
+  reader.readAsDataURL(file);
+}
+
+// 사진 삭제
+function clearEssayImage(){
+  window._eeImgBase64 = '';
+  var preview = document.getElementById('eeImgPreview');
+  if(preview){
+    preview.outerHTML = '<div id="eeImgPreview" style="width:100%;height:160px;background:rgba(200,168,74,0.04);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;"><span style=\"font-size:32px;\">📷</span><span style=\"font-family:var(--fu);font-size:12px;color:rgba(200,168,74,0.6)\">사진을 선택하세요</span></div>';
+  }
+  showToast('🗑️ 사진이 삭제되었습니다');
+}
+
+function saveEssayEdit(idx){
+  var category=(document.getElementById('eeCategory')||{}).value||'';
+  var title=(document.getElementById('eeTitle')||{}).value||'';
+  var body=(document.getElementById('eeBody')||{}).value||'';
+  var meta=(document.getElementById('eeMeta')||{}).value||'';
+  var image=window._eeImgBase64||'';
+  if(!title.trim()){showToast('❌ 제목을 입력하세요');return;}
+  if(!body.trim()){showToast('❌ 본문을 입력하세요');return;}
+  var obj={id:Date.now(),category:category,title:title,body:body,meta:meta,image:image};
+  if(idx===-1){
+    if(SAMPLE_ESSAYS_DATA.length>=6){showToast('❌ 최대 6개까지 추가 가능합니다');return;}
+    SAMPLE_ESSAYS_DATA.push(obj);
+  }else{
+    SAMPLE_ESSAYS_DATA[idx]=obj;
+  }
+  saveSampleEssays();
+  renderSampleEssayList();
+  closeEssayEditModal();
+}
+
+// 페이지 로드 시 적용
+(function(){
+  loadSampleEssays();
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',applySampleEssaysToLanding);
+  }else{
+    applySampleEssaysToLanding();
+  }
+})();
 
 // ===== SERVICE WORKER REGISTRATION =====
 if('serviceWorker' in navigator){
@@ -7302,28 +7529,50 @@ document.addEventListener('DOMContentLoaded',()=>{
     <div class="login-logo">Page</div>
     <div class="login-tagline">당신의 인생 도서관</div>
 
-    <!-- 구글 -->
-    <button class="login-btn login-btn-google" onclick="loginWith('google')">
-      <span class="login-btn-icon">
-        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-      </span>
-      <span class="login-btn-text">Google로 계속하기</span>
-      <span class="login-btn-arrow">→</span>
-    </button>
+    <!-- 탭 -->
+    <div class="login-tabs">
+      <button class="login-tab active" id="tabSocial" onclick="switchLoginTab('social')">소셜 로그인</button>
+      <button class="login-tab" id="tabEmail" onclick="switchLoginTab('email')">이메일 가입</button>
+    </div>
 
-    <!-- 카카오 -->
-    <button class="login-btn login-btn-kakao" onclick="loginWith('kakao')">
-      <span class="login-btn-icon">
-        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#191919" d="M12 3C7.03 3 3 6.36 3 10.5c0 2.67 1.6 5.02 4.02 6.42l-.98 3.63a.38.38 0 0 0 .56.42l4.28-2.85c.37.03.74.05 1.12.05 4.97 0 9-3.36 9-7.5S16.97 3 12 3z"/></svg>
-      </span>
-      <span class="login-btn-text">카카오로 계속하기</span>
-      <span class="login-btn-arrow">→</span>
-    </button>
+    <!-- 소셜 패널 -->
+    <div class="auth-panel active" id="panelSocial">
+      <button class="login-btn login-btn-google" onclick="loginWith('google')">
+        <span class="login-btn-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        </span>
+        <span class="login-btn-text">Google로 계속하기</span>
+        <span class="login-btn-arrow">→</span>
+      </button>
+      <button class="login-btn login-btn-kakao" onclick="loginWith('kakao')">
+        <span class="login-btn-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#191919" d="M12 3C7.03 3 3 6.36 3 10.5c0 2.67 1.6 5.02 4.02 6.42l-.98 3.63a.38.38 0 0 0 .56.42l4.28-2.85c.37.03.74.05 1.12.05 4.97 0 9-3.36 9-7.5S16.97 3 12 3z"/></svg>
+        </span>
+        <span class="login-btn-text">카카오로 계속하기</span>
+        <span class="login-btn-arrow">→</span>
+      </button>
+    </div>
 
-
+    <!-- 이메일 패널 -->
+    <div class="auth-panel" id="panelEmail">
+      <div class="auth-err" id="authErr"></div>
+      <div id="emailSignupForm">
+        <input class="auth-input" id="authName" type="text" placeholder="이름 (닉네임)">
+        <input class="auth-input" id="authEmail" type="email" placeholder="이메일">
+        <input class="auth-input" id="authPw" type="password" placeholder="비밀번호 (6자 이상)">
+        <button class="auth-submit" onclick="emailSignup()">✦ 무료로 시작하기 (에세이 10회 제공)</button>
+        <div class="auth-switch">이미 계정이 있으신가요? <button onclick="toggleEmailMode(true)">로그인</button></div>
+      </div>
+      <div id="emailLoginForm" style="display:none">
+        <input class="auth-input" id="authLoginEmail" type="email" placeholder="이메일">
+        <input class="auth-input" id="authLoginPw" type="password" placeholder="비밀번호">
+        <button class="auth-submit" onclick="emailLogin()">로그인</button>
+        <div class="auth-switch">계정이 없으신가요? <button onclick="toggleEmailMode(false)">회원가입</button></div>
+      </div>
+    </div>
 
     <div style="text-align:center;margin-top:16px;margin-bottom:-8px;">
-      <button onclick="switchToAdminLogin()" style="background:none;border:none;color:rgba(200,168,74,0.55);font-family:var(--fu);font-size:10px;cursor:pointer;letter-spacing:.05em;transition:color .2s;" onmouseover="this.style.color='rgba(200,168,74,0.5)'" onmouseout="this.style.color='rgba(200,168,74,0.25)'">관리자 로그인</button>
+      <button onclick="switchToAdminLogin()" style="background:none;border:none;color:rgba(200,168,74,0.25);font-family:var(--fu);font-size:10px;cursor:pointer;letter-spacing:.05em;transition:color .2s;" onmouseover="this.style.color='rgba(200,168,74,0.5)'" onmouseout="this.style.color='rgba(200,168,74,0.25)'">관리자 로그인</button>
     </div>
     <div class="login-terms">
       로그인하면 <a href="#">이용약관</a> 및 <a href="#">개인정보처리방침</a>에 동의합니다.
@@ -7344,7 +7593,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(200,168,74,0.1);border-radius:16px;padding:24px 20px;display:flex;flex-direction:column;">
         <div data-i18n="plan.free" style="font-family:var(--fu);font-size:10px;font-weight:700;letter-spacing:.15em;color:rgba(200,168,74,0.55);text-transform:uppercase;margin-bottom:6px;">FREE</div>
         <div data-i18n="plan.free.name" style="font-family:var(--fs);font-style:italic;font-size:18px;color:rgba(245,237,216,0.88);margin-bottom:14px;">무료 플랜</div>
-        <div data-i18n="plan.free.p" style="font-family:var(--fs);font-size:24px;color:rgba(245,237,216,0.88);margin-bottom:4px;">$0</div>
+        <div data-i18n="plan.free.p" style="font-family:var(--fs);font-size:24px;color:rgba(245,237,216,0.88);margin-bottom:4px;">₩0 / $0</div>
         <div data-i18n="plan.free.period" style="font-family:var(--fu);font-size:11px;color:rgba(245,237,216,0.42);margin-bottom:14px;">영원히 무료</div>
         <ul style="list-style:none;padding:0;margin:0 0 20px;flex:1;font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.75);line-height:2;">
           <li data-i18n="plan.free.f1">✓ 월 10편 AI 에세이 생성</li>
@@ -7359,7 +7608,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       <div style="background:rgba(200,168,74,0.05);border:1px solid rgba(200,168,74,0.25);border-radius:16px;padding:24px 20px;display:flex;flex-direction:column;">
         <div data-i18n="plan.pro" style="font-family:var(--fu);font-size:10px;font-weight:700;letter-spacing:.15em;color:rgba(200,168,74,0.75);text-transform:uppercase;margin-bottom:6px;">PRO</div>
         <div data-i18n="plan.pro.name" style="font-family:var(--fs);font-style:italic;font-size:18px;color:rgba(245,237,216,0.95);margin-bottom:14px;">프로 플랜</div>
-        <div data-i18n="plan.pro.p" style="font-family:var(--fs);font-size:24px;color:var(--gold2);margin-bottom:4px;">$7.99</div>
+        <div data-i18n="plan.pro.p" style="font-family:var(--fs);font-size:24px;color:var(--gold2);margin-bottom:4px;">₩9,900 / $7.99</div>
         <div data-i18n="plan.pro.period" style="font-family:var(--fu);font-size:11px;color:rgba(245,237,216,0.42);margin-bottom:14px;">/ 월 · 언제든 해지 가능</div>
         <ul style="list-style:none;padding:0;margin:0 0 20px;flex:1;font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.85);line-height:2;">
           <li data-i18n="plan.pro.f1">✓ 무제한 AI 에세이 생성</li>
@@ -7371,26 +7620,37 @@ document.addEventListener('DOMContentLoaded',()=>{
         <button data-i18n="plan.pro.cta" onclick="startPayment('pro',9900)" style="width:100%;padding:11px;background:linear-gradient(135deg,rgba(200,168,74,0.12),rgba(200,168,74,0.05));border:1px solid rgba(200,168,74,0.35);border-radius:100px;color:rgba(200,168,74,0.92);font-family:var(--fu);font-size:11px;font-weight:800;cursor:pointer;letter-spacing:.08em;">Pro 시작하기 →</button>
       </div>
 
-      <!-- Premium -->
+      <!-- Premium Monthly -->
       <div style="background:linear-gradient(145deg,rgba(200,168,74,0.1),rgba(139,101,32,0.06));border:2px solid rgba(200,168,74,0.4);border-radius:16px;padding:24px 20px;display:flex;flex-direction:column;position:relative;box-shadow:0 0 30px rgba(200,168,74,0.07);">
-        <div id="premiumBadgeModal" data-i18n="plan.popular" style="position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#C8A84A,#8B6520);color:#0A0400;font-family:var(--fu);font-size:9px;font-weight:800;letter-spacing:.1em;padding:4px 14px;border-radius:100px;white-space:nowrap;">✦ 가장 인기</div>
+        <div data-i18n="plan.popular" style="position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#C8A84A,#8B6520);color:#0A0400;font-family:var(--fu);font-size:9px;font-weight:800;letter-spacing:.1em;padding:4px 14px;border-radius:100px;white-space:nowrap;">✦ 가장 인기</div>
         <div data-i18n="plan.prem" style="font-family:var(--fu);font-size:10px;font-weight:700;letter-spacing:.15em;color:var(--gold2);text-transform:uppercase;margin-bottom:6px;margin-top:4px;">PREMIUM</div>
-        <div style="display:flex;gap:8px;margin-bottom:14px;padding:4px;border:1px solid rgba(200,168,74,0.18);background:rgba(10,4,0,0.34);border-radius:999px;">
-          <button id="premiumMonthlyTabModal" data-i18n="plan.toggle.monthly" onclick="setPremiumBillingCycle('monthly')" style="flex:1;padding:8px 12px;background:linear-gradient(135deg,#C8A84A,#8B6520);border:none;border-radius:999px;color:#0A0400;font-family:var(--fu);font-size:10px;font-weight:800;letter-spacing:.08em;cursor:pointer;">월간</button>
-          <button id="premiumAnnualTabModal" data-i18n="plan.toggle.yearly" onclick="setPremiumBillingCycle('annual')" style="flex:1;padding:8px 12px;background:transparent;border:none;border-radius:999px;color:rgba(245,237,216,0.72);font-family:var(--fu);font-size:10px;font-weight:700;letter-spacing:.08em;cursor:pointer;">연간</button>
-        </div>
-        <div id="premiumNameModal" style="font-family:var(--fs);font-style:italic;font-size:18px;color:rgba(245,237,216,0.95);margin-bottom:4px;">프리미엄 플랜</div>
-        <div id="premiumDescModal" style="font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.62);margin-bottom:14px;">나만의 책을 남기고 싶은 분</div>
-        <div id="premiumPriceModal" style="font-family:var(--fs);font-size:24px;color:var(--gold2);margin-bottom:4px;">$14.99</div>
-        <div id="premiumPeriodModal" style="font-family:var(--fu);font-size:11px;color:rgba(245,237,216,0.42);margin-bottom:14px;">/ 월 · 언제든 해지 가능</div>
+        <div data-i18n="plan.prem.name" style="font-family:var(--fs);font-style:italic;font-size:18px;color:rgba(245,237,216,0.95);margin-bottom:14px;">프리미엄 월간</div>
+        <div data-i18n="plan.prem.p" style="font-family:var(--fs);font-size:24px;color:var(--gold2);margin-bottom:4px;">₩19,900 / $14.99</div>
+        <div data-i18n="plan.prem.period" style="font-family:var(--fu);font-size:11px;color:rgba(245,237,216,0.42);margin-bottom:14px;">/ 월 · 언제든 해지 가능</div>
         <ul style="list-style:none;padding:0;margin:0 0 20px;flex:1;font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.88);line-height:2;">
-          <li id="premiumFeatureModal1">✓ Pro 모든 기능 포함</li>
-          <li id="premiumFeatureModal2">✓ AI 이미지 생성</li>
-          <li id="premiumFeatureModal3">✓ 웹툰 스토리 모드</li>
-          <li id="premiumFeatureModal4">✓ 음성 기록 변환</li>
-          <li id="premiumFeatureModal5" style="color:rgba(200,168,74,0.95);">📚 3개월+ 구독 시 양장본 책 제작 20% 할인</li>
+          <li data-i18n="plan.prem.f1">✓ Pro 모든 기능 포함</li>
+          <li data-i18n="plan.prem.f2">✓ AI 이미지 생성</li>
+          <li data-i18n="plan.prem.f3">✓ 웹툰 스토리 모드</li>
+          <li data-i18n="plan.prem.f4">✓ 음성 기록 변환</li>
+          <li data-i18n="plan.prem.f5" style="color:rgba(200,168,74,0.95);">📚 3개월+ 구독 시 양장본 책 제작 20% 할인</li>
         </ul>
-        <button id="premiumCtaModal" onclick="startSelectedPremiumPayment()" style="width:100%;padding:12px;background:linear-gradient(135deg,#C8A84A,#8B6520);border:none;border-radius:100px;color:#0A0400;font-family:var(--fu);font-size:11px;font-weight:800;cursor:pointer;letter-spacing:.08em;">Premium 시작하기 →</button>
+        <button data-i18n="plan.prem.cta" onclick="startPayment('premium',19900)" style="width:100%;padding:12px;background:linear-gradient(135deg,#C8A84A,#8B6520);border:none;border-radius:100px;color:#0A0400;font-family:var(--fu);font-size:11px;font-weight:800;cursor:pointer;letter-spacing:.08em;">Premium 시작하기 →</button>
+      </div>
+
+      <!-- Premium Annual -->
+      <div style="background:linear-gradient(145deg,rgba(139,101,32,0.12),rgba(200,168,74,0.04));border:1px solid rgba(200,168,74,0.3);border-radius:16px;padding:24px 20px;display:flex;flex-direction:column;position:relative;">
+        <div data-i18n="plan.save" style="position:absolute;top:-11px;right:16px;background:rgba(200,168,74,0.12);border:1px solid rgba(200,168,74,0.3);color:rgba(200,168,74,0.92);font-family:var(--fu);font-size:9px;font-weight:800;padding:4px 10px;border-radius:100px;">25% 절약</div>
+        <div data-i18n="plan.annual" style="font-family:var(--fu);font-size:10px;font-weight:700;letter-spacing:.15em;color:rgba(200,168,74,0.72);text-transform:uppercase;margin-bottom:6px;">PREMIUM ANNUAL</div>
+        <div data-i18n="plan.annual.name" style="font-family:var(--fs);font-style:italic;font-size:18px;color:rgba(245,237,216,0.95);margin-bottom:14px;">프리미엄 연간</div>
+        <div data-i18n="plan.annual.p" style="font-family:var(--fs);font-size:24px;color:var(--gold2);margin-bottom:4px;">₩178,800 / $134.99</div>
+        <div data-i18n="plan.annual.period" style="font-family:var(--fu);font-size:11px;color:rgba(245,237,216,0.42);margin-bottom:14px;">/ 년 · (월 ₩14,900 상당)</div>
+        <ul style="list-style:none;padding:0;margin:0 0 20px;flex:1;font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.88);line-height:2;">
+          <li data-i18n="plan.annual.f1">✓ Premium 모든 기능</li>
+          <li data-i18n="plan.annual.f2">✓ 우선 고객 지원</li>
+          <li data-i18n="plan.annual.f3" style="color:rgba(200,168,74,0.95);">🎁 연 2회 고급 양장본 에세이 책 무료 발행</li>
+          <li data-i18n="plan.annual.f4" style="color:rgba(200,168,74,0.85);">📚 추가 제작 시 20% 할인 적용</li>
+        </ul>
+        <button data-i18n="plan.annual.cta" onclick="startPayment('premium_annual',178800)" style="width:100%;padding:11px;background:linear-gradient(135deg,rgba(200,168,74,0.18),rgba(139,101,32,0.12));border:1px solid rgba(200,168,74,0.4);border-radius:100px;color:rgba(200,168,74,0.95);font-family:var(--fu);font-size:11px;font-weight:800;cursor:pointer;letter-spacing:.08em;">연간 구독 시작하기 →</button>
       </div>
 
     </div>
