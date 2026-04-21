@@ -2757,8 +2757,11 @@ body { overscroll-behavior-y: contain; }
   <div class="app-layout">
     <aside class="sidebar">
       <div style="padding:10px 8px 14px" class="sb-user">
-        <div id="sbMyLib" class="sb-user-name">나의 서재</div>
-        <div id="sbUsername" class="sb-user-role">Senior Contributor</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+          <div id="sbMyLib" class="sb-user-name">나의 서재</div>
+          <button onclick="openSettings()" title="설정" style="background:none;border:none;color:rgba(200,168,74,0.45);cursor:pointer;font-size:16px;padding:3px 5px;transition:color .2s;line-height:1;border-radius:6px" onmouseover="this.style.color='rgba(200,168,74,0.9)'" onmouseout="this.style.color='rgba(200,168,74,0.45)'">⚙</button>
+        </div>
+        <div id="sbUsername" class="sb-user-role" style="font-size:11px">로그인 후 이용하세요</div>
       </div>
       <div class="sidebar-section" id="sbExplore">탐색</div>
       <button class="sidebar-item active" id="sb-library" onclick="filterByCategory(null)"><span class="icon">📚</span><span id="sbAllLib">전체 서재</span><span class="count" id="totalCount">0</span></button>
@@ -2772,9 +2775,6 @@ body { overscroll-behavior-y: contain; }
         <button class="sidebar-item" onclick="showView('library')"><span class="icon">🎁</span>특별한 날<span class="count">7</span></button>
         <button class="sidebar-item" onclick="showView('library')"><span class="icon">🍽️</span>맛집<span class="count">25</span></button>
       </div>
-      <div class="sidebar-section" id="sbSettings">설정</div>
-      <button class="sidebar-item" id="sb-persona" onclick="showView('persona')"><span class="icon">✍️</span><span id="sbPersona">글쓰기 페르소나</span></button>
-      <button class="sidebar-item" onclick="openSubscriptionModal()"><span class="icon">💳</span><span id="sbSub">구독 관리</span></button>
       <button class="sidebar-item" id="sb-admin" style="display:none" onclick="checkAdminAccess()"><span class="icon">🛠️</span><span id="sbAdmin">관리자</span></button>
       <div class="dm-row"><span class="icon">🌙</span><span id="sbDark">다크 모드</span><div class="dm-toggle" id="dmToggle" onclick="toggleDarkMode()"></div></div>
     </aside>
@@ -4574,6 +4574,30 @@ function renderLibrary(){
   if(tcEl) tcEl.textContent = allEssays.length;
 
   if(!grid) return;
+
+  // 샘플 에세이 안내 배너 (첫 로그인 후)
+  var bannerWrap = document.getElementById('sampleBanner');
+  var hasSamples = loadEssays().some(function(e){ return e.isSample; });
+  var dismissed = localStorage.getItem('page_sample_banner_dismissed') === '1';
+  if(hasSamples && !dismissed){
+    if(!bannerWrap){
+      bannerWrap = document.createElement('div');
+      bannerWrap.id = 'sampleBanner';
+      grid.parentNode.insertBefore(bannerWrap, grid);
+    }
+    bannerWrap.style.cssText = 'margin-bottom:16px;';
+    bannerWrap.innerHTML = '<div style="background:rgba(200,168,74,0.06);border:1px solid rgba(200,168,74,0.22);border-radius:14px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">'
+      + '<div style="flex:1;min-width:0">'
+      + '<div style="font-family:var(--fu);font-size:12px;font-weight:700;color:var(--gold2);margin-bottom:4px">📖 AI 샘플 에세이 예시가 추가되어 있어요</div>'
+      + '<div style="font-family:var(--fu);font-size:11px;color:rgba(245,237,216,0.6);line-height:1.6">처음 이용을 위해 3편의 샘플 에세이가 준비되어 있습니다. 내용을 확인한 후 삭제하세요.</div>'
+      + '</div>'
+      + '<div style="display:flex;gap:8px;flex-shrink:0">'
+      + '<button onclick="deleteSampleEssays()" style="padding:7px 14px;background:rgba(200,50,50,0.1);border:1px solid rgba(200,50,50,0.2);color:rgba(220,100,100,0.85);border-radius:20px;font-family:var(--fu);font-size:11px;font-weight:700;cursor:pointer">🗑️ 삭제</button>'
+      + '<button onclick="dismissSampleBanner()" style="padding:7px 14px;background:none;border:1px solid rgba(200,168,74,0.2);color:rgba(200,168,74,0.6);border-radius:20px;font-family:var(--fu);font-size:11px;font-weight:700;cursor:pointer">닫기</button>'
+      + '</div></div>';
+  } else if(bannerWrap) {
+    bannerWrap.innerHTML = '';
+  }
 
   if(essays.length === 0){
     const msg = filter
@@ -6874,6 +6898,24 @@ function renderSettingsView(){
       </div>
     </div>
 
+    <!-- 글쓰기 페르소나 -->
+    <div class="settings-section">
+      <h4>✍️ 글쓰기 페르소나</h4>
+      <div style="font-family:var(--fu);font-size:11px;color:rgba(245,237,216,0.6);line-height:1.7;margin-bottom:10px">나만의 글쓰기 스타일과 톤을 설정하면 AI가 당신의 개성을 담아 에세이를 생성합니다.</div>
+      <div class="settings-row" style="border:none">
+        <button onclick="showView('persona')" style="width:100%;padding:10px;background:rgba(200,168,74,0.1);border:1px solid rgba(200,168,74,0.2);color:var(--gold2);border-radius:10px;cursor:pointer;font-size:13px;font-weight:600">✍️ 페르소나 설정하기 →</button>
+      </div>
+    </div>
+
+    <!-- 구독 관리 -->
+    <div class="settings-section">
+      <h4>💳 구독 / 결제</h4>
+      <div class="settings-row" style="border:none;gap:8px;flex-wrap:wrap">
+        <button onclick="openSubscriptionModal()" style="flex:1;min-width:120px;padding:10px;background:linear-gradient(135deg,var(--gold),#8B6520);color:#0A0400;border:none;border-radius:10px;cursor:pointer;font-size:12px;font-weight:800">✦ 구독 플랜 보기 / 변경</button>
+      </div>
+    </div>
+
+    <!-- 서재 관리 -->
     <div class="settings-section">
       <h4>📚 서재 관리</h4>
       <div class="settings-row">
@@ -6882,6 +6924,24 @@ function renderSettingsView(){
       </div>
       <div class="settings-row" style="border:none">
         <button onclick="if(confirm('모든 에세이를 삭제하시겠습니까?')){localStorage.removeItem('page-essays-v1');renderLibrary();renderSettingsView();showToast('🗑️ 서재가 비워졌습니다')}" style="width:100%;padding:10px;background:rgba(200,50,50,0.1);border:1px solid rgba(200,50,50,0.2);color:rgba(200,100,100,0.8);border-radius:10px;cursor:pointer;font-size:13px;font-weight:600">🗑️ 서재 전체 삭제</button>
+      </div>
+    </div>
+
+    <!-- 구글 드라이브 / 클라우드 백업 -->
+    <div class="settings-section">
+      <h4>☁️ 구글 드라이브 백업</h4>
+      <div style="font-family:var(--fu);font-size:11px;color:rgba(245,237,216,0.6);line-height:1.7;margin-bottom:12px">에세이 데이터를 JSON 파일로 내보내거나, 구글 드라이브에 백업할 수 있습니다.</div>
+      <div class="settings-row">
+        <span class="settings-label">연결 상태</span>
+        <span class="settings-value" id="gdriveStatusLabel" style="color:${localStorage.getItem('page_gdrive_connected')?'rgba(76,175,80,0.85)':'rgba(200,168,74,0.55)'}">${localStorage.getItem('page_gdrive_connected') ? '✅ 연결됨' : '미연결'}</span>
+      </div>
+      <div class="settings-row" style="border:none;display:flex;flex-direction:column;gap:8px">
+        <button onclick="connectGoogleDriveBackup()" style="width:100%;padding:10px;background:rgba(66,133,244,0.12);border:1px solid rgba(66,133,244,0.25);color:rgba(144,196,255,0.9);border-radius:10px;cursor:pointer;font-size:12px;font-weight:700">
+          <svg style="vertical-align:middle;margin-right:6px" viewBox="0 0 24 24" width="14" height="14"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          구글 드라이브 연결 / 백업 업로드
+        </button>
+        <button onclick="exportEssaysJSON()" style="width:100%;padding:10px;background:rgba(200,168,74,0.08);border:1px solid rgba(200,168,74,0.18);color:var(--gold2);border-radius:10px;cursor:pointer;font-size:12px;font-weight:700">📤 JSON 파일로 내보내기</button>
+        <button onclick="importEssaysJSON()" style="width:100%;padding:10px;background:rgba(200,168,74,0.05);border:1px solid rgba(200,168,74,0.12);color:rgba(200,168,74,0.6);border-radius:10px;cursor:pointer;font-size:12px;font-weight:700">📥 JSON 파일로 복구하기</button>
       </div>
     </div>
   `;
@@ -7056,6 +7116,146 @@ function seedNewUserSampleEssays(){
     };
   });
   persistEssays(seeded);
+  localStorage.removeItem('page_sample_banner_dismissed');
+}
+
+// ── 샘플 에세이 배너 닫기 (삭제 없이) ───────────────
+function dismissSampleBanner(){
+  localStorage.setItem('page_sample_banner_dismissed', '1');
+  var b = document.getElementById('sampleBanner');
+  if(b) b.innerHTML = '';
+}
+
+// ── 샘플 에세이 전체 삭제 ────────────────────────────
+function deleteSampleEssays(){
+  if(!confirm('샘플 에세이 3편을 삭제하시겠습니까?')) return;
+  var essays = loadEssays().filter(function(e){ return !e.isSample; });
+  persistEssays(essays);
+  localStorage.setItem('page_sample_banner_dismissed', '1');
+  renderLibrary();
+  showToast('🗑️ 샘플 에세이가 삭제되었습니다');
+}
+
+// ── 에세이 JSON 내보내기 ─────────────────────────────
+function exportEssaysJSON(){
+  var essays = loadEssays();
+  if(!essays.length){ showToast('내보낼 에세이가 없습니다'); return; }
+  var exportData = essays.map(function(e){
+    return {id:e.id,title:e.title,body:e.body,emotion:e.emotion,category:e.category,date:e.date,isSample:!!e.isSample};
+  });
+  var blob = new Blob([JSON.stringify(exportData, null, 2)], {type:'application/json'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'page-essays-' + new Date().toISOString().split('T')[0] + '.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('📤 ' + exportData.length + '편이 파일로 저장되었습니다');
+}
+
+// ── 에세이 JSON 복구 ─────────────────────────────────
+function importEssaysJSON(){
+  var input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.json';
+  input.onchange = function(e){
+    var file = e.target.files[0];
+    if(!file) return;
+    var reader = new FileReader();
+    reader.onload = function(ev){
+      try{
+        var data = JSON.parse(ev.target.result);
+        if(!Array.isArray(data)) throw new Error('invalid');
+        if(!confirm('JSON 파일의 에세이 ' + data.length + '편을 현재 서재에 추가합니다.\n계속하시겠습니까?')) return;
+        var existing = loadEssays();
+        var existIds = existing.map(function(e){ return e.id; });
+        var added = data.filter(function(d){ return !existIds.includes(d.id); });
+        persistEssays(added.concat(existing));
+        renderLibrary();
+        showToast('✅ ' + added.length + '편이 복구되었습니다');
+      } catch(err){
+        showToast('❌ 올바른 백업 파일이 아닙니다');
+      }
+    };
+    reader.readAsText(file);
+  };
+  input.click();
+}
+
+// ── 구글 드라이브 연결 및 백업 ──────────────────────
+var _gdriveToken = null;
+var GDRIVE_SCOPE = 'https://www.googleapis.com/auth/drive.file';
+// ※ 구글 클라우드 콘솔(console.cloud.google.com)에서 OAuth 클라이언트 ID를 발급 후 아래에 입력하세요
+var GDRIVE_CLIENT_ID = localStorage.getItem('page_gdrive_client_id') || '';
+
+function connectGoogleDriveBackup(){
+  if(!GDRIVE_CLIENT_ID){
+    var cid = prompt('구글 클라우드 콘솔에서 발급받은 OAuth 클라이언트 ID를 입력하세요.\n(console.cloud.google.com → API 및 서비스 → 사용자 인증 정보)');
+    if(!cid || !cid.trim()) return;
+    GDRIVE_CLIENT_ID = cid.trim();
+    localStorage.setItem('page_gdrive_client_id', GDRIVE_CLIENT_ID);
+  }
+  if(window.google && window.google.accounts){
+    _requestGdriveToken();
+  } else {
+    var s = document.createElement('script');
+    s.src = 'https://accounts.google.com/gsi/client';
+    s.onload = _requestGdriveToken;
+    document.head.appendChild(s);
+    showToast('⏳ 구글 드라이브 연결 중...');
+  }
+}
+
+function _requestGdriveToken(){
+  try {
+    var client = window.google.accounts.oauth2.initTokenClient({
+      client_id: GDRIVE_CLIENT_ID,
+      scope: GDRIVE_SCOPE,
+      callback: function(resp){
+        if(resp.error){ showToast('❌ 구글 드라이브 연결 실패: ' + resp.error); return; }
+        _gdriveToken = resp.access_token;
+        localStorage.setItem('page_gdrive_connected', '1');
+        renderSettingsView();
+        _uploadEssaysToDrive();
+      }
+    });
+    client.requestAccessToken();
+  } catch(e){
+    showToast('❌ 구글 드라이브 연결 오류. 클라이언트 ID를 확인하세요.');
+  }
+}
+
+async function _uploadEssaysToDrive(){
+  if(!_gdriveToken){ showToast('먼저 구글 드라이브를 연결하세요'); return; }
+  var essays = loadEssays();
+  var content = JSON.stringify(essays.map(function(e){
+    return {id:e.id,title:e.title,body:e.body,emotion:e.emotion,category:e.category,date:e.date};
+  }), null, 2);
+  var boundary = 'essay_backup_boundary_314159';
+  var meta = JSON.stringify({name:'page-essays-backup-' + new Date().toISOString().split('T')[0] + '.json', mimeType:'application/json'});
+  var body = '--' + boundary + '\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n' + meta
+    + '\r\n--' + boundary + '\r\nContent-Type: application/json\r\n\r\n' + content
+    + '\r\n--' + boundary + '--';
+  try {
+    var resp = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + _gdriveToken,
+        'Content-Type': 'multipart/related; boundary="' + boundary + '"'
+      },
+      body: body
+    });
+    if(resp.ok){
+      showToast('☁️ 구글 드라이브에 백업이 완료되었습니다!');
+    } else {
+      var err = await resp.json().catch(function(){ return {}; });
+      showToast('❌ 백업 실패: ' + (err.error && err.error.message || resp.statusText));
+    }
+  } catch(ex){
+    showToast('❌ 백업 실패: 네트워크 오류');
+  }
 }
 function emailSignup(){
   var name = (document.getElementById('authName')||{}).value||'';
@@ -7087,6 +7287,7 @@ function emailLogin(){
   if(!u || u.pw !== pw){ err.textContent='이메일 또는 비밀번호가 올바르지 않습니다.'; return; }
   _currentUser = {id:'email_'+email, name:u.name, email:email, plan:u.plan||'free', provider:'email', essaysLeft:u.essaysLeft};
   localStorage.setItem('page_user', JSON.stringify(_currentUser));
+  seedNewUserSampleEssays();
   err.textContent='';
   closeLoginModal();
   updateAuthUI();
@@ -7114,9 +7315,13 @@ function updateAuthUI(){
   var old = navLinks.querySelector('.user-profile-btn');
   if(old) old.remove();
   var loginBtn = document.getElementById('navLoginBtn');
+  var sbUser = document.getElementById('sbUsername');
   if(_currentUser){
     if(loginBtn) loginBtn.style.display = 'none';
-    var initials = (_currentUser.name || '?')[0].toUpperCase();
+    // 사이드바 인사말 업데이트
+    var displayName = (_currentUser.name || _currentUser.email || '사용자').split(' ')[0];
+    if(sbUser) sbUser.textContent = displayName + '님 반갑습니다 ✦';
+    var initials = (displayName || '?')[0].toUpperCase();
     var planLabel = {free:'FREE', pro:'PRO', premium:'✦'}[_currentUser.plan] || 'FREE';
     var btn = document.createElement('button');
     btn.className = 'user-profile-btn';
@@ -7127,11 +7332,12 @@ function updateAuthUI(){
       : '<span style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#C8A84A,#8B6520);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#0A0400;">'+initials+'</span>';
     btn.innerHTML = avatarHtml
       + '<span style="font-family:var(--fu);font-size:11px;font-weight:700;color:rgba(200,168,74,0.8);">'
-      + (_currentUser.name||'').split(' ')[0] + '님</span>'
+      + displayName + '님</span>'
       + '<span style="font-family:var(--fu);font-size:9px;font-weight:800;color:rgba(200,168,74,0.7);">' + planLabel + '</span>';
     navLinks.appendChild(btn);
   } else {
     if(loginBtn) loginBtn.style.display = '';
+    if(sbUser) sbUser.textContent = '로그인 후 이용하세요';
   }
   var adminBtn = document.getElementById('sb-admin');
   if(adminBtn) adminBtn.style.display = _isAdmin ? '' : 'none';
@@ -7306,6 +7512,8 @@ document.addEventListener('DOMContentLoaded', function(){
     if(e.key==='Escape'){ closeLoginModal(); closePricingModal(); closeAdminLogin(); }
   });
   if(sessionStorage.getItem('pageai_admin')==='true') _isAdmin=true;
+  // 저장된 세션으로 UI 복원 (재로그인 불필요)
+  updateAuthUI();
 });
 
 
@@ -7627,6 +7835,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     <button class="login-modal-close" onclick="closeLoginModal()">✕</button>
     <div class="login-logo">Page</div>
     <div class="login-tagline">당신의 인생 도서관</div>
+    <div style="text-align:center;margin-bottom:20px;font-family:var(--fu);font-size:10px;color:rgba(200,168,74,0.55);background:rgba(200,168,74,0.05);border:1px solid rgba(200,168,74,0.12);border-radius:8px;padding:8px 14px;line-height:1.6">
+      🔒 로그인 정보는 이 기기에 자동 저장됩니다<br><span style="opacity:.7">다음 방문 시 자동으로 서재가 열립니다</span>
+    </div>
 
     <!-- 탭 -->
     <div class="login-tabs">
