@@ -2651,14 +2651,14 @@ body { overscroll-behavior-y: contain; }
     <h2 data-i18n="price.title" style="font-family:var(--fs);font-style:italic;font-size:clamp(28px,4vw,44px);color:rgba(245,237,216,0.95);text-align:center;margin-bottom:12px;">당신의 이야기에 맞는 플랜</h2>
     <p data-i18n="price.sub" style="font-family:var(--fu);font-size:14px;color:rgba(245,237,216,0.65);text-align:center;margin-bottom:50px;line-height:1.8;max-width:600px;margin-left:auto;margin-right:auto;">무료로 시작하고 필요할 때 업그레이드하세요. 3개월 이상 구독 시 나만의 양장본 에세이 책을 제작할 수 있습니다.</p>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:1100px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:920px;margin:0 auto;">
 
       <!-- FREE -->
       <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(200,168,74,0.12);border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;">
         <div data-i18n="plan.free" style="font-family:var(--fu);font-size:11px;font-weight:700;letter-spacing:.15em;color:rgba(200,168,74,0.55);text-transform:uppercase;margin-bottom:8px;">FREE</div>
         <div data-i18n="plan.free.name" style="font-family:var(--fs);font-style:italic;font-size:22px;color:rgba(245,237,216,0.88);margin-bottom:4px;">무료 플랜</div>
         <div data-i18n="plan.free.d" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.55);margin-bottom:20px;">시작하기에 딱 맞는 플랜</div>
-        <div data-i18n="plan.free.p" style="font-family:var(--fs);font-size:32px;color:rgba(245,237,216,0.9);margin-bottom:4px;">₩0 / $0</div>
+        <div data-i18n="plan.free.p" style="font-family:var(--fs);font-size:32px;color:rgba(245,237,216,0.9);margin-bottom:4px;">$0</div>
         <div data-i18n="plan.free.period" style="font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.7);margin-bottom:24px;">영원히 무료</div>
         <ul style="list-style:none;padding:0;margin:0 0 28px;flex:1;">
           <li data-i18n="plan.free.f1" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.75);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.07);">✓ 월 10편 AI 에세이 생성</li>
@@ -2674,7 +2674,7 @@ body { overscroll-behavior-y: contain; }
         <div data-i18n="plan.pro" style="font-family:var(--fu);font-size:11px;font-weight:700;letter-spacing:.15em;color:rgba(200,168,74,0.75);text-transform:uppercase;margin-bottom:8px;">PRO</div>
         <div data-i18n="plan.pro.name" style="font-family:var(--fs);font-style:italic;font-size:22px;color:rgba(245,237,216,0.95);margin-bottom:4px;">프로 플랜</div>
         <div data-i18n="plan.pro.d" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.62);margin-bottom:20px;">활발한 기록자를 위한 플랜</div>
-        <div data-i18n="plan.pro.p" style="font-family:var(--fs);font-size:28px;color:var(--gold2);margin-bottom:4px;">₩9,900 / $7.99</div>
+        <div data-i18n="plan.pro.p" style="font-family:var(--fs);font-size:28px;color:var(--gold2);margin-bottom:4px;">$7.99</div>
         <div data-i18n="plan.pro.period" style="font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.7);margin-bottom:24px;">/ 월 · 언제든 해지 가능</div>
         <ul style="list-style:none;padding:0;margin:0 0 28px;flex:1;">
           <li data-i18n="plan.pro.f1" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.88);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.08);">✓ 무제한 AI 에세이 생성</li>
@@ -2686,39 +2686,45 @@ body { overscroll-behavior-y: contain; }
         <button data-i18n="plan.pro.cta" onclick="requireLogin(function(){startPayment('pro',9900)})" style="width:100%;padding:13px;background:linear-gradient(135deg,rgba(200,168,74,0.12),rgba(200,168,74,0.05));border:1px solid rgba(200,168,74,0.35);border-radius:100px;color:rgba(200,168,74,0.92);font-family:var(--fu);font-size:12px;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='linear-gradient(135deg,rgba(200,168,74,0.22),rgba(200,168,74,0.1))'" onmouseout="this.style.background='linear-gradient(135deg,rgba(200,168,74,0.12),rgba(200,168,74,0.05))'">Pro 시작하기 →</button>
       </div>
 
-      <!-- PREMIUM MONTHLY -->
+      <!-- PREMIUM (월간/연간 토글) -->
       <div style="background:linear-gradient(145deg,rgba(200,168,74,0.1),rgba(139,101,32,0.08));border:1px solid rgba(200,168,74,0.4);border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;position:relative;box-shadow:0 0 40px rgba(200,168,74,0.08);">
         <div data-i18n="plan.popular" style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#C8A84A,#8B6520);color:#0A0400;font-family:var(--fu);font-size:10px;font-weight:800;letter-spacing:.1em;padding:5px 16px;border-radius:100px;white-space:nowrap;">✦ 가장 인기</div>
-        <div data-i18n="plan.prem" style="font-family:var(--fu);font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--gold2);text-transform:uppercase;margin-bottom:8px;margin-top:6px;">PREMIUM</div>
-        <div data-i18n="plan.prem.name" style="font-family:var(--fs);font-style:italic;font-size:22px;color:rgba(245,237,216,0.95);margin-bottom:4px;">프리미엄 월간</div>
-        <div data-i18n="plan.prem.d" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.65);margin-bottom:20px;">나만의 책을 남기고 싶은 분</div>
-        <div data-i18n="plan.prem.p" style="font-family:var(--fs);font-size:28px;color:var(--gold2);margin-bottom:4px;">₩19,900 / $14.99</div>
-        <div data-i18n="plan.prem.period" style="font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.7);margin-bottom:24px;">/ 월 · 언제든 해지 가능</div>
-        <ul style="list-style:none;padding:0;margin:0 0 28px;flex:1;">
-          <li data-i18n="plan.prem.f1" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ Pro 모든 기능 포함</li>
-          <li data-i18n="plan.prem.f2" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ AI 이미지 생성</li>
-          <li data-i18n="plan.prem.f3" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ 웹툰 스토리 모드</li>
-          <li data-i18n="plan.prem.f4" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ 음성 기록 변환</li>
-          <li data-i18n="plan.prem.f5" style="font-family:var(--fu);font-size:13px;color:rgba(200,168,74,0.95);padding:7px 0;">📚 3개월+ 구독 시 양장본 책 제작 20% 할인</li>
-        </ul>
-        <button data-i18n="plan.prem.cta" onclick="requireLogin(function(){startPayment('premium',19900)})" style="width:100%;padding:14px;background:linear-gradient(135deg,#C8A84A,#8B6520);border:none;border-radius:100px;color:#0A0400;font-family:var(--fu);font-size:12px;font-weight:800;letter-spacing:.08em;cursor:pointer;transition:opacity .2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">Premium 시작하기 →</button>
-      </div>
-
-      <!-- PREMIUM ANNUAL -->
-      <div style="background:linear-gradient(145deg,rgba(139,101,32,0.12),rgba(200,168,74,0.04));border:1px solid rgba(200,168,74,0.3);border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;position:relative;">
-        <div data-i18n="plan.save" style="position:absolute;top:-12px;right:20px;background:rgba(200,168,74,0.15);border:1px solid rgba(200,168,74,0.35);color:rgba(200,168,74,0.92);font-family:var(--fu);font-size:10px;font-weight:800;letter-spacing:.08em;padding:4px 12px;border-radius:100px;">25% 절약</div>
-        <div data-i18n="plan.annual" style="font-family:var(--fu);font-size:11px;font-weight:700;letter-spacing:.15em;color:rgba(200,168,74,0.72);text-transform:uppercase;margin-bottom:8px;">PREMIUM ANNUAL</div>
-        <div data-i18n="plan.annual.name" style="font-family:var(--fs);font-style:italic;font-size:22px;color:rgba(245,237,216,0.95);margin-bottom:4px;">프리미엄 연간</div>
-        <div data-i18n="plan.annual.d" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.65);margin-bottom:20px;">1년치 구독 + 양장본 책 2권 무료</div>
-        <div data-i18n="plan.annual.p" style="font-family:var(--fs);font-size:28px;color:var(--gold2);margin-bottom:4px;">₩178,800 / $134.99</div>
-        <div data-i18n="plan.annual.period" style="font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.7);margin-bottom:24px;">/ 년 · (월 ₩14,900 상당)</div>
-        <ul style="list-style:none;padding:0;margin:0 0 28px;flex:1;">
-          <li data-i18n="plan.annual.f1" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.08);">✓ Premium 모든 기능</li>
-          <li data-i18n="plan.annual.f2" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.08);">✓ 우선 고객 지원</li>
-          <li data-i18n="plan.annual.f3" style="font-family:var(--fu);font-size:13px;color:rgba(200,168,74,0.95);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.08);">🎁 연 2회 고급 양장본 에세이 책 무료 발행</li>
-          <li data-i18n="plan.annual.f4" style="font-family:var(--fu);font-size:13px;color:rgba(200,168,74,0.88);padding:7px 0;">📚 추가 제작 시 20% 할인 적용</li>
-        </ul>
-        <button data-i18n="plan.annual.cta" onclick="requireLogin(function(){startPayment('annual',178800)})" style="width:100%;padding:13px;background:linear-gradient(135deg,rgba(200,168,74,0.18),rgba(139,101,32,0.12));border:1px solid rgba(200,168,74,0.4);border-radius:100px;color:rgba(200,168,74,0.95);font-family:var(--fu);font-size:12px;font-weight:800;letter-spacing:.08em;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='linear-gradient(135deg,rgba(200,168,74,0.28),rgba(139,101,32,0.2))'" onmouseout="this.style.background='linear-gradient(135deg,rgba(200,168,74,0.18),rgba(139,101,32,0.12))'">연간 구독 시작하기 →</button>
+        <div data-i18n="plan.prem" style="font-family:var(--fu);font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--gold2);text-transform:uppercase;margin-bottom:10px;margin-top:6px;">PREMIUM</div>
+        <!-- 월간/연간 탭 -->
+        <div style="display:flex;gap:5px;background:rgba(0,0,0,0.3);border-radius:100px;padding:4px;margin-bottom:20px;">
+          <button id="premTabMo" onclick="setPremTab('mo')" style="flex:1;padding:8px;border-radius:100px;border:none;background:linear-gradient(135deg,#C8A84A,#8B6520);color:#0A0400;font-family:var(--fu);font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;">월간</button>
+          <button id="premTabAn" onclick="setPremTab('an')" style="flex:1;padding:8px;border-radius:100px;border:none;background:transparent;color:rgba(200,168,74,0.7);font-family:var(--fu);font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;">연간</button>
+        </div>
+        <!-- 월간 콘텐츠 -->
+        <div id="premContentMo" style="display:flex;flex-direction:column;flex:1;">
+          <div data-i18n="plan.prem.name" style="font-family:var(--fs);font-style:italic;font-size:22px;color:rgba(245,237,216,0.95);margin-bottom:4px;">프리미엄 플랜</div>
+          <div data-i18n="plan.prem.d" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.65);margin-bottom:16px;">나만의 책을 남기고 싶은 분</div>
+          <div data-i18n="plan.prem.p" style="font-family:var(--fs);font-size:28px;color:var(--gold2);margin-bottom:4px;">$14.99</div>
+          <div data-i18n="plan.prem.period" style="font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.7);margin-bottom:20px;">/ 월 · 언제든 해지 가능</div>
+          <ul style="list-style:none;padding:0;margin:0 0 24px;flex:1;">
+            <li data-i18n="plan.prem.f1" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ Pro 모든 기능 포함</li>
+            <li data-i18n="plan.prem.f2" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ AI 이미지 생성</li>
+            <li data-i18n="plan.prem.f3" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ 웹툰 스토리 모드</li>
+            <li data-i18n="plan.prem.f4" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.1);">✓ 음성 기록 변환</li>
+            <li data-i18n="plan.prem.f5" style="font-family:var(--fu);font-size:13px;color:rgba(200,168,74,0.95);padding:7px 0;">📚 3개월+ 구독 시 양장본 책 제작 20% 할인</li>
+          </ul>
+          <button data-i18n="plan.prem.cta" onclick="requireLogin(function(){startPayment('premium',19900)})" style="width:100%;padding:14px;background:linear-gradient(135deg,#C8A84A,#8B6520);border:none;border-radius:100px;color:#0A0400;font-family:var(--fu);font-size:12px;font-weight:800;letter-spacing:.08em;cursor:pointer;transition:opacity .2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">Premium 시작하기 →</button>
+        </div>
+        <!-- 연간 콘텐츠 -->
+        <div id="premContentAn" style="display:none;flex-direction:column;flex:1;">
+          <div style="display:inline-block;background:rgba(200,168,74,0.15);border:1px solid rgba(200,168,74,0.35);color:rgba(200,168,74,0.92);font-family:var(--fu);font-size:10px;font-weight:800;letter-spacing:.08em;padding:3px 10px;border-radius:100px;margin-bottom:10px;align-self:flex-start;">25% 절약</div>
+          <div data-i18n="plan.annual.name" style="font-family:var(--fs);font-style:italic;font-size:22px;color:rgba(245,237,216,0.95);margin-bottom:4px;">프리미엄 플랜</div>
+          <div data-i18n="plan.annual.d" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.65);margin-bottom:16px;">1년치 구독 + 양장본 책 2권 무료</div>
+          <div data-i18n="plan.annual.p" style="font-family:var(--fs);font-size:28px;color:var(--gold2);margin-bottom:4px;">$134.99</div>
+          <div data-i18n="plan.annual.period" style="font-family:var(--fu);font-size:12px;color:rgba(245,237,216,0.7);margin-bottom:20px;">/ 년 · (월 $11.25 상당)</div>
+          <ul style="list-style:none;padding:0;margin:0 0 24px;flex:1;">
+            <li data-i18n="plan.annual.f1" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.08);">✓ Premium 모든 기능</li>
+            <li data-i18n="plan.annual.f2" style="font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.92);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.08);">✓ 우선 고객 지원</li>
+            <li data-i18n="plan.annual.f3" style="font-family:var(--fu);font-size:13px;color:rgba(200,168,74,0.95);padding:7px 0;border-bottom:1px solid rgba(200,168,74,0.08);">🎁 연 2회 고급 양장본 에세이 책 무료 발행</li>
+            <li data-i18n="plan.annual.f4" style="font-family:var(--fu);font-size:13px;color:rgba(200,168,74,0.88);padding:7px 0;">📚 추가 제작 시 20% 할인 적용</li>
+          </ul>
+          <button data-i18n="plan.annual.cta" onclick="requireLogin(function(){startPayment('annual',178800)})" style="width:100%;padding:14px;background:linear-gradient(135deg,#C8A84A,#8B6520);border:none;border-radius:100px;color:#0A0400;font-family:var(--fu);font-size:12px;font-weight:800;letter-spacing:.08em;cursor:pointer;transition:opacity .2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">연간 구독 시작하기 →</button>
+        </div>
       </div>
 
     </div>
@@ -4911,13 +4917,13 @@ const T = {
     'price.label':'구독 플랜','price.title':'당신의 이야기에 맞는 플랜',
     'price.sub':'무료로 시작하고 필요할 때 업그레이드하세요. 3개월 이상 구독 시 나만의 양장본 에세이 책을 제작할 수 있습니다.',
     'plan.popular':'✦ 가장 인기','plan.save':'25% 절약',
-    'plan.free':'FREE','plan.free.name':'무료 플랜','plan.free.d':'시작하기에 딱 맞는 플랜','plan.free.p':'₩0 / $0','plan.free.period':'영원히 무료','plan.free.cta':'무료로 시작하기',
+    'plan.free':'FREE','plan.free.name':'무료 플랜','plan.free.d':'시작하기에 딱 맞는 플랜','plan.free.p':'$0','plan.free.period':'영원히 무료','plan.free.cta':'무료로 시작하기',
     'plan.free.f1':'월 10편 AI 에세이 생성','plan.free.f2':'서재 저장 50편','plan.free.f3':'기본 글쓰기 포맷 3가지','plan.free.f4':'SNS 공유 기능',
-    'plan.pro':'PRO','plan.pro.name':'프로 플랜','plan.pro.d':'활발한 기록자를 위한 플랜','plan.pro.p':'₩9,900 / $7.99','plan.pro.period':'/ 월 · 언제든 해지 가능','plan.pro.cta':'Pro 시작하기 →',
+    'plan.pro':'PRO','plan.pro.name':'프로 플랜','plan.pro.d':'활발한 기록자를 위한 플랜','plan.pro.p':'$7.99','plan.pro.period':'/ 월 · 언제든 해지 가능','plan.pro.cta':'Pro 시작하기 →',
     'plan.pro.f1':'무제한 AI 에세이 생성','plan.pro.f2':'서재 무제한 저장','plan.pro.f3':'모든 글쓰기 포맷','plan.pro.f4':'광고 없음','plan.pro.f5':'📚 3개월+ 구독 시 양장본 책 제작 20% 할인',
-    'plan.prem':'PREMIUM','plan.prem.name':'프리미엄 월간','plan.prem.d':'나만의 책을 남기고 싶은 분','plan.prem.p':'₩19,900 / $14.99','plan.prem.period':'/ 월 · 언제든 해지 가능','plan.prem.cta':'Premium 시작하기 →',
+    'plan.prem':'PREMIUM','plan.prem.name':'프리미엄 플랜','plan.prem.d':'나만의 책을 남기고 싶은 분','plan.prem.p':'$14.99','plan.prem.period':'/ 월 · 언제든 해지 가능','plan.prem.cta':'Premium 시작하기 →',
     'plan.prem.f1':'Pro 모든 기능 포함','plan.prem.f2':'AI 이미지 생성','plan.prem.f3':'웹툰 스토리 모드','plan.prem.f4':'음성 기록 변환','plan.prem.f5':'📚 3개월+ 구독 시 양장본 책 제작 20% 할인',
-    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'프리미엄 연간','plan.annual.d':'1년치 구독 + 양장본 책 2권 무료','plan.annual.p':'₩178,800 / $134.99','plan.annual.period':'/ 년 · (월 ₩14,900 상당)','plan.annual.cta':'연간 구독 시작하기 →',
+    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'프리미엄 플랜','plan.annual.d':'1년치 구독 + 양장본 책 2권 무료','plan.annual.p':'$134.99','plan.annual.period':'/ 년 · (월 $11.25 상당)','plan.annual.cta':'연간 구독 시작하기 →',
     'plan.annual.f1':'Premium 모든 기능','plan.annual.f2':'우선 고객 지원','plan.annual.f3':'🎁 연 2회 고급 양장본 에세이 책 무료 발행','plan.annual.f4':'📚 추가 제작 시 20% 할인 적용',
     'plan.current':'현재 플랜',
     'per.month':'/월',
@@ -5032,13 +5038,13 @@ const T = {
     'price.label':'Subscription Plans','price.title':'Choose the plan for your story',
     'price.sub':'Start free and upgrade when you need. Subscribers of 3+ months can order a premium hardcover essay book.',
     'plan.popular':'✦ Most Popular','plan.save':'Save 25%',
-    'plan.free':'FREE','plan.free.name':'Free Plan','plan.free.d':'Perfect to start','plan.free.p':'$0 / ₩0','plan.free.period':'Forever free','plan.free.cta':'Start for Free',
+    'plan.free':'FREE','plan.free.name':'Free Plan','plan.free.d':'Perfect to start','plan.free.p':'$0','plan.free.period':'Forever free','plan.free.cta':'Start for Free',
     'plan.free.f1':'10 AI essays/month','plan.free.f2':'Save up to 50 essays','plan.free.f3':'3 writing formats','plan.free.f4':'SNS sharing',
-    'plan.pro':'PRO','plan.pro.name':'Pro Plan','plan.pro.d':'For active recorders','plan.pro.p':'$7.99 / ₩9,900','plan.pro.period':'/ mo · Cancel anytime','plan.pro.cta':'Start Pro →',
+    'plan.pro':'PRO','plan.pro.name':'Pro Plan','plan.pro.d':'For active recorders','plan.pro.p':'$7.99','plan.pro.period':'/ mo · Cancel anytime','plan.pro.cta':'Start Pro →',
     'plan.pro.f1':'Unlimited AI essays','plan.pro.f2':'Unlimited library','plan.pro.f3':'All writing formats','plan.pro.f4':'Ad-free','plan.pro.f5':'📚 20% off hardcover book (3mo+)',
-    'plan.prem':'PREMIUM','plan.prem.name':'Premium Monthly','plan.prem.d':'For those who want a lasting memoir','plan.prem.p':'$14.99 / ₩19,900','plan.prem.period':'/ mo · Cancel anytime','plan.prem.cta':'Start Premium →',
+    'plan.prem':'PREMIUM','plan.prem.name':'Premium Plan','plan.prem.d':'For those who want a lasting memoir','plan.prem.p':'$14.99','plan.prem.period':'/ mo · Cancel anytime','plan.prem.cta':'Start Premium →',
     'plan.prem.f1':'All Pro features','plan.prem.f2':'AI image generation','plan.prem.f3':'Webtoon story mode','plan.prem.f4':'Voice memo conversion','plan.prem.f5':'📚 20% off hardcover book (3mo+)',
-    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'Premium Annual','plan.annual.d':'1 year + 2 free hardcover books','plan.annual.p':'$134.99 / ₩178,800','plan.annual.period':'/ yr · ($11.25/mo)','plan.annual.cta':'Start Annual Plan →',
+    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'Premium Plan','plan.annual.d':'1 year + 2 free hardcover books','plan.annual.p':'$134.99','plan.annual.period':'/ yr · ($11.25/mo)','plan.annual.cta':'Start Annual Plan →',
     'plan.annual.f1':'All Premium features','plan.annual.f2':'Priority support','plan.annual.f3':'🎁 2 free hardcover essay books/year','plan.annual.f4':'📚 20% off additional books',
     'plan.current':'Current Plan',
     'plan.pro':'Pro','plan.pro.d':'For content creators','plan.pro.p':'$14.99','plan.pro.cta':'Start Pro',
@@ -5139,13 +5145,13 @@ const T = {
     'price.label':'サブスクリプション','price.title':'あなたの物語に合ったプラン',
     'price.sub':'無料で始めて必要な時にアップグレード。3ヶ月以上ご利用で装丁エッセイ本の制作特典あり。',
     'plan.popular':'✦ 最人気','plan.save':'25%お得',
-    'plan.free':'FREE','plan.free.name':'無料プラン','plan.free.d':'始めるのに最適','plan.free.p':'¥0 / $0','plan.free.period':'永久無料','plan.free.cta':'無料で始める',
+    'plan.free':'FREE','plan.free.name':'無料プラン','plan.free.d':'始めるのに最適','plan.free.p':'$0','plan.free.period':'永久無料','plan.free.cta':'無料で始める',
     'plan.free.f1':'月10件AIエッセイ','plan.free.f2':'保存50件まで','plan.free.f3':'基本フォーマット3種','plan.free.f4':'SNSシェア',
-    'plan.pro':'PRO','plan.pro.name':'プロプラン','plan.pro.d':'活発な記録者向け','plan.pro.p':'$7.99 / ₩9,900','plan.pro.period':'/ 月 · いつでも解約可','plan.pro.cta':'プロを始める →',
+    'plan.pro':'PRO','plan.pro.name':'プロプラン','plan.pro.d':'活発な記録者向け','plan.pro.p':'$7.99','plan.pro.period':'/ 月 · いつでも解約可','plan.pro.cta':'プロを始める →',
     'plan.pro.f1':'AIエッセイ無制限','plan.pro.f2':'ライブラリ無制限','plan.pro.f3':'全フォーマット','plan.pro.f4':'広告なし','plan.pro.f5':'📚 3ヶ月+で装丁本20%割引',
-    'plan.prem':'PREMIUM','plan.prem.name':'プレミアム月額','plan.prem.d':'記念の本を残したい方へ','plan.prem.p':'$14.99 / ₩19,900','plan.prem.period':'/ 月 · いつでも解約可','plan.prem.cta':'プレミアムを始める →',
+    'plan.prem':'PREMIUM','plan.prem.name':'プレミアムプラン','plan.prem.d':'記念の本を残したい方へ','plan.prem.p':'$14.99','plan.prem.period':'/ 月 · いつでも解約可','plan.prem.cta':'プレミアムを始める →',
     'plan.prem.f1':'プロ全機能込み','plan.prem.f2':'AI画像生成','plan.prem.f3':'ウェブトゥーンモード','plan.prem.f4':'音声変換','plan.prem.f5':'📚 3ヶ月+で装丁本20%割引',
-    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'プレミアム年額','plan.annual.d':'1年+装丁本2冊無料','plan.annual.p':'$134.99 / ₩178,800','plan.annual.period':'/ 年 · (月$11.25相当)','plan.annual.cta':'年額プランを始める →',
+    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'プレミアムプラン','plan.annual.d':'1年+装丁本2冊無料','plan.annual.p':'$134.99','plan.annual.period':'/ 年 · (月$11.25相当)','plan.annual.cta':'年額プランを始める →',
     'plan.annual.f1':'プレミアム全機能','plan.annual.f2':'優先サポート','plan.annual.f3':'🎁 年2回 高級装丁本 無料','plan.annual.f4':'📚 追加制作20%割引',
     'plan.current':'現在のプラン',
     'per.month':'/月',
@@ -5245,13 +5251,13 @@ const T = {
     'price.label':'订阅方案','price.title':'选择适合您故事的方案',
     'price.sub':'免费开始，随时升级。订阅3个月以上可享受精装随笔书制作福利。',
     'plan.popular':'✦ 最受欢迎','plan.save':'节省25%',
-    'plan.free':'FREE','plan.free.name':'免费方案','plan.free.d':'开始的最佳选择','plan.free.p':'$0 / ₩0','plan.free.period':'永久免费','plan.free.cta':'免费开始',
+    'plan.free':'FREE','plan.free.name':'免费方案','plan.free.d':'开始的最佳选择','plan.free.p':'$0','plan.free.period':'永久免费','plan.free.cta':'免费开始',
     'plan.free.f1':'每月10篇AI随笔','plan.free.f2':'最多保存50篇','plan.free.f3':'基本格式3种','plan.free.f4':'社交分享',
-    'plan.pro':'PRO','plan.pro.name':'专业方案','plan.pro.d':'适合活跃记录者','plan.pro.p':'$7.99 / ₩9,900','plan.pro.period':'/ 月 · 随时取消','plan.pro.cta':'开始专业版 →',
+    'plan.pro':'PRO','plan.pro.name':'专业方案','plan.pro.d':'适合活跃记录者','plan.pro.p':'$7.99','plan.pro.period':'/ 月 · 随时取消','plan.pro.cta':'开始专业版 →',
     'plan.pro.f1':'无限AI随笔','plan.pro.f2':'无限书库','plan.pro.f3':'全部格式','plan.pro.f4':'无广告','plan.pro.f5':'📚 订阅3月+精装书八折',
-    'plan.prem':'PREMIUM','plan.prem.name':'高级月付','plan.prem.d':'想留下珍贵回忆的您','plan.prem.p':'$14.99 / ₩19,900','plan.prem.period':'/ 月 · 随时取消','plan.prem.cta':'开始高级版 →',
+    'plan.prem':'PREMIUM','plan.prem.name':'高级方案','plan.prem.d':'想留下珍贵回忆的您','plan.prem.p':'$14.99','plan.prem.period':'/ 月 · 随时取消','plan.prem.cta':'开始高级版 →',
     'plan.prem.f1':'含专业版全功能','plan.prem.f2':'AI图像生成','plan.prem.f3':'漫画故事模式','plan.prem.f4':'语音备忘录转换','plan.prem.f5':'📚 订阅3月+精装书八折',
-    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'高级年付','plan.annual.d':'1年+精装书2册免费','plan.annual.p':'$134.99 / ₩178,800','plan.annual.period':'/ 年 · (月均$11.25)','plan.annual.cta':'开始年付方案 →',
+    'plan.annual':'PREMIUM ANNUAL','plan.annual.name':'高级方案','plan.annual.d':'1年+精装书2册免费','plan.annual.p':'$134.99','plan.annual.period':'/ 年 · (月均$11.25)','plan.annual.cta':'开始年付方案 →',
     'plan.annual.f1':'高级版全功能','plan.annual.f2':'优先客户支持','plan.annual.f3':'🎁 每年2次免费精装随笔书','plan.annual.f4':'📚 额外制作享八折',
     'plan.current':'当前方案',
     'plan.pro':'专业版','plan.pro.d':'适合内容创作者','plan.pro.p':'¥138','plan.pro.cta':'开始专业版',
@@ -7172,6 +7178,22 @@ function showUserMenu(){
 }
 
 // ── 결제 모달 ─────────────────────────────────────
+function setPremTab(tab){
+  var mo=document.getElementById('premContentMo');
+  var an=document.getElementById('premContentAn');
+  var tbMo=document.getElementById('premTabMo');
+  var tbAn=document.getElementById('premTabAn');
+  if(!mo||!an)return;
+  var actS='flex:1;padding:8px;border-radius:100px;border:none;background:linear-gradient(135deg,#C8A84A,#8B6520);color:#0A0400;font-family:var(--fu);font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;';
+  var inactS='flex:1;padding:8px;border-radius:100px;border:none;background:transparent;color:rgba(200,168,74,0.7);font-family:var(--fu);font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;';
+  if(tab==='mo'){
+    mo.style.display='flex';an.style.display='none';
+    if(tbMo)tbMo.style.cssText=actS;if(tbAn)tbAn.style.cssText=inactS;
+  } else {
+    mo.style.display='none';an.style.display='flex';
+    if(tbMo)tbMo.style.cssText=inactS;if(tbAn)tbAn.style.cssText=actS;
+  }
+}
 function openPricingModal(){
   if(!_currentUser){ openLoginModal(); return; }
   var m = document.getElementById('pricingModal');
