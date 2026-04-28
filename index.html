@@ -2148,22 +2148,36 @@ body{font-family:var(--fu);background:var(--b0);color:var(--ink);overflow-x:hidd
 }
 /* ===== END SHOWCASE v2 ===== */
 
-/* ===== FEATURE INDEX ===== */
-.feat-index{max-width:680px;margin:0 auto;}
-.feat-idx-row{display:flex;align-items:flex-start;gap:32px;padding:22px 0;border-bottom:1px solid rgba(200,168,74,0.09);transition:opacity .2s;}
-.feat-idx-row:last-child{border-bottom:none;}
-.feat-idx-row:hover{opacity:.85;}
-.feat-idx-num{font-family:'Manrope',var(--fu);font-size:10px;font-weight:700;color:rgba(200,168,74,0.38);letter-spacing:.14em;min-width:22px;padding-top:3px;flex-shrink:0;}
-.feat-idx-body h3{font-family:var(--fs);font-style:italic;font-weight:300;font-size:16px;color:rgba(245,237,216,0.82);margin-bottom:5px;line-height:1.35;}
-.feat-idx-body p{font-family:var(--fu);font-size:12px;color:rgba(200,165,120,0.50);line-height:1.75;}
-
-/* ===== HOW INDEX ===== */
-.how-index{max-width:680px;margin:0 auto;}
-.how-idx-row{display:flex;align-items:flex-start;gap:32px;padding:26px 0;border-bottom:1px solid rgba(200,168,74,0.09);}
-.how-idx-row:last-child{border-bottom:none;}
-.how-idx-num{font-family:'Manrope',var(--fu);font-size:10px;font-weight:700;color:rgba(200,168,74,0.42);letter-spacing:.14em;min-width:22px;padding-top:4px;flex-shrink:0;}
-.how-idx-body h4{font-family:var(--fs);font-size:17px;color:var(--b1);margin-bottom:7px;font-weight:400;}
-.how-idx-body p{font-family:var(--fu);font-size:13px;color:rgba(220,195,160,0.65);line-height:1.7;}
+/* ===== FOLDER INDEX UI ===== */
+.folder-ui{max-width:960px;margin:0 auto;}
+.folder-tab-row{display:flex;gap:0;border:1px solid rgba(200,168,74,0.18);border-radius:16px 16px 0 0;overflow:hidden;background:rgba(0,0,0,0.25);}
+.ftab{flex:1;display:flex;align-items:center;gap:10px;padding:18px 24px;background:transparent;border:none;border-right:1px solid rgba(200,168,74,0.12);cursor:pointer;transition:all .25s;text-align:left;}
+.ftab:last-child{border-right:none;}
+.ftab-num{font-family:'Manrope',var(--fu);font-size:11px;font-weight:700;color:rgba(200,168,74,0.38);letter-spacing:.12em;flex-shrink:0;transition:color .25s;}
+.ftab-label{font-family:var(--fu);font-size:13px;color:rgba(245,237,216,0.4);transition:color .25s;font-weight:500;}
+.ftab:hover .ftab-num{color:rgba(200,168,74,0.75);}
+.ftab:hover .ftab-label{color:rgba(245,237,216,0.7);}
+.ftab.active{background:rgba(200,168,74,0.07);}
+.ftab.active .ftab-num{color:var(--gold2);font-style:italic;}
+.ftab.active .ftab-label{color:rgba(245,237,216,0.9);font-weight:600;}
+.folder-panel{display:flex;border:1px solid rgba(200,168,74,0.18);border-top:none;border-radius:0 0 16px 16px;overflow:hidden;min-height:260px;}
+.fpanel-left{width:280px;flex-shrink:0;padding:40px 36px;border-right:1px solid rgba(200,168,74,0.1);background:rgba(0,0,0,0.18);display:flex;flex-direction:column;justify-content:center;}
+.fpanel-step-lbl{font-family:'Manrope',var(--fu);font-size:10px;font-weight:700;color:rgba(200,168,74,0.42);letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px;}
+.fpanel-title{font-family:var(--fs);font-style:italic;font-weight:300;font-size:clamp(26px,3vw,38px);color:rgba(245,237,216,0.92);line-height:1.2;margin-bottom:14px;}
+.fpanel-desc{font-family:var(--fu);font-size:13px;color:rgba(220,195,160,0.58);line-height:1.75;}
+.fpanel-right{flex:1;padding:32px 36px;background:rgba(0,0,0,0.05);display:flex;flex-direction:column;justify-content:center;gap:0;}
+.fpanel-feat{display:flex;align-items:flex-start;gap:18px;padding:20px 0;border-bottom:1px solid rgba(200,168,74,0.08);}
+.fpanel-feat:last-child{border-bottom:none;}
+.fpanel-feat-icon{font-size:20px;width:42px;height:42px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(200,168,74,0.07);border:1px solid rgba(200,168,74,0.14);border-radius:11px;}
+.fpanel-feat-text h4{font-family:var(--fs);font-style:italic;font-weight:300;font-size:15px;color:rgba(245,237,216,0.8);margin-bottom:5px;line-height:1.3;}
+.fpanel-feat-text p{font-family:var(--fu);font-size:11.5px;color:rgba(200,165,120,0.48);line-height:1.72;}
+@media(max-width:720px){
+  .folder-tab-row{flex-direction:column;border-radius:12px 12px 0 0;}
+  .ftab{border-right:none;border-bottom:1px solid rgba(200,168,74,0.1);}
+  .ftab:last-child{border-bottom:none;}
+  .folder-panel{flex-direction:column;border-radius:0 0 12px 12px;}
+  .fpanel-left{width:100%;border-right:none;border-bottom:1px solid rgba(200,168,74,0.1);}
+}
 
 
 /* ===== LOGIN MODAL ===== */
@@ -2606,47 +2620,91 @@ body { overscroll-behavior-y: contain; }
         </h2>
         <p class="sc2-feat-sub">SNS와 다릅니다. 당신의 글이 쌓여 하나의 인생 도서관이 됩니다.</p>
       </div>
-      <div class="feat-index">
-        <div class="feat-idx-row">
-          <span class="feat-idx-num">01</span>
-          <div class="feat-idx-body">
-            <h3>찍는 순간, 이야기가 시작됩니다</h3>
-            <p>카메라를 열고 셔터를 누르는 순간 AI가 장면을 분석해 감성적인 에세이를 30초 안에 완성합니다.</p>
+      <div class="folder-ui">
+        <div class="folder-tab-row">
+          <button class="ftab active" onclick="setFolderTab(1)" id="ftab1">
+            <span class="ftab-num">01</span>
+            <span class="ftab-label">사진 찍기</span>
+          </button>
+          <button class="ftab" onclick="setFolderTab(2)" id="ftab2">
+            <span class="ftab-num">02</span>
+            <span class="ftab-label">AI 에세이 생성</span>
+          </button>
+          <button class="ftab" onclick="setFolderTab(3)" id="ftab3">
+            <span class="ftab-num">03</span>
+            <span class="ftab-label">저장 &amp; 공유</span>
+          </button>
+        </div>
+        <!-- Panel 1 -->
+        <div class="folder-panel" id="fpanel1">
+          <div class="fpanel-left">
+            <div class="fpanel-step-lbl">STEP 01</div>
+            <h3 class="fpanel-title">사진 찍기</h3>
+            <p class="fpanel-desc">앱에서 직접 찍거나 기존 사진을 올리세요</p>
+          </div>
+          <div class="fpanel-right">
+            <div class="fpanel-feat">
+              <span class="fpanel-feat-icon">📸</span>
+              <div class="fpanel-feat-text">
+                <h4>찍는 순간, 이야기가 시작됩니다</h4>
+                <p>카메라를 열고 셔터를 누르는 순간 AI가 장면을 분석해 감성적인 에세이를 30초 안에 완성합니다.</p>
+              </div>
+            </div>
+            <div class="fpanel-feat">
+              <span class="fpanel-feat-icon">🎙️</span>
+              <div class="fpanel-feat-text">
+                <h4>음성으로도 기록하세요</h4>
+                <p>마이크 버튼 하나로 말하면 AI가 자동으로 텍스트로 변환해 에세이를 작성합니다.</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="feat-idx-row">
-          <span class="feat-idx-num">02</span>
-          <div class="feat-idx-body">
-            <h3>나만의 글쓰기 페르소나</h3>
-            <p>시적인 스타일, 담백한 일상체, 브이로그 형식까지. AI가 당신의 글쓰기 습관을 학습합니다.</p>
+        <!-- Panel 2 -->
+        <div class="folder-panel" id="fpanel2" style="display:none">
+          <div class="fpanel-left">
+            <div class="fpanel-step-lbl">STEP 02</div>
+            <h3 class="fpanel-title">AI 에세이 생성</h3>
+            <p class="fpanel-desc">30초 안에 감성적인 에세이가 완성됩니다</p>
+          </div>
+          <div class="fpanel-right">
+            <div class="fpanel-feat">
+              <span class="fpanel-feat-icon">✍️</span>
+              <div class="fpanel-feat-text">
+                <h4>나만의 글쓰기 페르소나</h4>
+                <p>시적인 스타일, 담백한 일상체, 브이로그 형식까지. AI가 당신의 글쓰기 습관을 학습합니다.</p>
+              </div>
+            </div>
+            <div class="fpanel-feat">
+              <span class="fpanel-feat-icon">🎭</span>
+              <div class="fpanel-feat-text">
+                <h4>브이로그·자서전·에세이 변환</h4>
+                <p>같은 순간을 감성 에세이, 브이로그 스크립트, 자서전 형식으로 바꿔드립니다.</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="feat-idx-row">
-          <span class="feat-idx-num">03</span>
-          <div class="feat-idx-body">
-            <h3>당신만의 인생 도서관</h3>
-            <p>일상, 여행, 가족, 반려동물... 에세이들이 아름다운 책장에 정렬됩니다. 10년 후 꺼내보는 자서전.</p>
+        <!-- Panel 3 -->
+        <div class="folder-panel" id="fpanel3" style="display:none">
+          <div class="fpanel-left">
+            <div class="fpanel-step-lbl">STEP 03</div>
+            <h3 class="fpanel-title">저장 &amp; 공유</h3>
+            <p class="fpanel-desc">서재에 보관하거나 SNS에 공유하세요</p>
           </div>
-        </div>
-        <div class="feat-idx-row">
-          <span class="feat-idx-num">04</span>
-          <div class="feat-idx-body">
-            <h3>SNS 공유, 더 아름답게</h3>
-            <p>인스타그램, 카카오톡에 최적화된 아름다운 이미지로 변환해 공유하세요.</p>
-          </div>
-        </div>
-        <div class="feat-idx-row">
-          <span class="feat-idx-num">05</span>
-          <div class="feat-idx-body">
-            <h3>브이로그·자서전·에세이 변환</h3>
-            <p>같은 순간을 감성 에세이, 브이로그 스크립트, 자서전 형식으로 바꿔드립니다.</p>
-          </div>
-        </div>
-        <div class="feat-idx-row">
-          <span class="feat-idx-num">06</span>
-          <div class="feat-idx-body">
-            <h3>음성으로도 기록하세요</h3>
-            <p>마이크 버튼 하나로 말하면 AI가 자동으로 텍스트로 변환해 에세이를 작성합니다.</p>
+          <div class="fpanel-right">
+            <div class="fpanel-feat">
+              <span class="fpanel-feat-icon">📚</span>
+              <div class="fpanel-feat-text">
+                <h4>당신만의 인생 도서관</h4>
+                <p>일상, 여행, 가족, 반려동물... 에세이들이 아름다운 책장에 정렬됩니다. 10년 후 꺼내보는 자서전.</p>
+              </div>
+            </div>
+            <div class="fpanel-feat">
+              <span class="fpanel-feat-icon">🌐</span>
+              <div class="fpanel-feat-text">
+                <h4>SNS 공유, 더 아름답게</h4>
+                <p>인스타그램, 카카오톡에 최적화된 아름다운 이미지로 변환해 공유하세요.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2660,42 +2718,6 @@ body { overscroll-behavior-y: contain; }
       </div>
     </div><!-- /sc2-features -->
 
-  </section>
-
-  <!-- HOW -->
-  <section class="how">
-    <div class="sec-label" id="howLabel">사용 방법</div>
-    <h2 class="sec-title" id="howTitle" style="color:var(--b1);margin-bottom:50px">딱 4단계면 충분합니다</h2>
-    <div class="how-index">
-      <div class="how-idx-row">
-        <span class="how-idx-num">01</span>
-        <div class="how-idx-body">
-          <h4 id="stT1">사진 촬영</h4>
-          <p id="stD1">앱에서 직접 찍거나 기존 사진을 올리세요</p>
-        </div>
-      </div>
-      <div class="how-idx-row">
-        <span class="how-idx-num">02</span>
-        <div class="how-idx-body">
-          <h4 id="stT2">감정 선택</h4>
-          <p id="stD2">지금 기분이 어떤가요? 한 단어로 표현해보세요</p>
-        </div>
-      </div>
-      <div class="how-idx-row">
-        <span class="how-idx-num">03</span>
-        <div class="how-idx-body">
-          <h4 id="stT3">AI 에세이 생성</h4>
-          <p id="stD3">30초 안에 감성적인 에세이가 완성됩니다</p>
-        </div>
-      </div>
-      <div class="how-idx-row">
-        <span class="how-idx-num">04</span>
-        <div class="how-idx-body">
-          <h4 id="stT4">저장 & 공유</h4>
-          <p id="stD4">서재에 보관하거나 SNS에 공유하세요</p>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- PRICING -->
@@ -3596,6 +3618,12 @@ function addCategory(){
   renderBookshelf();
   renderCatChips();
   showToast(`✅ "${selectedEmoji} ${name}" 책장이 추가되었습니다`);
+}
+
+// ========== FOLDER TAB UI ==========
+function setFolderTab(n){
+  document.querySelectorAll('.ftab').forEach((t,i)=>t.classList.toggle('active',i===n-1));
+  document.querySelectorAll('.folder-panel').forEach((p,i)=>p.style.display=i===n-1?'flex':'none');
 }
 
 // ========== PORTAL TRANSITION ==========
