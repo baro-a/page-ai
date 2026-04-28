@@ -2148,6 +2148,23 @@ body{font-family:var(--fu);background:var(--b0);color:var(--ink);overflow-x:hidd
 }
 /* ===== END SHOWCASE v2 ===== */
 
+/* ===== FEATURE INDEX ===== */
+.feat-index{max-width:680px;margin:0 auto;}
+.feat-idx-row{display:flex;align-items:flex-start;gap:32px;padding:22px 0;border-bottom:1px solid rgba(200,168,74,0.09);transition:opacity .2s;}
+.feat-idx-row:last-child{border-bottom:none;}
+.feat-idx-row:hover{opacity:.85;}
+.feat-idx-num{font-family:'Manrope',var(--fu);font-size:10px;font-weight:700;color:rgba(200,168,74,0.38);letter-spacing:.14em;min-width:22px;padding-top:3px;flex-shrink:0;}
+.feat-idx-body h3{font-family:var(--fs);font-style:italic;font-weight:300;font-size:16px;color:rgba(245,237,216,0.82);margin-bottom:5px;line-height:1.35;}
+.feat-idx-body p{font-family:var(--fu);font-size:12px;color:rgba(200,165,120,0.50);line-height:1.75;}
+
+/* ===== HOW INDEX ===== */
+.how-index{max-width:680px;margin:0 auto;}
+.how-idx-row{display:flex;align-items:flex-start;gap:32px;padding:26px 0;border-bottom:1px solid rgba(200,168,74,0.09);}
+.how-idx-row:last-child{border-bottom:none;}
+.how-idx-num{font-family:'Manrope',var(--fu);font-size:10px;font-weight:700;color:rgba(200,168,74,0.42);letter-spacing:.14em;min-width:22px;padding-top:4px;flex-shrink:0;}
+.how-idx-body h4{font-family:var(--fs);font-size:17px;color:var(--b1);margin-bottom:7px;font-weight:400;}
+.how-idx-body p{font-family:var(--fu);font-size:13px;color:rgba(220,195,160,0.65);line-height:1.7;}
+
 
 /* ===== LOGIN MODAL ===== */
 .login-modal-overlay{position:fixed;inset:0;background:rgba(5,2,0,0.92);backdrop-filter:blur(12px);z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s;}
@@ -2589,36 +2606,48 @@ body { overscroll-behavior-y: contain; }
         </h2>
         <p class="sc2-feat-sub">SNS와 다릅니다. 당신의 글이 쌓여 하나의 인생 도서관이 됩니다.</p>
       </div>
-      <div class="sc2-feat-grid">
-        <div class="sc2-feat-card">
-          <span class="sc2-feat-icon">📸</span>
-          <h3>찍는 순간, 이야기가 시작됩니다</h3>
-          <p>카메라를 열고 셔터를 누르는 순간 AI가 장면을 분석해 감성적인 에세이를 30초 안에 완성합니다.</p>
+      <div class="feat-index">
+        <div class="feat-idx-row">
+          <span class="feat-idx-num">01</span>
+          <div class="feat-idx-body">
+            <h3>찍는 순간, 이야기가 시작됩니다</h3>
+            <p>카메라를 열고 셔터를 누르는 순간 AI가 장면을 분석해 감성적인 에세이를 30초 안에 완성합니다.</p>
+          </div>
         </div>
-        <div class="sc2-feat-card">
-          <span class="sc2-feat-icon">✍️</span>
-          <h3>나만의 글쓰기 페르소나</h3>
-          <p>시적인 스타일, 담백한 일상체, 브이로그 형식까지. AI가 당신의 글쓰기 습관을 학습합니다.</p>
+        <div class="feat-idx-row">
+          <span class="feat-idx-num">02</span>
+          <div class="feat-idx-body">
+            <h3>나만의 글쓰기 페르소나</h3>
+            <p>시적인 스타일, 담백한 일상체, 브이로그 형식까지. AI가 당신의 글쓰기 습관을 학습합니다.</p>
+          </div>
         </div>
-        <div class="sc2-feat-card">
-          <span class="sc2-feat-icon">📚</span>
-          <h3>당신만의 인생 도서관</h3>
-          <p>일상, 여행, 가족, 반려동물... 에세이들이 아름다운 책장에 정렬됩니다. 10년 후 꺼내보는 자서전.</p>
+        <div class="feat-idx-row">
+          <span class="feat-idx-num">03</span>
+          <div class="feat-idx-body">
+            <h3>당신만의 인생 도서관</h3>
+            <p>일상, 여행, 가족, 반려동물... 에세이들이 아름다운 책장에 정렬됩니다. 10년 후 꺼내보는 자서전.</p>
+          </div>
         </div>
-        <div class="sc2-feat-card">
-          <span class="sc2-feat-icon">🌐</span>
-          <h3>SNS 공유, 더 아름답게</h3>
-          <p>인스타그램, 카카오톡에 최적화된 아름다운 이미지로 변환해 공유하세요.</p>
+        <div class="feat-idx-row">
+          <span class="feat-idx-num">04</span>
+          <div class="feat-idx-body">
+            <h3>SNS 공유, 더 아름답게</h3>
+            <p>인스타그램, 카카오톡에 최적화된 아름다운 이미지로 변환해 공유하세요.</p>
+          </div>
         </div>
-        <div class="sc2-feat-card">
-          <span class="sc2-feat-icon">🎭</span>
-          <h3>브이로그·자서전·에세이 변환</h3>
-          <p>같은 순간을 감성 에세이, 브이로그 스크립트, 자서전 형식으로 바꿔드립니다.</p>
+        <div class="feat-idx-row">
+          <span class="feat-idx-num">05</span>
+          <div class="feat-idx-body">
+            <h3>브이로그·자서전·에세이 변환</h3>
+            <p>같은 순간을 감성 에세이, 브이로그 스크립트, 자서전 형식으로 바꿔드립니다.</p>
+          </div>
         </div>
-        <div class="sc2-feat-card">
-          <span class="sc2-feat-icon">🎙️</span>
-          <h3>음성으로도 기록하세요</h3>
-          <p>마이크 버튼 하나로 말하면 AI가 자동으로 텍스트로 변환해 에세이를 작성합니다.</p>
+        <div class="feat-idx-row">
+          <span class="feat-idx-num">06</span>
+          <div class="feat-idx-body">
+            <h3>음성으로도 기록하세요</h3>
+            <p>마이크 버튼 하나로 말하면 AI가 자동으로 텍스트로 변환해 에세이를 작성합니다.</p>
+          </div>
         </div>
       </div>
 
@@ -2637,11 +2666,35 @@ body { overscroll-behavior-y: contain; }
   <section class="how">
     <div class="sec-label" id="howLabel">사용 방법</div>
     <h2 class="sec-title" id="howTitle" style="color:var(--b1);margin-bottom:50px">딱 4단계면 충분합니다</h2>
-    <div class="steps">
-      <div class="step"><div class="step-num">📷</div><h4 id="stT1" style="color:var(--b1)">사진 촬영</h4><p id="stD1">앱에서 직접 찍거나<br>기존 사진을 올리세요</p></div>
-      <div class="step"><div class="step-num">💭</div><h4 id="stT2" style="color:var(--b1)">감정 선택</h4><p id="stD2">지금 기분이 어떤가요?<br>한 단어로 표현해보세요</p></div>
-      <div class="step"><div class="step-num">✨</div><h4 id="stT3" style="color:var(--b1)">AI 에세이 생성</h4><p id="stD3">30초 안에 감성적인<br>에세이가 완성됩니다</p></div>
-      <div class="step"><div class="step-num">📤</div><h4 id="stT4" style="color:var(--b1)">저장 & 공유</h4><p id="stD4">서재에 보관하거나<br>SNS에 공유하세요</p></div>
+    <div class="how-index">
+      <div class="how-idx-row">
+        <span class="how-idx-num">01</span>
+        <div class="how-idx-body">
+          <h4 id="stT1">사진 촬영</h4>
+          <p id="stD1">앱에서 직접 찍거나 기존 사진을 올리세요</p>
+        </div>
+      </div>
+      <div class="how-idx-row">
+        <span class="how-idx-num">02</span>
+        <div class="how-idx-body">
+          <h4 id="stT2">감정 선택</h4>
+          <p id="stD2">지금 기분이 어떤가요? 한 단어로 표현해보세요</p>
+        </div>
+      </div>
+      <div class="how-idx-row">
+        <span class="how-idx-num">03</span>
+        <div class="how-idx-body">
+          <h4 id="stT3">AI 에세이 생성</h4>
+          <p id="stD3">30초 안에 감성적인 에세이가 완성됩니다</p>
+        </div>
+      </div>
+      <div class="how-idx-row">
+        <span class="how-idx-num">04</span>
+        <div class="how-idx-body">
+          <h4 id="stT4">저장 & 공유</h4>
+          <p id="stD4">서재에 보관하거나 SNS에 공유하세요</p>
+        </div>
+      </div>
     </div>
   </section>
 
