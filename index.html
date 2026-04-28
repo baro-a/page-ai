@@ -38,9 +38,6 @@
 <meta property="og:image" content="icons/icon-512.png">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- Toss Payments SDK -->
-<script src="https://js.tosspayments.com/v1/payment-widget"></script>
-
 <!-- Google AdSense (replace ca-pub-XXXXXXXXXX with your Publisher ID) -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
 
@@ -1659,112 +1656,6 @@ function logoutUser(){
   showScreen('landing');
   showToast('👋 로그아웃 되었습니다.');
 }
-
-// ========== PAYMENT (TOSS & POLAR) ==========
-const API_BASE_URL = 'http://localhost:3000';
-
-function openPricingModal(){
-  requireLogin(function(){
-    const m = document.getElementById('pricingModal');
-    if(m) m.classList.add('open');
-    else showToast('요금제 모달 준비 중입니다.');
-  });
-}
-function closePricingModal(){
-  document.getElementById('pricingModal')?.classList.remove('open');
-}
-
-function startPayment(plan, amount){
-  if(!isLoggedIn()){ closePricingModal(); showLoginModal(); return; }
-  const overlay = document.createElement('div');
-  overlay.id = 'paymentOverlay';
-  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:10010;display:flex;align-items:center;justify-content:center;';
-  const box = document.createElement('div');
-  box.style.cssText = 'background:#1e0f06;border:1px solid rgba(200,168,74,0.2);border-radius:20px;padding:32px;max-width:340px;width:90%;text-align:center;';
-  box.innerHTML = '<div style="font-family:var(--fs);font-style:italic;font-size:20px;color:var(--gold2);margin-bottom:8px;">결제 방식 선택</div>'
-    + '<div style="font-family:var(--fu);font-size:11px;color:rgba(200,168,74,0.7);margin-bottom:24px;">편한 결제 방법을 선택하세요</div>';
-  const tossBtn = document.createElement('button');
-  tossBtn.textContent = '🇰🇷 토스페이먼츠 (국내)';
-  tossBtn.style.cssText = 'width:100%;padding:14px;margin-bottom:10px;background:linear-gradient(135deg,#3182f6,#1c64d4);color:#fff;border:none;border-radius:12px;font-family:var(--fu);font-size:13px;font-weight:700;cursor:pointer;display:block;';
-  tossBtn.onclick = function(){ overlay.remove(); payWithToss(plan, amount); };
-  const polarBtn = document.createElement('button');
-  polarBtn.textContent = '🌍 Polar (해외 카드/글로벌)';
-  polarBtn.style.cssText = 'width:100%;padding:14px;margin-bottom:10px;background:linear-gradient(135deg,#635BFF,#4B44CC);color:#fff;border:none;border-radius:12px;font-family:var(--fu);font-size:13px;font-weight:700;cursor:pointer;display:block;';
-  polarBtn.onclick = function(){ overlay.remove(); payWithPolar(plan, amount); };
-  const cancelBtn = document.createElement('button');
-  cancelBtn.textContent = '취소';
-  cancelBtn.style.cssText = 'width:100%;padding:12px;background:none;border:1px solid rgba(200,168,74,0.2);border-radius:12px;color:rgba(200,168,74,0.5);font-family:var(--fu);font-size:12px;cursor:pointer;';
-  cancelBtn.onclick = function(){ overlay.remove(); };
-  box.appendChild(tossBtn); box.appendChild(polarBtn); box.appendChild(cancelBtn);
-  overlay.appendChild(box);
-  document.body.appendChild(overlay);
-}
-
-function payWithToss(plan, amount){
-  showToast('⏳ 토스페이먼츠 결제창 준비중...');
-  const orderId = 'page-' + plan + '-' + Date.now();
-  // 토스 결제 위젯 띄우기 (간이 방식: 실제로는 backend/confirm 호출 전 인증 필요)
-  // 클라이언트 키는 토스 개발자 센터의 내 상점 키로 대체
-  const clientKey = 'test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq'; 
-  const tossPayments = TossPayments(clientKey);
-  
-  tossPayments.requestPayment('카드', {
-    amount: amount,
-    orderId: orderId,
-    orderName: 'Page AI ' + plan + ' 플랜',
-    successUrl: window.location.origin + '/?toss_success=true&orderId=' + orderId + '&amount=' + amount,
-    failUrl: window.location.origin + '/?toss_fail=true',
-  }).catch(function (error) {
-    if (error.code === 'USER_CANCEL') {
-      showToast('❌ 결제를 취소했습니다');
-    } else {
-      showToast('❌ 결제 실패: ' + error.message);
-    }
-  });
-}
-
-function payWithPolar(plan, amount){
-  showToast('⏳ Polar 결제창 준비중...');
-  fetch(API_BASE_URL + '/api/polar/checkout', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ plan: plan, amount: amount })
-  }).then(r => r.json())
-    .then(d => {
-      if(d.url) window.location.href = d.url;
-      else showToast('❌ ' + (d.error || 'Polar 결제 준비 실패'));
-    })
-    .catch(() => showToast('❌ 서버 연결 오류'));
-}
-
-// URL 파라미터 체크 로직 (토스 결제 승인)
-(function checkPaymentCallback(){
-  const params = new URLSearchParams(window.location.search);
-  if(params.get('toss_success') === 'true'){
-    showToast('⏳ 결제 승인 진행중...');
-    fetch(API_BASE_URL + '/api/toss/confirm', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        paymentKey: params.get('paymentKey'),
-        orderId: params.get('orderId'),
-        amount: params.get('amount')
-      })
-    }).then(r => r.json())
-      .then(d => {
-        if(d.status === 'DONE') showToast('✅ 결제가 성공적으로 완료되었습니다!');
-        else showToast('❌ 결제 승인 실패');
-      })
-      .catch(() => showToast('❌ 결제 승인 중 오류 발생'));
-    
-    // URL 정리
-    history.replaceState(null, '', window.location.pathname);
-  }
-  if(params.get('polar_success') === 'true'){
-    showToast('✅ Polar 결제가 성공적으로 완료되었습니다!');
-    history.replaceState(null, '', window.location.pathname);
-  }
-})();
 
 // ========== ROUTING ==========
 function showScreen(name){
