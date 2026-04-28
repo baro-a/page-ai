@@ -1,0 +1,13 @@
+{
+  "name": "page-essay",
+  "version": "1.0.0",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "start": "live-server ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "AI-powered emotional essay platform 'Page'"
+}
